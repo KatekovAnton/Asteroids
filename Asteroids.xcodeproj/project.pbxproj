@@ -11,13 +11,13 @@
 		D1D50F5217D7342800089275 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F5117D7342800089275 /* Foundation.framework */; };
 		D1D50F5417D7342800089275 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F5317D7342800089275 /* CoreGraphics.framework */; };
 		D1D50F5A17D7342800089275 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1D50F5817D7342800089275 /* InfoPlist.strings */; };
-		D1D50F5C17D7342800089275 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F5B17D7342800089275 /* main.m */; };
-		D1D50F6017D7342800089275 /* AAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F5F17D7342800089275 /* AAppDelegate.m */; };
 		D1D50F6217D7342800089275 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D50F6117D7342800089275 /* Default.png */; };
 		D1D50F6417D7342800089275 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D50F6317D7342800089275 /* Default@2x.png */; };
 		D1D50F6617D7342800089275 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D50F6517D7342800089275 /* Default-568h@2x.png */; };
-		D1D50F6917D7342800089275 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F6817D7342800089275 /* AViewController.m */; };
-		D1D50F6C17D7342800089275 /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D50F6A17D7342800089275 /* AViewController.xib */; };
+		D1D50F7917D7348400089275 /* AAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F7517D7348400089275 /* AAppDelegate.m */; };
+		D1D50F7A17D7348400089275 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F7717D7348400089275 /* AViewController.m */; };
+		D1D50F7B17D7348400089275 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F7817D7348400089275 /* main.m */; };
+		D1D50F7D17D7355300089275 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F7C17D7355300089275 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,16 +27,17 @@
 		D1D50F5317D7342800089275 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D1D50F5717D7342800089275 /* Asteroids-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Asteroids-Info.plist"; sourceTree = "<group>"; };
 		D1D50F5917D7342800089275 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D1D50F5B17D7342800089275 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1D50F5D17D7342800089275 /* Asteroids-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Asteroids-Prefix.pch"; sourceTree = "<group>"; };
-		D1D50F5E17D7342800089275 /* AAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAppDelegate.h; sourceTree = "<group>"; };
-		D1D50F5F17D7342800089275 /* AAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAppDelegate.m; sourceTree = "<group>"; };
 		D1D50F6117D7342800089275 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D1D50F6317D7342800089275 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D1D50F6517D7342800089275 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D1D50F6717D7342800089275 /* AViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
-		D1D50F6817D7342800089275 /* AViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
-		D1D50F6B17D7342800089275 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AViewController.xib; sourceTree = "<group>"; };
+		D1D50F7417D7348400089275 /* AAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAppDelegate.h; sourceTree = "<group>"; };
+		D1D50F7517D7348400089275 /* AAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAppDelegate.m; sourceTree = "<group>"; };
+		D1D50F7617D7348400089275 /* AViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
+		D1D50F7717D7348400089275 /* AViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
+		D1D50F7817D7348400089275 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D1D50F7C17D7355300089275 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D1D50F7E17D7357C00089275 /* miniPrefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = miniPrefix.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D50F7D17D7355300089275 /* QuartzCore.framework in Frameworks */,
 				D1D50F5017D7342800089275 /* UIKit.framework in Frameworks */,
 				D1D50F5217D7342800089275 /* Foundation.framework in Frameworks */,
 				D1D50F5417D7342800089275 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +75,7 @@
 		D1D50F4E17D7342800089275 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1D50F7C17D7355300089275 /* QuartzCore.framework */,
 				D1D50F4F17D7342800089275 /* UIKit.framework */,
 				D1D50F5117D7342800089275 /* Foundation.framework */,
 				D1D50F5317D7342800089275 /* CoreGraphics.framework */,
@@ -83,11 +86,7 @@
 		D1D50F5517D7342800089275 /* Asteroids */ = {
 			isa = PBXGroup;
 			children = (
-				D1D50F5E17D7342800089275 /* AAppDelegate.h */,
-				D1D50F5F17D7342800089275 /* AAppDelegate.m */,
-				D1D50F6717D7342800089275 /* AViewController.h */,
-				D1D50F6817D7342800089275 /* AViewController.m */,
-				D1D50F6A17D7342800089275 /* AViewController.xib */,
+				D1D50F7217D7343D00089275 /* Sys */,
 				D1D50F5617D7342800089275 /* Supporting Files */,
 			);
 			path = Asteroids;
@@ -98,13 +97,33 @@
 			children = (
 				D1D50F5717D7342800089275 /* Asteroids-Info.plist */,
 				D1D50F5817D7342800089275 /* InfoPlist.strings */,
-				D1D50F5B17D7342800089275 /* main.m */,
 				D1D50F5D17D7342800089275 /* Asteroids-Prefix.pch */,
 				D1D50F6117D7342800089275 /* Default.png */,
 				D1D50F6317D7342800089275 /* Default@2x.png */,
 				D1D50F6517D7342800089275 /* Default-568h@2x.png */,
+				D1D50F7E17D7357C00089275 /* miniPrefix.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1D50F7217D7343D00089275 /* Sys */ = {
+			isa = PBXGroup;
+			children = (
+				D1D50F7317D7344E00089275 /* ios */,
+			);
+			path = Sys;
+			sourceTree = "<group>";
+		};
+		D1D50F7317D7344E00089275 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				D1D50F7417D7348400089275 /* AAppDelegate.h */,
+				D1D50F7517D7348400089275 /* AAppDelegate.m */,
+				D1D50F7617D7348400089275 /* AViewController.h */,
+				D1D50F7717D7348400089275 /* AViewController.m */,
+				D1D50F7817D7348400089275 /* main.m */,
+			);
+			path = ios;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +182,6 @@
 				D1D50F6217D7342800089275 /* Default.png in Resources */,
 				D1D50F6417D7342800089275 /* Default@2x.png in Resources */,
 				D1D50F6617D7342800089275 /* Default-568h@2x.png in Resources */,
-				D1D50F6C17D7342800089275 /* AViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,9 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1D50F5C17D7342800089275 /* main.m in Sources */,
-				D1D50F6017D7342800089275 /* AAppDelegate.m in Sources */,
-				D1D50F6917D7342800089275 /* AViewController.m in Sources */,
+				D1D50F7917D7348400089275 /* AAppDelegate.m in Sources */,
+				D1D50F7A17D7348400089275 /* AViewController.m in Sources */,
+				D1D50F7B17D7348400089275 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +207,6 @@
 				D1D50F5917D7342800089275 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D1D50F6A17D7342800089275 /* AViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D1D50F6B17D7342800089275 /* en */,
-			);
-			name = AViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
