@@ -18,6 +18,18 @@
 		D1D50F7A17D7348400089275 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F7717D7348400089275 /* AViewController.m */; };
 		D1D50F7B17D7348400089275 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F7817D7348400089275 /* main.m */; };
 		D1D50F7D17D7355300089275 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F7C17D7355300089275 /* QuartzCore.framework */; };
+		D1D50F8917D7434900089275 /* BinaryReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F8517D742DC00089275 /* BinaryReader.cpp */; };
+		D1D50F8A17D7434B00089275 /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F8717D7430300089275 /* StringUtils.cpp */; };
+		D1D50F9117D7438A00089275 /* FileManger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F8B17D7437600089275 /* FileManger.cpp */; };
+		D1D50F9217D7438D00089275 /* ios_fileManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F9017D7438300089275 /* ios_fileManager.mm */; };
+		D1D50F9317D7438F00089275 /* ios_display.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F8E17D7438300089275 /* ios_display.mm */; };
+		D1D50F9617D743AF00089275 /* GLSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D50F9517D743AF00089275 /* GLSurface.m */; };
+		D1D50F9817D7444E00089275 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F9717D7444E00089275 /* OpenGLES.framework */; };
+		D1D50F9A17D7447100089275 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F9917D7447100089275 /* libz.dylib */; };
+		D1D50F9C17D7447D00089275 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F9B17D7447D00089275 /* libxml2.dylib */; };
+		D1D50F9E17D7448800089275 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F9D17D7448800089275 /* libstdc++.6.dylib */; };
+		D1D50FA117D744A500089275 /* Display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1D50FA017D744A500089275 /* Display.cpp */; };
+		D1D50FA417D744AF00089275 /* DisplayPinchDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1D50FA217D744AE00089275 /* DisplayPinchDelegate.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +46,33 @@
 		D1D50F7417D7348400089275 /* AAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAppDelegate.h; sourceTree = "<group>"; };
 		D1D50F7517D7348400089275 /* AAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAppDelegate.m; sourceTree = "<group>"; };
 		D1D50F7617D7348400089275 /* AViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
-		D1D50F7717D7348400089275 /* AViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
+		D1D50F7717D7348400089275 /* AViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AViewController.m; sourceTree = "<group>"; };
 		D1D50F7817D7348400089275 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1D50F7C17D7355300089275 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D1D50F7E17D7357C00089275 /* miniPrefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = miniPrefix.h; sourceTree = "<group>"; };
+		D1D50F8317D742C400089275 /* MyRandom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRandom.h; sourceTree = "<group>"; };
+		D1D50F8417D742D000089275 /* USimpleContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USimpleContainer.h; sourceTree = "<group>"; };
+		D1D50F8517D742DC00089275 /* BinaryReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryReader.cpp; sourceTree = "<group>"; };
+		D1D50F8617D742DC00089275 /* BinaryReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryReader.h; sourceTree = "<group>"; };
+		D1D50F8717D7430300089275 /* StringUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
+		D1D50F8817D7430300089275 /* StringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
+		D1D50F8B17D7437600089275 /* FileManger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileManger.cpp; sourceTree = "<group>"; };
+		D1D50F8C17D7437600089275 /* FileManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManger.h; sourceTree = "<group>"; };
+		D1D50F8D17D7438300089275 /* ios_display.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_display.h; sourceTree = "<group>"; };
+		D1D50F8E17D7438300089275 /* ios_display.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_display.mm; sourceTree = "<group>"; };
+		D1D50F8F17D7438300089275 /* ios_fileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_fileManager.h; sourceTree = "<group>"; };
+		D1D50F9017D7438300089275 /* ios_fileManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ios_fileManager.mm; sourceTree = "<group>"; };
+		D1D50F9417D743AF00089275 /* GLSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSurface.h; sourceTree = "<group>"; };
+		D1D50F9517D743AF00089275 /* GLSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSurface.m; sourceTree = "<group>"; };
+		D1D50F9717D7444E00089275 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		D1D50F9917D7447100089275 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D1D50F9B17D7447D00089275 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		D1D50F9D17D7448800089275 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		D1D50F9F17D744A500089275 /* Display.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Display.h; sourceTree = "<group>"; };
+		D1D50FA017D744A500089275 /* Display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Display.cpp; sourceTree = "<group>"; };
+		D1D50FA217D744AE00089275 /* DisplayPinchDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayPinchDelegate.cpp; sourceTree = "<group>"; };
+		D1D50FA317D744AF00089275 /* DisplayPinchDelegate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = DisplayPinchDelegate.h; sourceTree = "<group>"; };
+		D1D50FA517D7540900089275 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D50F9E17D7448800089275 /* libstdc++.6.dylib in Frameworks */,
+				D1D50F9C17D7447D00089275 /* libxml2.dylib in Frameworks */,
+				D1D50F9A17D7447100089275 /* libz.dylib in Frameworks */,
+				D1D50F9817D7444E00089275 /* OpenGLES.framework in Frameworks */,
 				D1D50F7D17D7355300089275 /* QuartzCore.framework in Frameworks */,
 				D1D50F5017D7342800089275 /* UIKit.framework in Frameworks */,
 				D1D50F5217D7342800089275 /* Foundation.framework in Frameworks */,
@@ -75,6 +114,10 @@
 		D1D50F4E17D7342800089275 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1D50F9D17D7448800089275 /* libstdc++.6.dylib */,
+				D1D50F9B17D7447D00089275 /* libxml2.dylib */,
+				D1D50F9917D7447100089275 /* libz.dylib */,
+				D1D50F9717D7444E00089275 /* OpenGLES.framework */,
 				D1D50F7C17D7355300089275 /* QuartzCore.framework */,
 				D1D50F4F17D7342800089275 /* UIKit.framework */,
 				D1D50F5117D7342800089275 /* Foundation.framework */,
@@ -87,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				D1D50F7217D7343D00089275 /* Sys */,
+				D1D50F8217D742A800089275 /* Utils */,
 				D1D50F5617D7342800089275 /* Supporting Files */,
 			);
 			path = Asteroids;
@@ -110,6 +154,12 @@
 			isa = PBXGroup;
 			children = (
 				D1D50F7317D7344E00089275 /* ios */,
+				D1D50F8B17D7437600089275 /* FileManger.cpp */,
+				D1D50F8C17D7437600089275 /* FileManger.h */,
+				D1D50F9F17D744A500089275 /* Display.h */,
+				D1D50FA017D744A500089275 /* Display.cpp */,
+				D1D50FA217D744AE00089275 /* DisplayPinchDelegate.cpp */,
+				D1D50FA317D744AF00089275 /* DisplayPinchDelegate.h */,
 			);
 			path = Sys;
 			sourceTree = "<group>";
@@ -117,6 +167,12 @@
 		D1D50F7317D7344E00089275 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				D1D50F9417D743AF00089275 /* GLSurface.h */,
+				D1D50F9517D743AF00089275 /* GLSurface.m */,
+				D1D50F8D17D7438300089275 /* ios_display.h */,
+				D1D50F8E17D7438300089275 /* ios_display.mm */,
+				D1D50F8F17D7438300089275 /* ios_fileManager.h */,
+				D1D50F9017D7438300089275 /* ios_fileManager.mm */,
 				D1D50F7417D7348400089275 /* AAppDelegate.h */,
 				D1D50F7517D7348400089275 /* AAppDelegate.m */,
 				D1D50F7617D7348400089275 /* AViewController.h */,
@@ -124,6 +180,20 @@
 				D1D50F7817D7348400089275 /* main.m */,
 			);
 			path = ios;
+			sourceTree = "<group>";
+		};
+		D1D50F8217D742A800089275 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D1D50FA517D7540900089275 /* GlobalConstants.h */,
+				D1D50F8517D742DC00089275 /* BinaryReader.cpp */,
+				D1D50F8617D742DC00089275 /* BinaryReader.h */,
+				D1D50F8717D7430300089275 /* StringUtils.cpp */,
+				D1D50F8817D7430300089275 /* StringUtils.h */,
+				D1D50F8417D742D000089275 /* USimpleContainer.h */,
+				D1D50F8317D742C400089275 /* MyRandom.h */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +265,14 @@
 				D1D50F7917D7348400089275 /* AAppDelegate.m in Sources */,
 				D1D50F7A17D7348400089275 /* AViewController.m in Sources */,
 				D1D50F7B17D7348400089275 /* main.m in Sources */,
+				D1D50F8917D7434900089275 /* BinaryReader.cpp in Sources */,
+				D1D50F8A17D7434B00089275 /* StringUtils.cpp in Sources */,
+				D1D50F9117D7438A00089275 /* FileManger.cpp in Sources */,
+				D1D50F9217D7438D00089275 /* ios_fileManager.mm in Sources */,
+				D1D50F9317D7438F00089275 /* ios_display.mm in Sources */,
+				D1D50F9617D743AF00089275 /* GLSurface.m in Sources */,
+				D1D50FA117D744A500089275 /* Display.cpp in Sources */,
+				D1D50FA417D744AF00089275 /* DisplayPinchDelegate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +349,7 @@
 		D1D50F7017D7342800089275 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Asteroids/Asteroids-Prefix.pch";
 				INFOPLIST_FILE = "Asteroids/Asteroids-Info.plist";
@@ -282,6 +361,7 @@
 		D1D50F7117D7342800089275 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Asteroids/Asteroids-Prefix.pch";
 				INFOPLIST_FILE = "Asteroids/Asteroids-Info.plist";
@@ -309,6 +389,7 @@
 				D1D50F7117D7342800089275 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
