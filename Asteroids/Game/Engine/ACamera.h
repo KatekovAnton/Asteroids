@@ -18,7 +18,7 @@ class ACamera {
     GLfloat _scalex;
     //how many cells can be displayed on scrren by height
     GLfloat _scaley;
-    GRect2D _bounds;
+    Rect _bounds;
     float maxScale;
 public:
     //allways 1
@@ -31,10 +31,10 @@ public:
     GLfloat             minDepth;
     GLfloat             _far;
     GLfloat             _aspectRatio;
-    GSize2D             screenSize;
+    Size             screenSize;
     
-    GLKMatrix4          projection;
-    GLKMatrix4          view;
+    Matrix4          projection;
+    Matrix4          view;
     
     int mapH;
     int mapW;
@@ -42,14 +42,14 @@ public:
     //current game camera scale
     GLfloat             scale;
     //current game camera position
-    GLKVector3          position;
+    Vector3          position;
     
-    ACamera(GRect2D bounds, float displayScale);
+    ACamera(Rect bounds, float displayScale);
     
     //set map bounds
     void SetMapSize(int w, int h);
     
-    void SetPosition(const GLKVector3 &position);
+    void SetPosition(const Vector3 &position);
     //scale camera, on touches
     void Scale(float deltaScale);
     //move camera

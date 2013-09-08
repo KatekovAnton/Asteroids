@@ -48,7 +48,7 @@ class AEngine {
     
 public:
     
-
+    MAXAnimationManager *GetAnimationManager() {return _animationManager;}
     
     AEngineDelegate   *_delegate;
  
@@ -68,8 +68,7 @@ public:
     void RunLoop(double delta);
     
 	
-    void SetZoom(float zoom);
-    float CameraZoom();
+    
     
     void Update();
 	void DrawStart();
@@ -80,8 +79,14 @@ public:
     
     Shader * GetShader();
 
-
-   
+    
+#pragma mark - Camera
+    
+    void SetCameraCenter(const Vector2 position);
+    void SetZoom(float zoom);
+    float CameraZoom();
+    void ScaleCamera(float deltaScale);
+    void MoveCamera(float deltax, float deltay);
     
     Vector2 ScreenToWorldCoordinates(const Vector2 &screen);
     Vector2 ScreenToWorldCell(const Vector2 &screen);

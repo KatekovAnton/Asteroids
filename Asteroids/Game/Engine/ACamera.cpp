@@ -83,7 +83,7 @@ void ACamera::Move(float deltax, float deltay)
     float screenMX = rect.size.width / 64.0;
     float screenMY = rect.size.height / 64.0;
     
-    Size sz = CCSize(_bounds.size.width / _displayScale, _bounds.size.height / _displayScale);
+    Size sz = SizeMake(_bounds.size.width / _displayScale, _bounds.size.height / _displayScale);
     float rdx = screenMX * deltax / sz.width;
     float rdy = screenMY * deltay / sz.height;
     

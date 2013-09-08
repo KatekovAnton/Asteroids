@@ -21,6 +21,14 @@
 		D175816717DCC7CA0060E2F6 /* ShaderLine.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D175816317DCC7BF0060E2F6 /* ShaderLine.fsh */; };
 		D175816817DCC7CA0060E2F6 /* ShaderLine.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D175816417DCC7BF0060E2F6 /* ShaderLine.vsh */; };
 		D175816D17DCC8110060E2F6 /* EngineMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175816B17DCC8110060E2F6 /* EngineMesh.cpp */; };
+		D175817017DCD2F40060E2F6 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175816E17DCD2F40060E2F6 /* Framebuffer.cpp */; };
+		D175817317DCD5580060E2F6 /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817117DCD5580060E2F6 /* RenderSystem.cpp */; };
+		D175817717DCD56B0060E2F6 /* SceneSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817517DCD56B0060E2F6 /* SceneSystem.cpp */; };
+		D175817C17DCD5750060E2F6 /* MAXSceneGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817817DCD5750060E2F6 /* MAXSceneGraph.cpp */; };
+		D175817D17DCD5750060E2F6 /* MAXSceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817A17DCD5750060E2F6 /* MAXSceneGraphNode.cpp */; };
+		D175818417DCD60A0060E2F6 /* PivotObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817E17DCD60A0060E2F6 /* PivotObject.cpp */; };
+		D175818517DCD60A0060E2F6 /* RenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175818017DCD60A0060E2F6 /* RenderObject.cpp */; };
+		D175818617DCD60A0060E2F6 /* UnAnimRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175818217DCD60A0060E2F6 /* UnAnimRenderObject.cpp */; };
 		D1D50F5017D7342800089275 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F4F17D7342800089275 /* UIKit.framework */; };
 		D1D50F5217D7342800089275 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F5117D7342800089275 /* Foundation.framework */; };
 		D1D50F5417D7342800089275 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F5317D7342800089275 /* CoreGraphics.framework */; };
@@ -78,6 +86,22 @@
 		D175816417DCC7BF0060E2F6 /* ShaderLine.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShaderLine.vsh; sourceTree = "<group>"; };
 		D175816B17DCC8110060E2F6 /* EngineMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EngineMesh.cpp; sourceTree = "<group>"; };
 		D175816C17DCC8110060E2F6 /* EngineMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineMesh.h; sourceTree = "<group>"; };
+		D175816E17DCD2F40060E2F6 /* Framebuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Framebuffer.cpp; sourceTree = "<group>"; };
+		D175816F17DCD2F40060E2F6 /* Framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framebuffer.h; sourceTree = "<group>"; };
+		D175817117DCD5580060E2F6 /* RenderSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderSystem.cpp; sourceTree = "<group>"; };
+		D175817217DCD5580060E2F6 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
+		D175817517DCD56B0060E2F6 /* SceneSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneSystem.cpp; sourceTree = "<group>"; };
+		D175817617DCD56B0060E2F6 /* SceneSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneSystem.h; sourceTree = "<group>"; };
+		D175817817DCD5750060E2F6 /* MAXSceneGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MAXSceneGraph.cpp; sourceTree = "<group>"; };
+		D175817917DCD5750060E2F6 /* MAXSceneGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXSceneGraph.h; sourceTree = "<group>"; };
+		D175817A17DCD5750060E2F6 /* MAXSceneGraphNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MAXSceneGraphNode.cpp; sourceTree = "<group>"; };
+		D175817B17DCD5750060E2F6 /* MAXSceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXSceneGraphNode.h; sourceTree = "<group>"; };
+		D175817E17DCD60A0060E2F6 /* PivotObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PivotObject.cpp; sourceTree = "<group>"; };
+		D175817F17DCD60A0060E2F6 /* PivotObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PivotObject.h; sourceTree = "<group>"; };
+		D175818017DCD60A0060E2F6 /* RenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderObject.cpp; sourceTree = "<group>"; };
+		D175818117DCD60A0060E2F6 /* RenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderObject.h; sourceTree = "<group>"; };
+		D175818217DCD60A0060E2F6 /* UnAnimRenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnAnimRenderObject.cpp; sourceTree = "<group>"; };
+		D175818317DCD60A0060E2F6 /* UnAnimRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnAnimRenderObject.h; sourceTree = "<group>"; };
 		D1D50F4C17D7342800089275 /* Asteroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asteroids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D50F4F17D7342800089275 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D1D50F5117D7342800089275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +194,10 @@
 			isa = PBXGroup;
 			children = (
 				D175815F17DCC78B0060E2F6 /* Shaders */,
+				D175817117DCD5580060E2F6 /* RenderSystem.cpp */,
+				D175817217DCD5580060E2F6 /* RenderSystem.h */,
+				D175816E17DCD2F40060E2F6 /* Framebuffer.cpp */,
+				D175816F17DCD2F40060E2F6 /* Framebuffer.h */,
 				D175815B17DCC77A0060E2F6 /* MAXDrawPrimitives.cpp */,
 				D175815C17DCC77A0060E2F6 /* MAXDrawPrimitives.h */,
 			);
@@ -197,8 +225,14 @@
 		D175816917DCC7DE0060E2F6 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				D175817E17DCD60A0060E2F6 /* PivotObject.cpp */,
+				D175817F17DCD60A0060E2F6 /* PivotObject.h */,
+				D175818017DCD60A0060E2F6 /* RenderObject.cpp */,
+				D175818117DCD60A0060E2F6 /* RenderObject.h */,
+				D175818217DCD60A0060E2F6 /* UnAnimRenderObject.cpp */,
+				D175818317DCD60A0060E2F6 /* UnAnimRenderObject.h */,
 			);
-			name = Objects;
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		D175816A17DCC7E90060E2F6 /* ObjectComponents */ = {
@@ -208,6 +242,19 @@
 				D175816C17DCC8110060E2F6 /* EngineMesh.h */,
 			);
 			path = ObjectComponents;
+			sourceTree = "<group>";
+		};
+		D175817417DCD55D0060E2F6 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D175817817DCD5750060E2F6 /* MAXSceneGraph.cpp */,
+				D175817917DCD5750060E2F6 /* MAXSceneGraph.h */,
+				D175817A17DCD5750060E2F6 /* MAXSceneGraphNode.cpp */,
+				D175817B17DCD5750060E2F6 /* MAXSceneGraphNode.h */,
+				D175817517DCD56B0060E2F6 /* SceneSystem.cpp */,
+				D175817617DCD56B0060E2F6 /* SceneSystem.h */,
+			);
+			name = Scene;
 			sourceTree = "<group>";
 		};
 		D1D50F4317D7342800089275 = {
@@ -340,6 +387,7 @@
 		D1D50FE017D9D27700089275 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				D175817417DCD55D0060E2F6 /* Scene */,
 				D175816A17DCC7E90060E2F6 /* ObjectComponents */,
 				D175816917DCC7DE0060E2F6 /* Objects */,
 				D175815A17DCC6DA0060E2F6 /* Renderer */,
@@ -452,6 +500,14 @@
 				D175816517DCC7BF0060E2F6 /* ShaderLine.fsh in Sources */,
 				D175816617DCC7BF0060E2F6 /* ShaderLine.vsh in Sources */,
 				D175816D17DCC8110060E2F6 /* EngineMesh.cpp in Sources */,
+				D175817017DCD2F40060E2F6 /* Framebuffer.cpp in Sources */,
+				D175817317DCD5580060E2F6 /* RenderSystem.cpp in Sources */,
+				D175817717DCD56B0060E2F6 /* SceneSystem.cpp in Sources */,
+				D175817C17DCD5750060E2F6 /* MAXSceneGraph.cpp in Sources */,
+				D175817D17DCD5750060E2F6 /* MAXSceneGraphNode.cpp in Sources */,
+				D175818417DCD60A0060E2F6 /* PivotObject.cpp in Sources */,
+				D175818517DCD60A0060E2F6 /* RenderObject.cpp in Sources */,
+				D175818617DCD60A0060E2F6 /* UnAnimRenderObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

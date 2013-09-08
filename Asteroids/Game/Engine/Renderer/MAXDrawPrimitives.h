@@ -17,13 +17,13 @@ class Shader;
 class MAXDrawPrimitives {
     
     Shader* _shader;
-    GLKMatrix4 _projectionMatrix;
+    Matrix4 _projectionMatrix;
     
-    GLKVector4 vertices[2];
+    Vector4 vertices[2];
     
 public:
     
-    GLKVector4 _color;
+    Vector4 _color;
     
     
     
@@ -33,12 +33,11 @@ public:
     static MAXDrawPrimitives* SharedDrawPrimitives();
     
     void Begin();
-    void BindColor(const GLKVector4& color);
-    void DrawLine(const CCPoint& from, const CCPoint& to);
-    void DrawLine(const GLKVector2& from, const GLKVector2& to);
+    void BindColor(const Vector4& color);
+    void DrawLine(const Vector2& from, const Vector2& to);
     
-    void DrawCircle( const CCPoint& center, float radius, float angle, unsigned int segments, bool drawLineToCenter, float scaleX, float scaleY);
-    void DrawCircle( const CCPoint& center, float radius, float angle, unsigned int segments, bool drawLineToCenter);
+    void DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter, float scaleX, float scaleY);
+    void DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter);
 };
 
 #endif /* defined(__MAX__MAXDrawPrimitives__) */

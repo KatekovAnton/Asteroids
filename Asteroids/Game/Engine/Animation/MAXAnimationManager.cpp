@@ -7,7 +7,7 @@
 //
 
 #include "MAXAnimationManager.h"
-#include "MAXEngine.h"
+#include "AEngine.h"
 
 MAXAnimationManager::MAXAnimationManager()
 {

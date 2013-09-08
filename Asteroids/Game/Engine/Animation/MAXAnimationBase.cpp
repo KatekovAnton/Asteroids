@@ -7,8 +7,8 @@
 //
 
 #include "MAXAnimationBase.h"
-#include "MAXEngine.h"
 #include "MAXAnimationDelegate.h"
+#include "AEngine.h"
 
 MAXAnimationBase::MAXAnimationBase()
 	:_delegate(NULL), _isCompletlyFinish(false), _tag(0)

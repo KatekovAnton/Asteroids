@@ -183,6 +183,13 @@ extern "C" {
     
     typedef struct __Size Size;
     
+    static inline Size SizeMake(float height, float width) {
+        Size result;
+        result.height = height;
+        result.width = width;
+        return result;
+    }
+    
     struct __Rect {
         Vector2   origin;
         Size      size;

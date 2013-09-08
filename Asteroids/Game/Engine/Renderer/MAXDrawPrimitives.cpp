@@ -18,12 +18,12 @@ MAXDrawPrimitives::MAXDrawPrimitives()
     _shader = new Shader("ShaderLine.vsh", "ShaderLine.fsh");//UNIFORM_VECTOR1 for color UNIFORM_PROJECTION_MATRIX for projection
     
     float _displayScale = Display::currentDisplay()->GetDisplayScale();
-    CCRect bounds = CCRect(0, 0, Display::currentDisplay()->GetDisplayWidth()/_displayScale, Display::currentDisplay()->GetDisplayHeight()/_displayScale);
+    Rect bounds = RectMake(0, 0, Display::currentDisplay()->GetDisplayWidth()/_displayScale, Display::currentDisplay()->GetDisplayHeight()/_displayScale);
     float _scalex = 1.0/bounds.size.width;
     float _scaley = 1.0/bounds.size.height;
     
     
-    GLKMatrix4 scalematr = GLKMatrix4MakeScale(_scalex, _scaley, 1);
+    Matrix4 scalematr = Matrix4MakeScale(_scalex, _scaley, 1);
     scalematr.m30 = -1;
     scalematr.m31 = -1;
     _projectionMatrix = scalematr;
@@ -33,7 +33,7 @@ MAXDrawPrimitives::MAXDrawPrimitives()
     vertices[1].z = 1;
     vertices[1].w = 1;
     
-    _color = GLKVector4Make(1, 1, 1, 1);
+    _color = Vector4Make(1, 1, 1, 1);
 }
 
 MAXDrawPrimitives::~MAXDrawPrimitives()
@@ -58,13 +58,13 @@ void MAXDrawPrimitives::Begin()
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, (void*)vertices);
 }
 
-void MAXDrawPrimitives::BindColor(const GLKVector4& color)
+void MAXDrawPrimitives::BindColor(const Vector4& color)
 {
     _color = color;
     _shader->SetVector4Value(UNIFORM_VECTOR1, (float*)&_color);
 }
 
-void MAXDrawPrimitives::DrawLine(const CCPoint& from, const CCPoint& to)
+void MAXDrawPrimitives::DrawLine(const Vector2& from, const Vector2& to)
 {
     vertices[0].x = from.x;
     vertices[0].y = from.y;
@@ -74,17 +74,7 @@ void MAXDrawPrimitives::DrawLine(const CCPoint& from, const CCPoint& to)
     glDrawArrays(GL_LINES, 0, 2);
 }
 
-void MAXDrawPrimitives::DrawLine(const GLKVector2& from, const GLKVector2& to)
-{
-    vertices[0].x = from.x;
-    vertices[0].y = from.y;
-    vertices[1].x = to.x;
-    vertices[1].y = to.y;
-    
-    glDrawArrays(GL_LINES, 0, 2);
-}
-
-void MAXDrawPrimitives::DrawCircle( const CCPoint& center, float radius, float angle, unsigned int segments, bool drawLineToCenter, float scaleX, float scaleY)
+void MAXDrawPrimitives::DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter, float scaleX, float scaleY)
 {
     int additionalSegment = 1;
     if (drawLineToCenter)
@@ -114,7 +104,7 @@ void MAXDrawPrimitives::DrawCircle( const CCPoint& center, float radius, float a
     
 }
 
-void MAXDrawPrimitives::DrawCircle( const CCPoint& center, float radius, float angle, unsigned int segments, bool drawLineToCenter)
+void MAXDrawPrimitives::DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter)
 {
     DrawCircle(center, radius, angle, segments, drawLineToCenter, 1.0f, 1.0f);
 }

@@ -7,7 +7,7 @@
 //
 
 #include "MAXAnimationWait.h"
-#include "MAXEngine.h"
+#include "AEngine.h"
 
 MAXAnimationWait::MAXAnimationWait(double waitTime)
 :_waitTime(waitTime)

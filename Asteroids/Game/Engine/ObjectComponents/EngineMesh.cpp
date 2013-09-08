@@ -8,6 +8,7 @@
 
 #include "EngineMesh.h"
 #include "BinaryReader.h"
+#include "GlobalConstants.h"
 
 const int vertexSize = sizeof(vertexStruct);
 const size_t vertexPositionOffset = offsetof(vertexStruct,position);
