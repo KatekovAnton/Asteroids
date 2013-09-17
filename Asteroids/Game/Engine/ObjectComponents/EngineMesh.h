@@ -1,13 +1,13 @@
 //
 //  EngineMesh.h
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 11/3/12.
 //
 //
 
-#ifndef __TerminalExtraction__EngineMesh__
-#define __TerminalExtraction__EngineMesh__
+#ifndef __Asteroids__EngineMesh__
+#define __Asteroids__EngineMesh__
 
 #include <iostream>
 #include "Math.h"
@@ -50,5 +50,5 @@ public:
     
 };
 
-#endif /* defined(__TerminalExtraction__EngineMesh__) */
+#endif /* defined(__Asteroids__EngineMesh__) */
 

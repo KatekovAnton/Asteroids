@@ -1,13 +1,13 @@
 //
 //  RenderSystem.h
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/18/12.
 //
 //
 
-#ifndef __TerminalExtraction__RenderSystem__
-#define __TerminalExtraction__RenderSystem__
+#ifndef __Asteroids__RenderSystem__
+#define __Asteroids__RenderSystem__
 
 #include "GlobalConstants.h"
 #include <iostream>
@@ -29,4 +29,4 @@ public:
     void EndFrame();
 };
 
-#endif /* defined(__TerminalExtraction__RenderSystem__) */
+#endif /* defined(__Asteroids__RenderSystem__) */

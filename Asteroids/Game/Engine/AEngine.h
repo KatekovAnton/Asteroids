@@ -1,6 +1,6 @@
 //
 //  AEngine.h
-//  MAX
+//  Asteroids
 //
 //  Created by Anton Katekov on 25.12.12.
 //  Copyright (c) 2012 AntonKatekov. All rights reserved.
@@ -21,7 +21,7 @@ class PivotObject;
 class RenderSystem;
 class Shader;
 class SceneSystem;
-class MAXCamera;
+class ACamera;
 class MAXAnimationManager;
 
 class AEngineDelegate {
@@ -42,7 +42,6 @@ class AEngine {
     
     Shader              *_shaderObjects;
     Shader              *_shaderInterface;
-    shared_ptr<EngineMesh> _mapQuadMesh;
     
     
     
@@ -55,7 +54,7 @@ public:
     float displayw,displayh;
 
     
-    MAXCamera               *_camera;
+    ACamera               *_camera;
     
     AEngine();
     ~AEngine();
@@ -67,8 +66,6 @@ public:
     double FullTime() const {return _fullTime;};
     void RunLoop(double delta);
     
-	
-    
     
     void Update();
 	void DrawStart();
@@ -78,11 +75,12 @@ public:
     void FinishLoading();
     
     Shader * GetShader();
-
+    
+    void GetAllObjectsInArea(BoundingBox bb, USimpleContainer<PivotObject*> *buffer);
     
 #pragma mark - Camera
     
-    void SetCameraCenter(const Vector2 position);
+    void SetCameraCenter(const Vector2 &position);
     void SetZoom(float zoom);
     float CameraZoom();
     void ScaleCamera(float deltaScale);
@@ -93,7 +91,7 @@ public:
     Vector2 WorldCoordinatesToScreen(const Vector2 &screen);
     Vector2 WorldCoordinatesToScreenInterface(const Vector2 &world);
     Vector2 WorldCoordinatesToScreenInterfaceV(const Vector2 &world);
-    Rect ScreenToWorldRect();
+    MRect ScreenToWorldRect();
     
 };
 

@@ -1,13 +1,13 @@
 //
 //  GlobalConstants.h
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/20/12.
 //
 //
 
-#ifndef TerminalExtraction_GlobalConstants_h
-#define TerminalExtraction_GlobalConstants_h
+#ifndef Asteroids_GlobalConstants_h
+#define Asteroids_GlobalConstants_h
 
 
 #ifdef  TARGET_OS_IPHONE

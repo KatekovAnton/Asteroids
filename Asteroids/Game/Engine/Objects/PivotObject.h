@@ -1,13 +1,13 @@
 //
 //  PivotObject.h
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/31/12.
 //
 //
 
-#ifndef __TerminalExtraction__PivotObject__
-#define __TerminalExtraction__PivotObject__
+#ifndef __Asteroids__PivotObject__
+#define __Asteroids__PivotObject__
 
 #include <iostream>
 #include "Math.h"
@@ -81,4 +81,4 @@ public:
     
 };
 
-#endif /* defined(__TerminalExtraction__PivotObject__) */
+#endif /* defined(__Asteroids__PivotObject__) */

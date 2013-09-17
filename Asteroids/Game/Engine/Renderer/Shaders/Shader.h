@@ -1,13 +1,13 @@
 //
 //  Shader.h
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 11/3/12.
 //
 //
 
-#ifndef __TerminalExtraction__Shader__
-#define __TerminalExtraction__Shader__
+#ifndef __Asteroids__Shader__
+#define __Asteroids__Shader__
 
 #include <iostream>
 #include "Math.h"
@@ -40,4 +40,4 @@ public:
     GLuint * GetShaderUniforms();
 };
 
-#endif /* defined(__TerminalExtraction__Shader__) */
+#endif /* defined(__Asteroids__Shader__) */

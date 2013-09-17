@@ -1,6 +1,6 @@
 //
 //  ACamera.cpp
-//  MAX
+//  Asteroids
 //
 //  Created by  Developer on 25.12.12.
 //  Copyright (c) 2012 AntonKatekov. All rights reserved.
@@ -15,7 +15,7 @@
 #define DEFAULT_MAP_PART 112
 #define DEFAULT_CELL_SIZE 64.0
 
-ACamera::ACamera(Rect bounds, float displayScale)
+ACamera::ACamera(MRect bounds, float displayScale)
 :minZoom(false)
 {
     _bounds = bounds;
@@ -79,11 +79,11 @@ void ACamera::Scale(float deltaScale)
 
 void ACamera::Move(float deltax, float deltay)
 {
-    Rect rect = engine->ScreenToWorldRect();
+    MRect rect = engine->ScreenToWorldRect();
     float screenMX = rect.size.width / 64.0;
     float screenMY = rect.size.height / 64.0;
     
-    Size sz = SizeMake(_bounds.size.width / _displayScale, _bounds.size.height / _displayScale);
+    MSize sz = SizeMake(_bounds.size.width / _displayScale, _bounds.size.height / _displayScale);
     float rdx = screenMX * deltax / sz.width;
     float rdy = screenMY * deltay / sz.height;
     

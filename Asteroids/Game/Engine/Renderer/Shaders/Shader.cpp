@@ -1,6 +1,6 @@
 //
 //  Shader.cpp
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 11/3/12.
 //

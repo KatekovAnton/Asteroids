@@ -438,7 +438,7 @@ static inline float Vector3LengthSquired(Vector3 vector)
 }
 
 
-static inline Vector3 UnprojectPointWIdent(Vector3 screenSpace, Matrix4 projection, Matrix4 view, float minDepth, float maxDepth, Size screenSize)
+static inline Vector3 UnprojectPointWIdent(Vector3 screenSpace, Matrix4 projection, Matrix4 view, float minDepth, float maxDepth, MSize screenSize)
 {
     //First, convert raw screen coords to unprojectable ones
     Vector3 position;

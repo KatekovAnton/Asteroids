@@ -24,8 +24,8 @@
 		D175817017DCD2F40060E2F6 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175816E17DCD2F40060E2F6 /* Framebuffer.cpp */; };
 		D175817317DCD5580060E2F6 /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817117DCD5580060E2F6 /* RenderSystem.cpp */; };
 		D175817717DCD56B0060E2F6 /* SceneSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817517DCD56B0060E2F6 /* SceneSystem.cpp */; };
-		D175817C17DCD5750060E2F6 /* MAXSceneGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817817DCD5750060E2F6 /* MAXSceneGraph.cpp */; };
-		D175817D17DCD5750060E2F6 /* MAXSceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817A17DCD5750060E2F6 /* MAXSceneGraphNode.cpp */; };
+		D175817C17DCD5750060E2F6 /* SceneGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817817DCD5750060E2F6 /* SceneGraph.cpp */; };
+		D175817D17DCD5750060E2F6 /* SceneGraphNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817A17DCD5750060E2F6 /* SceneGraphNode.cpp */; };
 		D175818417DCD60A0060E2F6 /* PivotObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817E17DCD60A0060E2F6 /* PivotObject.cpp */; };
 		D175818517DCD60A0060E2F6 /* RenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175818017DCD60A0060E2F6 /* RenderObject.cpp */; };
 		D175818617DCD60A0060E2F6 /* UnAnimRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175818217DCD60A0060E2F6 /* UnAnimRenderObject.cpp */; };
@@ -59,7 +59,7 @@
 		D175812F17DCB29B0060E2F6 /* AEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEngine.h; sourceTree = "<group>"; };
 		D175813017DCB29B0060E2F6 /* ACamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ACamera.cpp; sourceTree = "<group>"; };
 		D175813117DCB29B0060E2F6 /* ACamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACamera.h; sourceTree = "<group>"; };
-		D175813617DCB3820060E2F6 /* MathTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathTypes.h; sourceTree = "<group>"; };
+		D175813617DCB3820060E2F6 /* MathTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = MathTypes.h; sourceTree = "<group>"; };
 		D175813817DCB42C0060E2F6 /* Matrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix4.h; sourceTree = "<group>"; };
 		D175813917DCB9CA0060E2F6 /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
 		D175813A17DCB9CA0060E2F6 /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
@@ -92,10 +92,10 @@
 		D175817217DCD5580060E2F6 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
 		D175817517DCD56B0060E2F6 /* SceneSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneSystem.cpp; sourceTree = "<group>"; };
 		D175817617DCD56B0060E2F6 /* SceneSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneSystem.h; sourceTree = "<group>"; };
-		D175817817DCD5750060E2F6 /* MAXSceneGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MAXSceneGraph.cpp; sourceTree = "<group>"; };
-		D175817917DCD5750060E2F6 /* MAXSceneGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXSceneGraph.h; sourceTree = "<group>"; };
-		D175817A17DCD5750060E2F6 /* MAXSceneGraphNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MAXSceneGraphNode.cpp; sourceTree = "<group>"; };
-		D175817B17DCD5750060E2F6 /* MAXSceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXSceneGraphNode.h; sourceTree = "<group>"; };
+		D175817817DCD5750060E2F6 /* SceneGraph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGraph.cpp; sourceTree = "<group>"; };
+		D175817917DCD5750060E2F6 /* SceneGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraph.h; sourceTree = "<group>"; };
+		D175817A17DCD5750060E2F6 /* SceneGraphNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneGraphNode.cpp; sourceTree = "<group>"; };
+		D175817B17DCD5750060E2F6 /* SceneGraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGraphNode.h; sourceTree = "<group>"; };
 		D175817E17DCD60A0060E2F6 /* PivotObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PivotObject.cpp; sourceTree = "<group>"; };
 		D175817F17DCD60A0060E2F6 /* PivotObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PivotObject.h; sourceTree = "<group>"; };
 		D175818017DCD60A0060E2F6 /* RenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderObject.cpp; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		D1D50F6317D7342800089275 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D1D50F6517D7342800089275 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D1D50F7417D7348400089275 /* AAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAppDelegate.h; sourceTree = "<group>"; };
-		D1D50F7517D7348400089275 /* AAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAppDelegate.m; sourceTree = "<group>"; };
+		D1D50F7517D7348400089275 /* AAppDelegate.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AAppDelegate.m; sourceTree = "<group>"; };
 		D1D50F7617D7348400089275 /* AViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
 		D1D50F7717D7348400089275 /* AViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AViewController.m; sourceTree = "<group>"; };
 		D1D50F7817D7348400089275 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -247,10 +247,10 @@
 		D175817417DCD55D0060E2F6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				D175817817DCD5750060E2F6 /* MAXSceneGraph.cpp */,
-				D175817917DCD5750060E2F6 /* MAXSceneGraph.h */,
-				D175817A17DCD5750060E2F6 /* MAXSceneGraphNode.cpp */,
-				D175817B17DCD5750060E2F6 /* MAXSceneGraphNode.h */,
+				D175817817DCD5750060E2F6 /* SceneGraph.cpp */,
+				D175817917DCD5750060E2F6 /* SceneGraph.h */,
+				D175817A17DCD5750060E2F6 /* SceneGraphNode.cpp */,
+				D175817B17DCD5750060E2F6 /* SceneGraphNode.h */,
 				D175817517DCD56B0060E2F6 /* SceneSystem.cpp */,
 				D175817617DCD56B0060E2F6 /* SceneSystem.h */,
 			);
@@ -503,8 +503,8 @@
 				D175817017DCD2F40060E2F6 /* Framebuffer.cpp in Sources */,
 				D175817317DCD5580060E2F6 /* RenderSystem.cpp in Sources */,
 				D175817717DCD56B0060E2F6 /* SceneSystem.cpp in Sources */,
-				D175817C17DCD5750060E2F6 /* MAXSceneGraph.cpp in Sources */,
-				D175817D17DCD5750060E2F6 /* MAXSceneGraphNode.cpp in Sources */,
+				D175817C17DCD5750060E2F6 /* SceneGraph.cpp in Sources */,
+				D175817D17DCD5750060E2F6 /* SceneGraphNode.cpp in Sources */,
 				D175818417DCD60A0060E2F6 /* PivotObject.cpp in Sources */,
 				D175818517DCD60A0060E2F6 /* RenderObject.cpp in Sources */,
 				D175818617DCD60A0060E2F6 /* UnAnimRenderObject.cpp in Sources */,

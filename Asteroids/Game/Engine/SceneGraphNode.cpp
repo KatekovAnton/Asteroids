@@ -1,16 +1,16 @@
 //
 //  SceneGraphNode.cpp
-//  MAX
+//  Asteroids
 //
 //  Created by  Developer on 17.02.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.
 //
 
-#include "MAXSceneGraphNode.h"
+#include "SceneGraphNode.h"
 
 using namespace Utils;
 
-MAXSceneGraphNode::MAXSceneGraphNode(MAXSceneGraphNode *parentNode, BoundingBox bb, int level)
+SceneGraphNode::SceneGraphNode(SceneGraphNode *parentNode, BoundingBox bb, int level)
 {
     _boundingRect = bb;
     _parentNode_w = parentNode;
@@ -19,11 +19,11 @@ MAXSceneGraphNode::MAXSceneGraphNode(MAXSceneGraphNode *parentNode, BoundingBox 
     memset(_childNodes, 0, 4*sizeof(size_t));
 }
 
-MAXSceneGraphNode::~MAXSceneGraphNode()
+SceneGraphNode::~SceneGraphNode()
 {
     for (int i = 0; i < 4; i++)
     {
-        MAXSceneGraphNode* node = _childNodes[i];
+        SceneGraphNode* node = _childNodes[i];
         if (node)
             delete node;
     }

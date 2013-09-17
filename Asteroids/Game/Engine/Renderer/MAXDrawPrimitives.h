@@ -1,6 +1,6 @@
 //
 //  MAXDrawPrimitives.h
-//  MAX
+//  Asteroids
 //
 //  Created by Anton Katekov on 11.02.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.

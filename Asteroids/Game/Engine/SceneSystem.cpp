@@ -1,6 +1,6 @@
 //
 //  SceneSystem.cpp
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 11/5/12.
 //
@@ -8,21 +8,20 @@
 
 #include "SceneSystem.h"
 #include "PivotObject.h"
-#include "MAXSceneGraph.h"
+#include "SceneGraph.h"
 #include "AEngine.h"
 
 using namespace std;
 
-SceneSystem::SceneSystem(MAXMapObject* map)
+SceneSystem::SceneSystem()
 {
     
-    _map_w = map;
     _objects = new USimpleContainer<PivotObject*>(100);
     _visibleObjects = new USimpleContainer<PivotObject*>(100);
     
     _movedObjects_w = new USimpleContainer<PivotObject*>(100);
     
-    _sceneGraph = new MAXSceneGraph(this);
+    _sceneGraph = new SceneGraph(this);
 }
 
 SceneSystem::~SceneSystem()
@@ -36,7 +35,7 @@ SceneSystem::~SceneSystem()
 void SceneSystem::CalculateVisbleObject()
 {
     BoundingBox viewField;
-    Rect rect = engine->ScreenToWorldRect();
+    MRect rect = engine->ScreenToWorldRect();
     viewField.min.x = rect.origin.x / 64.0;
     viewField.min.y = rect.origin.y / 64.0;
     
@@ -122,8 +121,8 @@ void SceneSystem::CalculateBBForObject(PivotObject* object)
     float resultY;
     BoundingBox result;
     //update bs
-    resultX = object->GetTransformMatrix().m30 - 1 + _map_w->mapW/2;
-    resultY = -1 * (object->GetTransformMatrix().m31 - _map_w->mapH/2) - 1;
+    resultX = object->GetTransformMatrix().m30;
+    resultY = object->GetTransformMatrix().m31;
     
     result.min.x = resultX + 0.1 - object->_bbsize.x + 1;
     result.min.y = resultY + 0.1 - object->_bbsize.y + 1;

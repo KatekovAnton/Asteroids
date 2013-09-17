@@ -1,6 +1,6 @@
 //
 //  RenderSystem.cpp
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/18/12.
 //

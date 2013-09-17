@@ -1,6 +1,6 @@
 //
 //  MAXAnimationPrefix.h
-//  MAX
+//  Asteroids
 //
 //  Created by Anton Katekov on 31.01.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.

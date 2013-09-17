@@ -1,6 +1,6 @@
 //
 //  ACamera.h
-//  MAX
+//  Asteroids
 //
 //  Created by  Developer on 25.12.12.
 //  Copyright (c) 2012 AntonKatekov. All rights reserved.
@@ -18,7 +18,7 @@ class ACamera {
     GLfloat _scalex;
     //how many cells can be displayed on scrren by height
     GLfloat _scaley;
-    Rect _bounds;
+    MRect _bounds;
     float maxScale;
 public:
     //allways 1
@@ -31,7 +31,7 @@ public:
     GLfloat             minDepth;
     GLfloat             _far;
     GLfloat             _aspectRatio;
-    Size             screenSize;
+    MSize             screenSize;
     
     Matrix4          projection;
     Matrix4          view;
@@ -44,7 +44,7 @@ public:
     //current game camera position
     Vector3          position;
     
-    ACamera(Rect bounds, float displayScale);
+    ACamera(MRect bounds, float displayScale);
     
     //set map bounds
     void SetMapSize(int w, int h);

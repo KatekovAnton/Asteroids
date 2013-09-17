@@ -1,6 +1,6 @@
 //
 //  UnAnimRenderObject.cpp
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 11/3/12.
 //
@@ -8,15 +8,13 @@
 
 #include "UnAnimRenderObject.h"
 #include "EngineMesh.h"
-#include "Material.h"
-#include "MAXEngine.h"
+#include "AEngine.h"
 
 UnAnimRenderObject::UnAnimRenderObject(shared_ptr<EngineMesh> mesh):RenderObject() {
     _mesh = mesh;
 }
 
-void UnAnimRenderObject::Render(int lod, Material *material) {
-    material->ApplyLod(lod, engine->GetShader());
+void UnAnimRenderObject::Render() {
     _mesh->Bind();
     _mesh->Render();
     _mesh->Unbind();

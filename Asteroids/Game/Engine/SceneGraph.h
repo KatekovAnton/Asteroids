@@ -1,25 +1,25 @@
 //
-//  MAXSceneGraph.h
-//  MAX
+//  SceneGraph.h
+//  Asteroids
 //
 //  Created by  Developer on 17.02.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.
 //
 
-#ifndef __MAX__MAXSceneGraph__
-#define __MAX__MAXSceneGraph__
+#ifndef __MAX__SceneGraph__
+#define __MAX__SceneGraph__
 
 #include <iostream>
 #include "miniPrefix.h"
 
 class SceneSystem;
 class PivotObject;
-class MAXSceneGraphNode;
+class SceneGraphNode;
 
 using namespace std;
 using namespace Utils;
 
-class MAXSceneGraph {
+class SceneGraph {
     
     int _recalculatedCount;
     SceneSystem* _scene_w;
@@ -28,13 +28,13 @@ class MAXSceneGraph {
     float _mapSize;
     
     //graph
-    MAXSceneGraphNode           *_baseNode;
-    stack<MAXSceneGraphNode*>   _subtreeStack;
+    SceneGraphNode           *_baseNode;
+    stack<SceneGraphNode*>   _subtreeStack;
     
     int _maxNestingLevel;
-    stack<MAXSceneGraphNode*>   _nodeStack;
-    map<PivotObject*, MAXSceneGraphNode*> _objectNodeMap;
-    MAXSceneGraphNode** _leafs;
+    stack<SceneGraphNode*>   _nodeStack;
+    map<PivotObject*, SceneGraphNode*> _objectNodeMap;
+    SceneGraphNode** _leafs;
     int _leafMassiveSize;
     float _leafSize;
     float _updateTime;
@@ -47,19 +47,19 @@ class MAXSceneGraph {
     Vector2 leafSize;
     
     
-    MAXSceneGraphNode* GetLeaf(PivotObject* entity);
-    void SplitNode(MAXSceneGraphNode* parent);
+    SceneGraphNode* GetLeaf(PivotObject* entity);
+    void SplitNode(SceneGraphNode* parent);
     int GetLeafArrayIndex(int x, int y) const;
-    void RegistrateEntity(PivotObject *entity, MAXSceneGraphNode *node);
+    void RegistrateEntity(PivotObject *entity, SceneGraphNode *node);
     void Build();
-    void GetSubtree(MAXSceneGraphNode *node, USimpleContainer<PivotObject*> *visibleEntities);
+    void GetSubtree(SceneGraphNode *node, USimpleContainer<PivotObject*> *visibleEntities);
     
 public:
     
     int GetRecalulcalatedObjectsCount() const {return _recalculatedCount;};
     
-    MAXSceneGraph(SceneSystem* scene);
-    ~MAXSceneGraph();
+    SceneGraph(SceneSystem* scene);
+    ~SceneGraph();
     
     void AddObject(PivotObject *newObject);
     void RemoveObject(PivotObject *object);
@@ -76,4 +76,4 @@ public:
     
 };
 
-#endif /* defined(__MAX__MAXSceneGraph__) */
+#endif /* defined(__MAX__SceneGraph__) */

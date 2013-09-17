@@ -181,10 +181,10 @@ extern "C" {
         GLfloat width;
     };
     
-    typedef struct __Size Size;
+    typedef struct __Size MSize;
     
-    static inline Size SizeMake(float height, float width) {
-        Size result;
+    static inline MSize SizeMake(float height, float width) {
+        MSize result;
         result.height = height;
         result.width = width;
         return result;
@@ -192,15 +192,15 @@ extern "C" {
     
     struct __Rect {
         Vector2   origin;
-        Size      size;
+        MSize      size;
     };
     
-    typedef struct __Rect Rect;
+    typedef struct __Rect MRect;
     
     
     
-    static inline Rect RectMake(GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
-        Rect rect;
+    static inline MRect RectMake(GLfloat x, GLfloat y, GLfloat width, GLfloat height) {
+        MRect rect;
         rect.origin.x = x;
         rect.origin.y = y;
         rect.size.width = width;

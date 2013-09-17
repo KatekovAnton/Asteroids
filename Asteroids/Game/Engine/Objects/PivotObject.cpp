@@ -1,6 +1,6 @@
 //
 //  PivotObject.cpp
-//  TerminalExtraction
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/31/12.
 //
@@ -8,10 +8,9 @@
 
 #include "PivotObject.h"
 #include "RenderObject.h"
-#include "Material.h"
-#include "Geometry.h"
+#include "Math.h"
 #include "Shader.h"
-#include "MAXEngine.h"
+#include "AEngine.h"
 
 
 int compareDummy(const void * a, const void * b)
@@ -26,11 +25,11 @@ compareFunc PivotObject::GetCompareFunc()
 
 PivotObject::PivotObject() {
 
-    _transformMatrix = GLKMatrix4Identity;
+    _transformMatrix = Matrix4Identity;
     _isOnScreen = true;
     moved = false;
     forceHidden = false;
-    _bbsize = GLKVector2Make(1, 1);
+    _bbsize = Vector2Make(1, 1);
 }
 
 void PivotObject::Update() {
@@ -39,7 +38,7 @@ void PivotObject::Update() {
 //        raycastaspect.boundingShape.Update(transform);
 }
 
-void PivotObject::SetGlobalPosition(GLKMatrix4 globalPosition, void *aditionalData, PivotObject *parent, bool afterUpdate)
+void PivotObject::SetGlobalPosition(Matrix4 globalPosition, void *aditionalData, PivotObject *parent, bool afterUpdate)
 {
    // _objectBehaviourModel->SetGlobalPosition(globalPosition, aditionalData, parent, afterUpdate);
     moved = true;
@@ -91,13 +90,13 @@ void PivotObject::HasBeenRemovedFromScene()
 void PivotObject::Draw(Shader *shader)
 {
     shader->SetMatrixValue(UNIFORM_MODEL_MATRIX, _transformMatrix.m);
-    GetRenderAspect()->Render(0, GetMaterial());
+    GetRenderAspect()->Render();
 }
 
 void PivotObject::DrawLow(Shader* shader)
 {
     shader->SetMatrixValue(UNIFORM_MODEL_MATRIX, _transformMatrix.m);
-    GetRenderAspect()->Render(0, GetMaterial());
+    GetRenderAspect()->Render();
 }
 
 RenderObject * PivotObject::GetRenderAspect() {
@@ -108,8 +107,8 @@ Material * PivotObject::GetMaterial() {
     return NULL;
 }
 
-void PivotObject::SetPosition(const GLKVector3& position) {
-  //  _objectBehaviourModel->SetPosition(GLKMatrix4MakeTranslationV(position));
+void PivotObject::SetPosition(const Vector3& position) {
+  //  _objectBehaviourModel->SetPosition(Matrix4MakeTranslationV(position));
 }
 
 PivotObject::~PivotObject() {

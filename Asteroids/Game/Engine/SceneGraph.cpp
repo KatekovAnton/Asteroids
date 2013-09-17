@@ -1,15 +1,14 @@
 //
-//  MAXSceneGraph.cpp
-//  MAX
+//  SceneGraph.cpp
+//  Asteroids
 //
 //  Created by  Developer on 17.02.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.
 //
 
-#include "MAXSceneGraph.h"
+#include "SceneGraph.h"
 #include "SceneSystem.h"
-#include "MAXMapObject.h"
-#include "MAXSceneGraphNode.h"
+#include "SceneGraphNode.h"
 #include "PivotObject.h"
 
 #ifdef TARGET_OS_WIN
@@ -32,11 +31,11 @@ unsigned int nextPOT(unsigned int x)
     return x + 1;
 }
 
-MAXSceneGraph::MAXSceneGraph(SceneSystem* scene)
+SceneGraph::SceneGraph(SceneSystem* scene)
 {
 	_maxNestingLevel = 3;
     _scene_w = scene;
-    _mapSize = nextPOT(MAX(scene->GetMap()->mapW, scene->GetMap()->mapH));
+    _mapSize = nextPOT(1000);
     _maxNestingLevel = log2(_mapSize);
     _maxNestingLevel -= 4;
     if (_maxNestingLevel<1) {
@@ -47,18 +46,18 @@ MAXSceneGraph::MAXSceneGraph(SceneSystem* scene)
 }
 
 
-MAXSceneGraph::~MAXSceneGraph()
+SceneGraph::~SceneGraph()
 {
     free(_leafs);
     delete _baseNode;
 }
 
-void MAXSceneGraph::Build()
+void SceneGraph::Build()
 {
     BoundingBox rootBbox =  BoundingBoxMake(0, 0, _mapSize, _mapSize);
     
     //инициализируем дерево
-    _baseNode = new MAXSceneGraphNode(NULL, rootBbox, 0);
+    _baseNode = new SceneGraphNode(NULL, rootBbox, 0);
     
     while (!_nodeStack.empty())
         _nodeStack.pop();
@@ -68,35 +67,35 @@ void MAXSceneGraph::Build()
     
     while (!_nodeStack.empty())
     {
-        MAXSceneGraphNode *parent = _nodeStack.top();
+        SceneGraphNode *parent = _nodeStack.top();
         _nodeStack.pop();
         if (parent->_nestingLevel < _maxNestingLevel)
         {
             SplitNode(parent);
             if (parent->_nestingLevel + 1 < _maxNestingLevel)
                 for (int i = 0; i < 4; i++) {
-                    MAXSceneGraphNode* child = parent->_childNodes[i];
+                    SceneGraphNode* child = parent->_childNodes[i];
                     _nodeStack.push(child);
                 }
                    
         }
     }
-    MAXSceneGraphNode* node = _leafs[GetLeafArrayIndex(0, 0)];
+    SceneGraphNode* node = _leafs[GetLeafArrayIndex(0, 0)];
     leafSize = node->_boundingRect.GetSize();
 }
 
-int MAXSceneGraph::GetLeafArrayIndex(int x, int y) const
+int SceneGraph::GetLeafArrayIndex(int x, int y) const
 {
     return y * _leafMassiveSize + x;
 }
 
-void MAXSceneGraph::SplitNode(MAXSceneGraphNode* parent)
+void SceneGraph::SplitNode(SceneGraphNode* parent)
 {
-    GLKVector2 min = parent->_boundingRect.min;
-    GLKVector2 max = parent->_boundingRect.max;
+    Vector2 min = parent->_boundingRect.min;
+    Vector2 max = parent->_boundingRect.max;
     
     //получаем координаты центра нода
-    GLKVector2 c = GLKVector2Make((min.x + max.x)/2.0, (min.y + max.y) / 2.0);
+    Vector2 c = Vector2Make((min.x + max.x)/2.0, (min.y + max.y) / 2.0);
     
     //получаем дочерние ноды
     BoundingBox tempBbox;
@@ -104,24 +103,24 @@ void MAXSceneGraph::SplitNode(MAXSceneGraphNode* parent)
     
     
     //левый верхний передний
-    tempBbox.min = GLKVector2Make(min.x, min.y);
-    tempBbox.max = GLKVector2Make(c.x, c.y);
-    parent->_childNodes[0] = new MAXSceneGraphNode(parent, tempBbox, newlwvwl);
+    tempBbox.min = Vector2Make(min.x, min.y);
+    tempBbox.max = Vector2Make(c.x, c.y);
+    parent->_childNodes[0] = new SceneGraphNode(parent, tempBbox, newlwvwl);
     
     //правый верхний передний
-    tempBbox.min = GLKVector2Make(c.x, min.y);
-    tempBbox.max = GLKVector2Make(max.x, c.y);
-    parent->_childNodes[1] = new MAXSceneGraphNode(parent, tempBbox, newlwvwl);
+    tempBbox.min = Vector2Make(c.x, min.y);
+    tempBbox.max = Vector2Make(max.x, c.y);
+    parent->_childNodes[1] = new SceneGraphNode(parent, tempBbox, newlwvwl);
     
     //левый верхний задний
-    tempBbox.min = GLKVector2Make(min.x, c.y);
-    tempBbox.max = GLKVector2Make(c.x, max.y);
-    parent->_childNodes[2] = new MAXSceneGraphNode(parent, tempBbox, newlwvwl);
+    tempBbox.min = Vector2Make(min.x, c.y);
+    tempBbox.max = Vector2Make(c.x, max.y);
+    parent->_childNodes[2] = new SceneGraphNode(parent, tempBbox, newlwvwl);
     
     //правый верхний задний
-    tempBbox.min = GLKVector2Make(c.x, c.y);
-    tempBbox.max = GLKVector2Make(max.x, max.y);
-    parent->_childNodes[3] = new MAXSceneGraphNode(parent, tempBbox, newlwvwl);
+    tempBbox.min = Vector2Make(c.x, c.y);
+    tempBbox.max = Vector2Make(max.x, max.y);
+    parent->_childNodes[3] = new SceneGraphNode(parent, tempBbox, newlwvwl);
     
     
     
@@ -132,13 +131,13 @@ void MAXSceneGraph::SplitNode(MAXSceneGraphNode* parent)
         {
             _leafSize = parent->_childNodes[0]->_boundingRect.max.x - parent->_childNodes[0]->_boundingRect.min.x;
             _leafMassiveSize = ((_baseNode->_boundingRect.max.x - _baseNode->_boundingRect.min.x) / _leafSize);
-            _leafs = (MAXSceneGraphNode**)malloc(_leafMassiveSize * _leafMassiveSize * sizeof(MAXSceneGraphNode*));
-            memset(_leafs, 0, _leafMassiveSize * _leafMassiveSize * sizeof(MAXSceneGraphNode*));
+            _leafs = (SceneGraphNode**)malloc(_leafMassiveSize * _leafMassiveSize * sizeof(SceneGraphNode*));
+            memset(_leafs, 0, _leafMassiveSize * _leafMassiveSize * sizeof(SceneGraphNode*));
         }
         for (int i = 0; i < 4; i++)
         {
             //заносим листы в массив
-            GLKVector2 center = parent->_childNodes[i]->_boundingRect.GetCenter();
+            Vector2 center = parent->_childNodes[i]->_boundingRect.GetCenter();
             int x = fabsf((_baseNode->_boundingRect.min.x - center.x) / _leafSize);
             int y = fabsf((_baseNode->_boundingRect.min.y - center.y) / _leafSize);
             _leafs[GetLeafArrayIndex(x, y)] = parent->_childNodes[i];
@@ -146,7 +145,7 @@ void MAXSceneGraph::SplitNode(MAXSceneGraphNode* parent)
     }
 }
 
-MAXSceneGraphNode* MAXSceneGraph::GetLeaf(PivotObject* entity)
+SceneGraphNode* SceneGraph::GetLeaf(PivotObject* entity)
 {
     BoundingBox rootBbox = _baseNode->_boundingRect;
     
@@ -170,18 +169,18 @@ MAXSceneGraphNode* MAXSceneGraph::GetLeaf(PivotObject* entity)
     return _leafs[GetLeafArrayIndex(minX, minZ)];
 }
 
-void MAXSceneGraph::RegistrateEntity(PivotObject *entity, MAXSceneGraphNode *node)
+void SceneGraph::RegistrateEntity(PivotObject *entity, SceneGraphNode *node)
 {
     node->_entities_w->addObject(entity);
     if (_objectNodeMap.count(entity) == 1)
         _objectNodeMap[entity] = node;
     else
-        _objectNodeMap.insert(pair<PivotObject*, MAXSceneGraphNode*>(entity, node));
+        _objectNodeMap.insert(pair<PivotObject*, SceneGraphNode*>(entity, node));
 }
 
-void MAXSceneGraph::AddObject(PivotObject *entity)
+void SceneGraph::AddObject(PivotObject *entity)
 {
-    MAXSceneGraphNode* leaf = GetLeaf(entity);
+    SceneGraphNode* leaf = GetLeaf(entity);
     while (!_nodeStack.empty())
         _nodeStack.pop();
     
@@ -189,7 +188,7 @@ void MAXSceneGraph::AddObject(PivotObject *entity)
     
     while (!_nodeStack.empty())
     {
-        MAXSceneGraphNode* node = _nodeStack.top();
+        SceneGraphNode* node = _nodeStack.top();
         _nodeStack.pop();
         
         ContainmentType containmentType = GetContainmentType(node->_boundingRect, entity->_boundingShape);
@@ -217,17 +216,17 @@ void MAXSceneGraph::AddObject(PivotObject *entity)
     }
 }
 
-void MAXSceneGraph::RemoveObject(PivotObject* wo)
+void SceneGraph::RemoveObject(PivotObject* wo)
 {
     if (!_objectNodeMap.count(wo))
         return;
     
-    MAXSceneGraphNode *node = _objectNodeMap[wo];
+    SceneGraphNode *node = _objectNodeMap[wo];
     node->_entities_w->removeObject(wo);
     _objectNodeMap.erase(wo);
 }
 
-void MAXSceneGraph::Clear()
+void SceneGraph::Clear()
 {
     for (int i = 0; i < _scene_w->GetObjects()->GetCount(); i++)
     {
@@ -236,13 +235,13 @@ void MAXSceneGraph::Clear()
     }
 }
 
-void MAXSceneGraph::CalculateVisibleObjects(BoundingBox viewField, USimpleContainer<PivotObject*> *container)
+void SceneGraph::CalculateVisibleObjects(BoundingBox viewField, USimpleContainer<PivotObject*> *container)
 {
     container->clear();
     Query(viewField, container);
 }
 
-void MAXSceneGraph::GetSubtree(MAXSceneGraphNode *node, USimpleContainer<PivotObject*> *visibleEntities)
+void SceneGraph::GetSubtree(SceneGraphNode *node, USimpleContainer<PivotObject*> *visibleEntities)
 {
     while (!_subtreeStack.empty())
         _subtreeStack.pop();
@@ -250,7 +249,7 @@ void MAXSceneGraph::GetSubtree(MAXSceneGraphNode *node, USimpleContainer<PivotOb
     
     while (!_subtreeStack.empty())
     {
-        MAXSceneGraphNode *n = _subtreeStack.top();
+        SceneGraphNode *n = _subtreeStack.top();
         _subtreeStack.pop();
         
         for (int i = 0; i < n->_entities_w->GetCount(); i++)
@@ -268,7 +267,7 @@ void MAXSceneGraph::GetSubtree(MAXSceneGraphNode *node, USimpleContainer<PivotOb
     }
 }
 
-void MAXSceneGraph::Query(BoundingBox frustum, USimpleContainer<PivotObject*> *visibleEntities)
+void SceneGraph::Query(BoundingBox frustum, USimpleContainer<PivotObject*> *visibleEntities)
 {
     _visibleObjectCount = 0;
     _nodeTestCount = 0;
@@ -282,7 +281,7 @@ void MAXSceneGraph::Query(BoundingBox frustum, USimpleContainer<PivotObject*> *v
     
     while (!_nodeStack.empty())
     {
-        MAXSceneGraphNode *node = _nodeStack.top();
+        SceneGraphNode *node = _nodeStack.top();
         _nodeStack.pop();
         _nodeTestCount++;
         containmentType = GetContainmentType(frustum, node->_boundingRect);
@@ -327,7 +326,7 @@ void MAXSceneGraph::Query(BoundingBox frustum, USimpleContainer<PivotObject*> *v
     }
 }
 
-void MAXSceneGraph::Update(USimpleContainer<PivotObject*>* objects)
+void SceneGraph::Update(USimpleContainer<PivotObject*>* objects)
 {
     _entityRecalculateCount = 0;
     for (int i = 0; i < objects->GetCount(); i++)

@@ -1,32 +1,33 @@
 //
 //  SceneGraphNode.h
-//  MAX
+//  Asteroids
 //
 //  Created by  Developer on 17.02.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.
 //
 
-#ifndef __MAX__MAXSceneGraphNode__
-#define __MAX__MAXSceneGraphNode__
+#ifndef __MAX__SceneGraphNode__
+#define __MAX__SceneGraphNode__
 
 #include <iostream>
 #include "miniPrefix.h"
 
 class PivotObject;
+using namespace Utils;
 
-class MAXSceneGraphNode {
+class SceneGraphNode {
     
 public:
     
-    MAXSceneGraphNode                       *_parentNode_w;
-    MAXSceneGraphNode                       *_childNodes[4];
+    SceneGraphNode                       *_parentNode_w;
+    SceneGraphNode                       *_childNodes[4];
     BoundingBox                             _boundingRect;
     int                                     _nestingLevel;
     USimpleContainer<PivotObject*>          *_entities_w;
     
     
-    MAXSceneGraphNode(MAXSceneGraphNode *parentNode, BoundingBox bb, int level);
-    ~MAXSceneGraphNode();
+    SceneGraphNode(SceneGraphNode *parentNode, BoundingBox bb, int level);
+    ~SceneGraphNode();
 };
 
 #endif /* defined(__MAX__SceneGraphNode__) */

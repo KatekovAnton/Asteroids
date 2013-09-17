@@ -1,6 +1,6 @@
 //
 //  MAXDrawPrimitives.cpp
-//  MAX
+//  Asteroids
 //
 //  Created by Anton Katekov on 11.02.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.
@@ -18,7 +18,7 @@ MAXDrawPrimitives::MAXDrawPrimitives()
     _shader = new Shader("ShaderLine.vsh", "ShaderLine.fsh");//UNIFORM_VECTOR1 for color UNIFORM_PROJECTION_MATRIX for projection
     
     float _displayScale = Display::currentDisplay()->GetDisplayScale();
-    Rect bounds = RectMake(0, 0, Display::currentDisplay()->GetDisplayWidth()/_displayScale, Display::currentDisplay()->GetDisplayHeight()/_displayScale);
+    MRect bounds = RectMake(0, 0, Display::currentDisplay()->GetDisplayWidth()/_displayScale, Display::currentDisplay()->GetDisplayHeight()/_displayScale);
     float _scalex = 1.0/bounds.size.width;
     float _scaley = 1.0/bounds.size.height;
     
