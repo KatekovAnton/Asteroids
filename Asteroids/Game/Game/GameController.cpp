@@ -7,9 +7,17 @@
 //
 
 #include "GameController.h"
+#include "GameShip.h"
 
 GameController::GameController()
-{}
+{
+    _ship = new GameShip();
+    _ship->Show();
+}
 
 GameController::~GameController()
-{}
+{
+    _ship->Hide();
+    delete _ship;
+}
+

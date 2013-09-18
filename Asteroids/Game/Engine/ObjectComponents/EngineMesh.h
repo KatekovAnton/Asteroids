@@ -11,11 +11,13 @@
 
 #include <iostream>
 #include "Math.h"
+#include "GlobalConstants.h"
 
 using namespace std;
 
 class EngineMesh {
-    
+  
+protected:
     bool _disposed;
     
     GLuint          _indexBuffer;
@@ -30,12 +32,13 @@ public:
     EngineMesh();
     EngineMesh(void * vertices, long vSize, void *indices, long iSize);
 
+    void Init(void * vertices, long vSize, void *indices, long iSize);
     
-    ~EngineMesh();
+    virtual ~EngineMesh();
 
-    void Bind() const;
-    void Render() const;
-    void Unbind() const;
+    virtual void Bind() const;
+    virtual void Render() const;
+    virtual void Unbind() const;
     
     
     virtual void Dispose();

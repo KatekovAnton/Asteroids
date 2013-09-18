@@ -10,10 +10,26 @@
 #define __Asteroids__GameObject__
 
 #include <iostream>
+#include "Math.h"
+
+class SimpleWireframeObject;
 
 class GameObject {
     
+protected:
+    
+    SimpleWireframeObject *_object;
+    bool _isShowing;
+    
 public:
+    
+    GameObject();
+    virtual ~GameObject();
+    
+    void Show();
+    void Hide();
+    
+    virtual void SetPosition(Vector2 position);
     
 };
 

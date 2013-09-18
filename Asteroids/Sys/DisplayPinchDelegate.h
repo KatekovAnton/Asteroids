@@ -1,0 +1,23 @@
+//
+//  DisplayPinchDelegate.h
+// Asterids
+//
+//  Created by  Developer on 25.12.12.
+//  Copyright (c) 2012 AntonKatekov. All rights reserved.
+//
+
+#ifndef __MAX__DisplayPinchDelegate__
+#define __MAX__DisplayPinchDelegate__
+
+class DisplayPinchDelegate {
+    
+public:
+    virtual bool CanStartPinch(float x, float y);
+    virtual void ProceedPinch(float scale);
+    virtual void ProceedPan(float speedx, float speedy);
+    virtual void ProceedTap(float tapx, float tapy);
+    virtual void ProceedLongTap(float tapx, float tapy);
+    virtual void onDeviceMoved(double x, double y);
+};
+
+#endif /* defined(__MAX__DisplayPinchDelegate__) */

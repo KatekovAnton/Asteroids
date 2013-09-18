@@ -32,8 +32,14 @@ ACamera::ACamera(MRect bounds, float displayScale)
     mapW = DEFAULT_MAP_PART;
     
     this->view = Matrix4Identity;
+    float _scalex = 1.0/bounds.size.width;
+    float _scaley = 1.0/bounds.size.height;
+        
+    Matrix4 scalematr = Matrix4MakeScale(_scalex, _scaley, 1);
+    scalematr.m30 = -1;
+    scalematr.m31 = -1;
+    projection = scalematr;
     
-    projection = Matrix4MakeScale(_scalex, _scaley, 1);
     minDepth = 0.1;
     maxDepth = 100.0;
     screenSize = bounds.size;

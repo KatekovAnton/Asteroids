@@ -95,12 +95,6 @@ void PivotObject::Draw(Shader *shader)
     GetRenderAspect()->Render();
 }
 
-void PivotObject::DrawLow(Shader* shader)
-{
-    shader->SetMatrixValue(UNIFORM_MODEL_MATRIX, _transformMatrix.m);
-    GetRenderAspect()->Render();
-}
-
 RenderObject * PivotObject::GetRenderAspect() {
     return NULL;
 }

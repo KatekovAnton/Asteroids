@@ -8,7 +8,6 @@
 
 #include "EngineMesh.h"
 #include "BinaryReader.h"
-#include "GlobalConstants.h"
 
 const int vertexSize = sizeof(vertexStruct);
 const size_t vertexPositionOffset = offsetof(vertexStruct,position);
@@ -131,21 +130,33 @@ GLushort planeIndexData[6] =
 EngineMesh::EngineMesh()
 {
     _disposed = true;
+    _vertexBuffer = 0;
+    _indexBuffer = 0;
 }
 
 EngineMesh::EngineMesh(void * vertices, long vSize, void *indices, long iSize):_vSize(vSize), _iSize(iSize)
 { 
+    Init(vertices, vSize, indices, iSize);
+}
+
+void EngineMesh::Init(void * vertices, long vSize, void *indices, long iSize)
+{
+    if (!_disposed) 
+        Dispose();
+    
     glEnable(GL_DEPTH_TEST);
     
     glGenBuffers(1, &_vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, vSize, vertices, GL_STATIC_DRAW);
-    
-    glGenBuffers(1, &_indexBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, iSize, indices, GL_STATIC_DRAW);
-    
-    _primitivesCount = iSize/sizeof(GLushort);
+
+    if (indices) {
+        glGenBuffers(1, &_indexBuffer);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, iSize, indices, GL_STATIC_DRAW);
+    }
+
+    _primitivesCount = vSize/sizeof(vertexStruct);
     
     _disposed = false;
 	Unbind();
@@ -175,7 +186,11 @@ void EngineMesh::Dispose()
         return;
 
     glDeleteBuffers(1, &_vertexBuffer);
-    glDeleteBuffers(1, &_indexBuffer);
+    if (_indexBuffer)
+        glDeleteBuffers(1, &_indexBuffer);
+    
+    _vertexBuffer = 0;
+    _indexBuffer = 0;
     _disposed = true;
 }
 

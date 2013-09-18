@@ -66,6 +66,8 @@ public:
     double FullTime() const {return _fullTime;};
     void RunLoop(double delta);
     
+    void AddUnit(PivotObject* newUnit);
+    void RemoveUnit(PivotObject* newUnit);
     
     void Update();
 	void DrawStart();

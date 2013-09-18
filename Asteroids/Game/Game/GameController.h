@@ -11,7 +11,11 @@
 
 #include <iostream>
 
+class GameShip;
+
 class GameController {
+    
+    GameShip *_ship;
     
 public:
     

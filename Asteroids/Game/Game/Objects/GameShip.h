@@ -10,5 +10,21 @@
 #define __Asteroids__GameShip__
 
 #include <iostream>
+#include "GameObject.h"
+#include "ObjectControlledBehaviorModelDelegate.h"
+
+class GameShip : public GameObject, public ObjectControlledBehaviorModelDelegate {
+    
+public:
+    
+    GameShip();
+    virtual ~GameShip();
+    
+#pragma mark - ObjectControlledBehaviorModelDelegate
+        
+    virtual Vector3 GetMoveVector(void *sender);
+    virtual void OnObjectCollidedToObject(void *sender, void *collider);
+    
+};
 
 #endif /* defined(__Asteroids__GameShip__) */

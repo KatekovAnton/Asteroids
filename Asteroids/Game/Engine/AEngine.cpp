@@ -23,6 +23,7 @@
 #include "ACamera.h"
 #include "RenderObject.h"
 #include "MAXDrawPrimitives.h"
+#include "PivotObject.h"
 
 AEngine globalEngine;
 AEngine * engine = &globalEngine;
@@ -52,22 +53,20 @@ void AEngine::Init() {
     
     MRect _screenRect = RectMake(0, 0, _renderSystem->GetDisplay()->GetDisplayWidth()/_renderSystem->GetDisplay()->GetDisplayScale(), _renderSystem->GetDisplay()->GetDisplayHeight()/_renderSystem->GetDisplay()->GetDisplayScale());
     _camera = new ACamera(_screenRect,1.0);
-    
    
    
     MAXDrawPrimitives::SharedDrawPrimitives();
 
     GCCHECK_GL_ERROR_DEBUG(); 
 
-        
+    _shaderObjects = new Shader("ShaderWireframeObject.vsh", "ShaderWireframeObject.fsh");
        
     //float scale = _renderSystem->GetDisplay()->GetDisplayScale();
     //_renderSystem->GetDisplay()->setDesignResolutionSize(_renderSystem->GetDisplay()->GetDisplayWidth()/scale, _renderSystem->GetDisplay()->GetDisplayHeight()/scale, kResolutionNoBorder);
     _animationManager = new MAXAnimationManager();
     
 	
-	_scene = NULL;
-    
+    _scene = new SceneSystem();
 }
 
 void AEngine::GetAllObjectsInArea(BoundingBox bb, USimpleContainer<PivotObject*> *buffer)
@@ -92,6 +91,19 @@ void AEngine::RunLoop(double delta)
     
     
     this->EndFrame();
+}
+
+void AEngine::AddUnit(PivotObject* newUnit)
+{
+    _scene->AddObject(newUnit, true);
+    newUnit->HasBeenLocatedToScene();
+}
+
+void AEngine::RemoveUnit(PivotObject* newUnit)
+{
+	if (_scene)
+	    _scene->RemoveObject(newUnit);
+    newUnit->HasBeenRemovedFromScene();
 }
 
 void AEngine::FinishLoading()
@@ -148,10 +160,15 @@ void AEngine::Draw()
 		glDisable(GL_DEPTH_TEST);
 		glDisable(GL_BLEND);
     
-		
+        glUseProgram(_shaderObjects->GetProgram());
+        _shaderObjects->SetMatrixValue(UNIFORM_PROJECTION_MATRIX, _camera->projection.m);
+        
+		USimpleContainer<PivotObject*> *objects = _scene->GetObjects();
+        for (int i = 0; i < objects->GetCount(); i++) {
+            PivotObject *obj = objects->objectAtIndex(i);
+            obj->Draw(_shaderObjects);
+        }
     }
-    MAXDrawPrimitives::SharedDrawPrimitives()->Begin();
-    MAXDrawPrimitives::SharedDrawPrimitives()->DrawLine(Vector2Make(0, 0), Vector2Make(10, 10));
     
 }
 

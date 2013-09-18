@@ -68,7 +68,6 @@ public:
     virtual void HasBeenRemovedFromScene();
     
     virtual void Draw(Shader* shader);
-    virtual void DrawLow(Shader* shader);
     
     void SetIsOnScreen(bool isOnScreen);
     

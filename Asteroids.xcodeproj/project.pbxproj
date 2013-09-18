@@ -10,10 +10,18 @@
 		D16838FD17E9D5A7003BA41F /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16838FB17E9D5A7003BA41F /* GameObject.cpp */; };
 		D168390017E9D5D7003BA41F /* GameShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16838FE17E9D5D6003BA41F /* GameShip.cpp */; };
 		D168390317E9D5E6003BA41F /* GameAsteroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168390117E9D5E5003BA41F /* GameAsteroid.cpp */; };
-		D168390617E9D8E9003BA41F /* SimpleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168390417E9D8E9003BA41F /* SimpleObject.cpp */; };
+		D168390617E9D8E9003BA41F /* SimpleWireframeObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168390417E9D8E9003BA41F /* SimpleWireframeObject.cpp */; };
 		D168390F17E9DC30003BA41F /* ObjectBehaviourModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168390917E9DC30003BA41F /* ObjectBehaviourModel.cpp */; };
 		D168391117E9DC30003BA41F /* StaticObjectBehaviorModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168390D17E9DC30003BA41F /* StaticObjectBehaviorModel.cpp */; };
 		D168391417E9E263003BA41F /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168391217E9E261003BA41F /* GameController.cpp */; };
+		D168391917E9FCC5003BA41F /* GameShipBullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168391717E9FCC2003BA41F /* GameShipBullet.cpp */; };
+		D168391C17E9FDB0003BA41F /* ObjectControlledBehaviorModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168391A17E9FDAD003BA41F /* ObjectControlledBehaviorModel.cpp */; };
+		D168392017EA03AD003BA41F /* EngineWireframe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168391E17EA03AD003BA41F /* EngineWireframe.cpp */; };
+		D168392517EA16DA003BA41F /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D168392317EA16CC003BA41F /* Game.cpp */; };
+		D168392817EA1DAB003BA41F /* ShaderWireframeObject.fsh in Sources */ = {isa = PBXBuildFile; fileRef = D168392617EA1DAA003BA41F /* ShaderWireframeObject.fsh */; };
+		D168392917EA1DAB003BA41F /* ShaderWireframeObject.vsh in Sources */ = {isa = PBXBuildFile; fileRef = D168392717EA1DAB003BA41F /* ShaderWireframeObject.vsh */; };
+		D168392A17EA1DC4003BA41F /* ShaderWireframeObject.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D168392617EA1DAA003BA41F /* ShaderWireframeObject.fsh */; };
+		D168392B17EA1DC5003BA41F /* ShaderWireframeObject.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D168392717EA1DAB003BA41F /* ShaderWireframeObject.vsh */; };
 		D175813217DCB29B0060E2F6 /* AEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175812E17DCB29B0060E2F6 /* AEngine.cpp */; };
 		D175813317DCB29B0060E2F6 /* ACamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175813017DCB29B0060E2F6 /* ACamera.cpp */; };
 		D175814F17DCC1690060E2F6 /* MAXAnimationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175813F17DCC1680060E2F6 /* MAXAnimationManager.cpp */; };
@@ -68,14 +76,25 @@
 		D16838FF17E9D5D6003BA41F /* GameShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameShip.h; sourceTree = "<group>"; };
 		D168390117E9D5E5003BA41F /* GameAsteroid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameAsteroid.cpp; sourceTree = "<group>"; };
 		D168390217E9D5E6003BA41F /* GameAsteroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAsteroid.h; sourceTree = "<group>"; };
-		D168390417E9D8E9003BA41F /* SimpleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleObject.cpp; sourceTree = "<group>"; };
-		D168390517E9D8E9003BA41F /* SimpleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleObject.h; sourceTree = "<group>"; };
+		D168390417E9D8E9003BA41F /* SimpleWireframeObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleWireframeObject.cpp; sourceTree = "<group>"; };
+		D168390517E9D8E9003BA41F /* SimpleWireframeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleWireframeObject.h; sourceTree = "<group>"; };
 		D168390917E9DC30003BA41F /* ObjectBehaviourModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = ObjectBehaviourModel.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		D168390A17E9DC30003BA41F /* ObjectBehaviourModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ObjectBehaviourModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D168390D17E9DC30003BA41F /* StaticObjectBehaviorModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StaticObjectBehaviorModel.cpp; sourceTree = "<group>"; };
 		D168390E17E9DC30003BA41F /* StaticObjectBehaviorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticObjectBehaviorModel.h; sourceTree = "<group>"; };
 		D168391217E9E261003BA41F /* GameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
 		D168391317E9E262003BA41F /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		D168391717E9FCC2003BA41F /* GameShipBullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameShipBullet.cpp; sourceTree = "<group>"; };
+		D168391817E9FCC4003BA41F /* GameShipBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameShipBullet.h; sourceTree = "<group>"; };
+		D168391A17E9FDAD003BA41F /* ObjectControlledBehaviorModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectControlledBehaviorModel.cpp; sourceTree = "<group>"; };
+		D168391B17E9FDAE003BA41F /* ObjectControlledBehaviorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectControlledBehaviorModel.h; sourceTree = "<group>"; };
+		D168391D17E9FDC3003BA41F /* ObjectControlledBehaviorModelDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectControlledBehaviorModelDelegate.h; sourceTree = "<group>"; };
+		D168391E17EA03AD003BA41F /* EngineWireframe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EngineWireframe.cpp; sourceTree = "<group>"; };
+		D168391F17EA03AD003BA41F /* EngineWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineWireframe.h; sourceTree = "<group>"; };
+		D168392317EA16CC003BA41F /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = Asteroids/Game/Game.cpp; sourceTree = SOURCE_ROOT; };
+		D168392417EA16D4003BA41F /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Asteroids/Game/Game.h; sourceTree = SOURCE_ROOT; };
+		D168392617EA1DAA003BA41F /* ShaderWireframeObject.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShaderWireframeObject.fsh; sourceTree = "<group>"; };
+		D168392717EA1DAB003BA41F /* ShaderWireframeObject.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShaderWireframeObject.vsh; sourceTree = "<group>"; };
 		D175812E17DCB29B0060E2F6 /* AEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AEngine.cpp; sourceTree = "<group>"; };
 		D175812F17DCB29B0060E2F6 /* AEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEngine.h; sourceTree = "<group>"; };
 		D175813017DCB29B0060E2F6 /* ACamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ACamera.cpp; sourceTree = "<group>"; };
@@ -198,6 +217,9 @@
 				D168390A17E9DC30003BA41F /* ObjectBehaviourModel.h */,
 				D168390D17E9DC30003BA41F /* StaticObjectBehaviorModel.cpp */,
 				D168390E17E9DC30003BA41F /* StaticObjectBehaviorModel.h */,
+				D168391A17E9FDAD003BA41F /* ObjectControlledBehaviorModel.cpp */,
+				D168391B17E9FDAE003BA41F /* ObjectControlledBehaviorModel.h */,
+				D168391D17E9FDC3003BA41F /* ObjectControlledBehaviorModelDelegate.h */,
 			);
 			path = ObjectBehaviourModel;
 			sourceTree = "<group>";
@@ -252,6 +274,8 @@
 				D16838FF17E9D5D6003BA41F /* GameShip.h */,
 				D168390117E9D5E5003BA41F /* GameAsteroid.cpp */,
 				D168390217E9D5E6003BA41F /* GameAsteroid.h */,
+				D168391717E9FCC2003BA41F /* GameShipBullet.cpp */,
+				D168391817E9FCC4003BA41F /* GameShipBullet.h */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -261,6 +285,8 @@
 			children = (
 				D175816317DCC7BF0060E2F6 /* ShaderLine.fsh */,
 				D175816417DCC7BF0060E2F6 /* ShaderLine.vsh */,
+				D168392617EA1DAA003BA41F /* ShaderWireframeObject.fsh */,
+				D168392717EA1DAB003BA41F /* ShaderWireframeObject.vsh */,
 				D175816017DCC7A40060E2F6 /* Shader.cpp */,
 				D175816117DCC7A40060E2F6 /* Shader.h */,
 			);
@@ -277,8 +303,8 @@
 				D175818117DCD60A0060E2F6 /* RenderObject.h */,
 				D175818217DCD60A0060E2F6 /* UnAnimRenderObject.cpp */,
 				D175818317DCD60A0060E2F6 /* UnAnimRenderObject.h */,
-				D168390417E9D8E9003BA41F /* SimpleObject.cpp */,
-				D168390517E9D8E9003BA41F /* SimpleObject.h */,
+				D168390417E9D8E9003BA41F /* SimpleWireframeObject.cpp */,
+				D168390517E9D8E9003BA41F /* SimpleWireframeObject.h */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -288,6 +314,8 @@
 			children = (
 				D175816B17DCC8110060E2F6 /* EngineMesh.cpp */,
 				D175816C17DCC8110060E2F6 /* EngineMesh.h */,
+				D168391E17EA03AD003BA41F /* EngineWireframe.cpp */,
+				D168391F17EA03AD003BA41F /* EngineWireframe.h */,
 			);
 			path = ObjectComponents;
 			sourceTree = "<group>";
@@ -343,7 +371,6 @@
 				D1D50F7217D7343D00089275 /* Sys */,
 				D1D50F8217D742A800089275 /* Utils */,
 				D1D50FDF17D9D26800089275 /* Game */,
-				D1D50F5617D7342800089275 /* Supporting Files */,
 			);
 			path = Asteroids;
 			sourceTree = "<group>";
@@ -360,6 +387,7 @@
 				D1D50F7E17D7357C00089275 /* miniPrefix.h */,
 			);
 			name = "Supporting Files";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D1D50F7217D7343D00089275 /* Sys */ = {
@@ -426,6 +454,9 @@
 		D1D50FDF17D9D26800089275 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				D168392317EA16CC003BA41F /* Game.cpp */,
+				D168392417EA16D4003BA41F /* Game.h */,
+				D1D50F5617D7342800089275 /* Supporting Files */,
 				D1D50FE117D9D27D00089275 /* Game */,
 				D1D50FE017D9D27700089275 /* Engine */,
 			);
@@ -512,6 +543,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D168392A17EA1DC4003BA41F /* ShaderWireframeObject.fsh in Resources */,
+				D168392B17EA1DC5003BA41F /* ShaderWireframeObject.vsh in Resources */,
 				D175816717DCC7CA0060E2F6 /* ShaderLine.fsh in Resources */,
 				D175816817DCC7CA0060E2F6 /* ShaderLine.vsh in Resources */,
 				D1D50F5A17D7342800089275 /* InfoPlist.strings in Resources */,
@@ -562,10 +595,16 @@
 				D16838FD17E9D5A7003BA41F /* GameObject.cpp in Sources */,
 				D168390017E9D5D7003BA41F /* GameShip.cpp in Sources */,
 				D168390317E9D5E6003BA41F /* GameAsteroid.cpp in Sources */,
-				D168390617E9D8E9003BA41F /* SimpleObject.cpp in Sources */,
+				D168390617E9D8E9003BA41F /* SimpleWireframeObject.cpp in Sources */,
 				D168390F17E9DC30003BA41F /* ObjectBehaviourModel.cpp in Sources */,
 				D168391117E9DC30003BA41F /* StaticObjectBehaviorModel.cpp in Sources */,
 				D168391417E9E263003BA41F /* GameController.cpp in Sources */,
+				D168391917E9FCC5003BA41F /* GameShipBullet.cpp in Sources */,
+				D168391C17E9FDB0003BA41F /* ObjectControlledBehaviorModel.cpp in Sources */,
+				D168392017EA03AD003BA41F /* EngineWireframe.cpp in Sources */,
+				D168392517EA16DA003BA41F /* Game.cpp in Sources */,
+				D168392817EA1DAB003BA41F /* ShaderWireframeObject.fsh in Sources */,
+				D168392917EA1DAB003BA41F /* ShaderWireframeObject.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

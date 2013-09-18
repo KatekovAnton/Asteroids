@@ -18,7 +18,8 @@ Matrix4 ObjectBehaviourModel::GetGlobalPosition() {
 }
 
 void ObjectBehaviourModel::SetGlobalPosition(const Matrix4& globalPosition, void *aditionalData, const PivotObject *parent, bool afterUpdate) {
-    
+    _currentPosition = globalPosition;
+    moved = true;
 }
 
 void ObjectBehaviourModel::SetPosition(const Matrix4& position)

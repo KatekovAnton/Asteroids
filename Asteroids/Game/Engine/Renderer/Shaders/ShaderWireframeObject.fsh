@@ -1,5 +1,5 @@
 //
-//  Shader.fsh
+//  ShaderWireframeObject.fsh
 //  Asteroids
 //
 //  Created by Katekov Anton on 13.02.12.
