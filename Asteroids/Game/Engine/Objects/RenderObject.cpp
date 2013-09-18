@@ -10,16 +10,7 @@
 
 
 RenderObject::RenderObject() {
-    additionalOpacity = 1.0;
-    pictureTehnique = string();
-    shadowTehnique = string();
-    isAnimated = false;
-    isShadowCaster = false;
-    isShadowReceiver = false;
-    
-    isVisible = false;
-    isTransparent = false;
-    isSelfIllumination = false;
+
 }
 
 RenderObject::~RenderObject() {

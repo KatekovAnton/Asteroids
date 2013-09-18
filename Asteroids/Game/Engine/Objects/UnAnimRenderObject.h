@@ -13,6 +13,7 @@
 #include "RenderObject.h"
 
 class EngineMesh;
+using namespace std;
 
 class UnAnimRenderObject : public RenderObject {
     
@@ -21,7 +22,7 @@ class UnAnimRenderObject : public RenderObject {
 public:
     
     UnAnimRenderObject(shared_ptr<EngineMesh> mesh);
-    ~UnAnimRenderObject();
+    virtual ~UnAnimRenderObject();
     
     virtual void Render();
 };

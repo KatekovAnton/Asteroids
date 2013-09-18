@@ -11,25 +11,9 @@
 
 #include <iostream>
 
-class Material;
-
-using namespace std;
-
 class RenderObject {
 public:
-    string          pictureTehnique;
-    string          shadowTehnique;
-    
-    bool            isAnimated;
-    bool            isShadowReceiver;
-    bool            isShadowCaster;
-    
-    bool            isVisible;
-    bool            isTransparent;
-    bool            isSelfIllumination;
-    
-    float           additionalOpacity;
-    
+
     
     RenderObject();
     virtual ~RenderObject();

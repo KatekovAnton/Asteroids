@@ -32,9 +32,10 @@ protected:
     
     Matrix4              _transformMatrix;
     unsigned _objectId;
-    
+    ObjectBehaviourModel *_objectBehaviourModel;
     
 public:
+    ObjectBehaviourModel* GetBehavoiurModel() const {return _objectBehaviourModel;}
     
     Vector2  _bbsize;
     BoundingBox _boundingShape;
@@ -47,7 +48,7 @@ public:
     bool        moved;
     bool        forceHidden;
     
-    PivotObject();
+    PivotObject(ObjectBehaviourModel *model);
     virtual ~PivotObject();
 
     Matrix4 GetTransformMatrix() const { return _transformMatrix; }

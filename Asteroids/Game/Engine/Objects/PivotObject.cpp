@@ -11,7 +11,7 @@
 #include "Math.h"
 #include "Shader.h"
 #include "AEngine.h"
-
+#include "ObjectBehaviourModel.h"
 
 int compareDummy(const void * a, const void * b)
 {
@@ -23,7 +23,9 @@ compareFunc PivotObject::GetCompareFunc()
     return &compareDummy;
 }
 
-PivotObject::PivotObject() {
+PivotObject::PivotObject(ObjectBehaviourModel *model)
+:_objectBehaviourModel(model)
+{
 
     _transformMatrix = Matrix4Identity;
     _isOnScreen = true;
@@ -33,26 +35,26 @@ PivotObject::PivotObject() {
 }
 
 void PivotObject::Update() {
- //   _transformMatrix = _objectBehaviourModel->GetGlobalPosition();
+    _transformMatrix = _objectBehaviourModel->GetGlobalPosition();
 //    if (moved)
 //        raycastaspect.boundingShape.Update(transform);
 }
 
 void PivotObject::SetGlobalPosition(Matrix4 globalPosition, void *aditionalData, PivotObject *parent, bool afterUpdate)
 {
-   // _objectBehaviourModel->SetGlobalPosition(globalPosition, aditionalData, parent, afterUpdate);
+    _objectBehaviourModel->SetGlobalPosition(globalPosition, aditionalData, parent, afterUpdate);
     moved = true;
     _transformMatrix = globalPosition;
     if (afterUpdate)
     {
-       // _objectBehaviourModel->EndFrame();
+        _objectBehaviourModel->EndFrame();
         Update();
         AfterUpdate();
     }
-//    else
-//    {
-//        _transformMatrix = _objectBehaviourModel->GetGlobalPosition();
-//    }
+    else
+    {
+        _transformMatrix = _objectBehaviourModel->GetGlobalPosition();
+    }
 }
 
 void PivotObject::AfterUpdate()
@@ -65,18 +67,18 @@ void PivotObject::SetIsOnScreen(bool isOnScreen) {
 }
 
 void PivotObject::BeginFrame() {
-    //_objectBehaviourModel->BeginFrame();
+    _objectBehaviourModel->BeginFrame();
    // SetIsOnScreen(false);
 }
 
 void PivotObject::Frame(double time) {
-    //_objectBehaviourModel->Frame(time);
+    _objectBehaviourModel->Frame(time);
 }
 
 void PivotObject::EndFrame() {
-   // _objectBehaviourModel->EndFrame();
-   // moved = _objectBehaviourModel->moved;
-   // _transformMatrix = _objectBehaviourModel->GetGlobalPosition();
+    _objectBehaviourModel->EndFrame();
+    moved = _objectBehaviourModel->moved;
+    _transformMatrix = _objectBehaviourModel->GetGlobalPosition();
 }
 
 void PivotObject::HasBeenLocatedToScene()
@@ -108,11 +110,11 @@ Material * PivotObject::GetMaterial() {
 }
 
 void PivotObject::SetPosition(const Vector3& position) {
-  //  _objectBehaviourModel->SetPosition(Matrix4MakeTranslationV(position));
+    _objectBehaviourModel->SetPosition(Matrix4MakeTranslationV(position));
 }
 
 PivotObject::~PivotObject() {
-   // delete _objectBehaviourModel;
+    delete _objectBehaviourModel;
 }
 
 void PivotObject::LastUpdate(bool low)

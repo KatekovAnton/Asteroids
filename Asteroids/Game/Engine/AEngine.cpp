@@ -148,12 +148,11 @@ void AEngine::Draw()
 		glDisable(GL_DEPTH_TEST);
 		glDisable(GL_BLEND);
     
-		GLint prog;
-		glGetIntegerv(GL_CURRENT_PROGRAM, &prog);
-	
 		
-		glUseProgram(prog);
     }
+    MAXDrawPrimitives::SharedDrawPrimitives()->Begin();
+    MAXDrawPrimitives::SharedDrawPrimitives()->DrawLine(Vector2Make(0, 0), Vector2Make(10, 10));
+    
 }
 
 void AEngine::EndFrame()
