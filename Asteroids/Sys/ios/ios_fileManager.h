@@ -1,13 +1,13 @@
 //
 //  ios_fileManager.h
-//  Asterids
+//  Asteroids
 //
 //  Created by Katekov Anton on 11/3/12.
 //
 //
 
-#ifndef __Asterids__ios_fileManager__
-#define __Asterids__ios_fileManager__
+#ifndef __Asteroids__ios_fileManager__
+#define __Asteroids__ios_fileManager__
 
 #include <iostream>
 
@@ -24,4 +24,4 @@ public:
     virtual GLubyte * CreateBitmapData(char* data, size_t size, GLfloat *width, GLfloat *heigth);
 };
 
-#endif /* defined(__Asterids__ios_fileManager__) */
+#endif /* defined(__Asteroids__ios_fileManager__) */

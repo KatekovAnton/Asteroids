@@ -1,13 +1,13 @@
 //
 //  FileManger.h
-//  Asterids
+//  Asteroids
 //
 //  Created by Katekov Anton on 11/3/12.
 //
 //
 
-#ifndef __Asterids__FileManger__
-#define __Asterids__FileManger__
+#ifndef __Asteroids__FileManger__
+#define __Asteroids__FileManger__
 
 #include <iostream>
 #include "GlobalConstants.h"
@@ -29,4 +29,4 @@ public:
     virtual GLubyte * CreateBitmapData(char* data, size_t size, GLfloat *width, GLfloat *heigth);
 };
 
-#endif /* defined(__Asterids__FileManger__) */
+#endif /* defined(__Asteroids__FileManger__) */

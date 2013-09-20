@@ -236,7 +236,7 @@ extern "C" {
         return rect;
     };
     
-    static inline BoundingBox BoundingBoxMake(Vector2 min, Vector2 max) {
+    static inline BoundingBox BoundingBoxMakeV(Vector2 min, Vector2 max) {
         BoundingBox rect;
         rect.min = min;
         rect.max = max;

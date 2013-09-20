@@ -1,6 +1,6 @@
 //
 //  BinaryReader.cpp
-//  Asterids
+//  Asteroids
 //
 //  Created by Mister Pattern on 11/19/12.
 //

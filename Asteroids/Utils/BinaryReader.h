@@ -1,13 +1,13 @@
 //
 //  BinaryReader.h
-//  Asterids
+//  Asteroids
 //
 //  Created by Mister Pattern on 11/19/12.
 //
 //
 
-#ifndef __Asterids__BinaryReader__
-#define __Asterids__BinaryReader__
+#ifndef __Asteroids__BinaryReader__
+#define __Asteroids__BinaryReader__
 
 #include <iostream>
 #include <istream>
@@ -49,4 +49,4 @@ public:
     std::string ReadFullAsString();
 };
 
-#endif /* defined(__Asterids__BinaryReader__) */
+#endif /* defined(__Asteroids__BinaryReader__) */

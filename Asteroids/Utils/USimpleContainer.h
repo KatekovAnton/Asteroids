@@ -1,13 +1,13 @@
 //
 //  USimpleContainer.h
-//  Asterids
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/16/12.
 //
 //
 
-#ifndef __Asterids__USimpleContainer__
-#define __Asterids__USimpleContainer__
+#ifndef __Asteroids__USimpleContainer__
+#define __Asteroids__USimpleContainer__
 
 #include <iostream>
 #include <vector>
@@ -161,4 +161,4 @@ namespace Utils {
     }
 }
 
-#endif /* defined(__Asterids__USimpleContainer__) */
+#endif /* defined(__Asteroids__USimpleContainer__) */

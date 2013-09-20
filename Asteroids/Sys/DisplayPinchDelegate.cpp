@@ -1,6 +1,6 @@
 //
 //  DisplayPinchDelegate.cpp
-// Asterids
+// Asteroids
 //
 //  Created by  Developer on 25.12.12.
 //  Copyright (c) 2012 AntonKatekov. All rights reserved.

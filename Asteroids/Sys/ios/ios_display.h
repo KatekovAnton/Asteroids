@@ -1,13 +1,13 @@
 //
 //  ios_display.h
-//  Asterids
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/18/12.
 //
 //
 
-#ifndef __Asterids__ios_display__
-#define __Asterids__ios_display__
+#ifndef __Asteroids__ios_display__
+#define __Asteroids__ios_display__
 
 #include <iostream>
 #include "Display.h"
@@ -38,4 +38,4 @@ public:
     virtual void setIMEKeyboardState(bool bOpen);
 };
 
-#endif /* defined(__Asterids__ios_display__) */
+#endif /* defined(__Asteroids__ios_display__) */

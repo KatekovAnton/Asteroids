@@ -1,6 +1,6 @@
 //
 //  FileManger.cpp
-//  Asterids
+//  Asteroids
 //
 //  Created by Katekov Anton on 11/3/12.
 //

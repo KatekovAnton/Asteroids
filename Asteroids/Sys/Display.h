@@ -1,13 +1,13 @@
 //
 //  Display.h
-//  Asterids
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/18/12.
 //
 //
 
-#ifndef __Asterids__Display__
-#define __Asterids__Display__
+#ifndef __Asteroids__Display__
+#define __Asteroids__Display__
 #include "GlobalConstants.h"
 #include <iostream>
 
@@ -31,4 +31,4 @@ public:
 
 };
 
-#endif /* defined(__Asterids__Display__) */
+#endif /* defined(__Asteroids__Display__) */

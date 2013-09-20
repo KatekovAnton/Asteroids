@@ -1,6 +1,6 @@
 //
 //  ios_display.cpp
-//  Asterids
+//  Asteroids
 //
 //  Created by Katekov Anton on 10/18/12.
 //

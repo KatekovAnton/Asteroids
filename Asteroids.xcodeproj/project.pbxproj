@@ -161,8 +161,8 @@
 		D1D50F7E17D7357C00089275 /* miniPrefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = miniPrefix.h; sourceTree = "<group>"; };
 		D1D50F8317D742C400089275 /* MyRandom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRandom.h; sourceTree = "<group>"; };
 		D1D50F8417D742D000089275 /* USimpleContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USimpleContainer.h; sourceTree = "<group>"; };
-		D1D50F8517D742DC00089275 /* BinaryReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryReader.cpp; sourceTree = "<group>"; };
-		D1D50F8617D742DC00089275 /* BinaryReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinaryReader.h; sourceTree = "<group>"; };
+		D1D50F8517D742DC00089275 /* BinaryReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = BinaryReader.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		D1D50F8617D742DC00089275 /* BinaryReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BinaryReader.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D1D50F8717D7430300089275 /* StringUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
 		D1D50F8817D7430300089275 /* StringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		D1D50F8B17D7437600089275 /* FileManger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileManger.cpp; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		D1D50F9B17D7447D00089275 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D1D50F9D17D7448800089275 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		D1D50F9F17D744A500089275 /* Display.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Display.h; sourceTree = "<group>"; };
-		D1D50FA017D744A500089275 /* Display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Display.cpp; sourceTree = "<group>"; };
+		D1D50FA017D744A500089275 /* Display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Display.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		D1D50FA217D744AE00089275 /* DisplayPinchDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayPinchDelegate.cpp; sourceTree = "<group>"; };
 		D1D50FA317D744AF00089275 /* DisplayPinchDelegate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = DisplayPinchDelegate.h; sourceTree = "<group>"; };
 		D1D50FA517D7540900089275 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
