@@ -29,7 +29,7 @@
 		D175815417DCC1690060E2F6 /* MAXAnimationSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175814917DCC1690060E2F6 /* MAXAnimationSequence.cpp */; };
 		D175815517DCC1690060E2F6 /* MAXAnimationRepeat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175814B17DCC1690060E2F6 /* MAXAnimationRepeat.cpp */; };
 		D175815617DCC1690060E2F6 /* MAXAnimationWait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175814D17DCC1690060E2F6 /* MAXAnimationWait.cpp */; };
-		D175815D17DCC77A0060E2F6 /* MAXDrawPrimitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175815B17DCC77A0060E2F6 /* MAXDrawPrimitives.cpp */; };
+		D175815D17DCC77A0060E2F6 /* ADrawPrimitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175815B17DCC77A0060E2F6 /* ADrawPrimitives.cpp */; };
 		D175816217DCC7A40060E2F6 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175816017DCC7A40060E2F6 /* Shader.cpp */; };
 		D175816517DCC7BF0060E2F6 /* ShaderLine.fsh in Sources */ = {isa = PBXBuildFile; fileRef = D175816317DCC7BF0060E2F6 /* ShaderLine.fsh */; };
 		D175816617DCC7BF0060E2F6 /* ShaderLine.vsh in Sources */ = {isa = PBXBuildFile; fileRef = D175816417DCC7BF0060E2F6 /* ShaderLine.vsh */; };
@@ -66,7 +66,6 @@
 		D1D50F9C17D7447D00089275 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F9B17D7447D00089275 /* libxml2.dylib */; };
 		D1D50F9E17D7448800089275 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F9D17D7448800089275 /* libstdc++.6.dylib */; };
 		D1D50FA117D744A500089275 /* Display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1D50FA017D744A500089275 /* Display.cpp */; };
-		D1D50FA417D744AF00089275 /* DisplayPinchDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1D50FA217D744AE00089275 /* DisplayPinchDelegate.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,8 +117,8 @@
 		D175814E17DCC1690060E2F6 /* MAXAnimationWait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXAnimationWait.h; sourceTree = "<group>"; };
 		D175815717DCC2270060E2F6 /* Matrix3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix3.h; sourceTree = "<group>"; };
 		D175815817DCC43F0060E2F6 /* Math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
-		D175815B17DCC77A0060E2F6 /* MAXDrawPrimitives.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MAXDrawPrimitives.cpp; sourceTree = "<group>"; };
-		D175815C17DCC77A0060E2F6 /* MAXDrawPrimitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXDrawPrimitives.h; sourceTree = "<group>"; };
+		D175815B17DCC77A0060E2F6 /* ADrawPrimitives.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADrawPrimitives.cpp; sourceTree = "<group>"; };
+		D175815C17DCC77A0060E2F6 /* ADrawPrimitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADrawPrimitives.h; sourceTree = "<group>"; };
 		D175816017DCC7A40060E2F6 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		D175816117DCC7A40060E2F6 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		D175816317DCC7BF0060E2F6 /* ShaderLine.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShaderLine.fsh; sourceTree = "<group>"; };
@@ -179,8 +178,7 @@
 		D1D50F9D17D7448800089275 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		D1D50F9F17D744A500089275 /* Display.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Display.h; sourceTree = "<group>"; };
 		D1D50FA017D744A500089275 /* Display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Display.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		D1D50FA217D744AE00089275 /* DisplayPinchDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayPinchDelegate.cpp; sourceTree = "<group>"; };
-		D1D50FA317D744AF00089275 /* DisplayPinchDelegate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = DisplayPinchDelegate.h; sourceTree = "<group>"; };
+		D1D50FA317D744AF00089275 /* DisplayDelegate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = DisplayDelegate.h; sourceTree = "<group>"; };
 		D1D50FA517D7540900089275 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,8 +257,8 @@
 				D175817217DCD5580060E2F6 /* RenderSystem.h */,
 				D175816E17DCD2F40060E2F6 /* Framebuffer.cpp */,
 				D175816F17DCD2F40060E2F6 /* Framebuffer.h */,
-				D175815B17DCC77A0060E2F6 /* MAXDrawPrimitives.cpp */,
-				D175815C17DCC77A0060E2F6 /* MAXDrawPrimitives.h */,
+				D175815B17DCC77A0060E2F6 /* ADrawPrimitives.cpp */,
+				D175815C17DCC77A0060E2F6 /* ADrawPrimitives.h */,
 			);
 			path = Renderer;
 			sourceTree = "<group>";
@@ -398,8 +396,7 @@
 				D1D50F8C17D7437600089275 /* FileManger.h */,
 				D1D50F9F17D744A500089275 /* Display.h */,
 				D1D50FA017D744A500089275 /* Display.cpp */,
-				D1D50FA217D744AE00089275 /* DisplayPinchDelegate.cpp */,
-				D1D50FA317D744AF00089275 /* DisplayPinchDelegate.h */,
+				D1D50FA317D744AF00089275 /* DisplayDelegate.h */,
 			);
 			path = Sys;
 			sourceTree = "<group>";
@@ -571,7 +568,6 @@
 				D1D50F9317D7438F00089275 /* ios_display.mm in Sources */,
 				D1D50F9617D743AF00089275 /* GLSurface.m in Sources */,
 				D1D50FA117D744A500089275 /* Display.cpp in Sources */,
-				D1D50FA417D744AF00089275 /* DisplayPinchDelegate.cpp in Sources */,
 				D175813217DCB29B0060E2F6 /* AEngine.cpp in Sources */,
 				D175813317DCB29B0060E2F6 /* ACamera.cpp in Sources */,
 				D175814F17DCC1690060E2F6 /* MAXAnimationManager.cpp in Sources */,
@@ -579,7 +575,7 @@
 				D175815417DCC1690060E2F6 /* MAXAnimationSequence.cpp in Sources */,
 				D175815517DCC1690060E2F6 /* MAXAnimationRepeat.cpp in Sources */,
 				D175815617DCC1690060E2F6 /* MAXAnimationWait.cpp in Sources */,
-				D175815D17DCC77A0060E2F6 /* MAXDrawPrimitives.cpp in Sources */,
+				D175815D17DCC77A0060E2F6 /* ADrawPrimitives.cpp in Sources */,
 				D175816217DCC7A40060E2F6 /* Shader.cpp in Sources */,
 				D175816517DCC7BF0060E2F6 /* ShaderLine.fsh in Sources */,
 				D175816617DCC7BF0060E2F6 /* ShaderLine.vsh in Sources */,
@@ -685,7 +681,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Asteroids/Asteroids-Prefix.pch";
 				INFOPLIST_FILE = "Asteroids/Asteroids-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -697,7 +695,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Asteroids/Asteroids-Prefix.pch";
 				INFOPLIST_FILE = "Asteroids/Asteroids-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

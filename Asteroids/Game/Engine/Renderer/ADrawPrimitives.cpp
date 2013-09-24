@@ -1,19 +1,19 @@
 //
-//  MAXDrawPrimitives.cpp
+//  ADrawPrimitives.cpp
 //  Asteroids
 //
 //  Created by Anton Katekov on 11.02.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.
 //
 
-#include "MAXDrawPrimitives.h"
+#include "ADrawPrimitives.h"
 #include "miniPrefix.h"
 #include "Shader.h"
 #include "Display.h"
 
-MAXDrawPrimitives* _sharedMAXDrawPrimitives = NULL;
+ADrawPrimitives* _sharedADrawPrimitives = NULL;
 
-MAXDrawPrimitives::MAXDrawPrimitives()
+ADrawPrimitives::ADrawPrimitives()
 {
     _shader = new Shader("ShaderLine.vsh", "ShaderLine.fsh");//UNIFORM_VECTOR1 for color UNIFORM_PROJECTION_MATRIX for projection
     
@@ -36,19 +36,19 @@ MAXDrawPrimitives::MAXDrawPrimitives()
     _color = Vector4Make(1, 1, 1, 1);
 }
 
-MAXDrawPrimitives::~MAXDrawPrimitives()
+ADrawPrimitives::~ADrawPrimitives()
 {
     delete _shader;
 }
 
-MAXDrawPrimitives* MAXDrawPrimitives::SharedDrawPrimitives()
+ADrawPrimitives* ADrawPrimitives::SharedDrawPrimitives()
 {
-    if (!_sharedMAXDrawPrimitives)
-        _sharedMAXDrawPrimitives = new MAXDrawPrimitives();
-    return _sharedMAXDrawPrimitives;
+    if (!_sharedADrawPrimitives)
+        _sharedADrawPrimitives = new ADrawPrimitives();
+    return _sharedADrawPrimitives;
 }
 
-void MAXDrawPrimitives::Begin()
+void ADrawPrimitives::Begin()
 {
     glUseProgram(_shader->GetProgram());
     _shader->SetMatrixValue(UNIFORM_PROJECTION_MATRIX, _projectionMatrix.m);
@@ -58,13 +58,13 @@ void MAXDrawPrimitives::Begin()
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, (void*)vertices);
 }
 
-void MAXDrawPrimitives::BindColor(const Vector4& color)
+void ADrawPrimitives::BindColor(const Vector4& color)
 {
     _color = color;
     _shader->SetVector4Value(UNIFORM_VECTOR1, (float*)&_color);
 }
 
-void MAXDrawPrimitives::DrawLine(const Vector2& from, const Vector2& to)
+void ADrawPrimitives::DrawLine(const Vector2& from, const Vector2& to)
 {
     vertices[0].x = from.x;
     vertices[0].y = from.y;
@@ -74,7 +74,7 @@ void MAXDrawPrimitives::DrawLine(const Vector2& from, const Vector2& to)
     glDrawArrays(GL_LINES, 0, 2);
 }
 
-void MAXDrawPrimitives::DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter, float scaleX, float scaleY)
+void ADrawPrimitives::DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter, float scaleX, float scaleY)
 {
     int additionalSegment = 1;
     if (drawLineToCenter)
@@ -104,7 +104,7 @@ void MAXDrawPrimitives::DrawCircle( const Vector2& center, float radius, float a
     
 }
 
-void MAXDrawPrimitives::DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter)
+void ADrawPrimitives::DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter)
 {
     DrawCircle(center, radius, angle, segments, drawLineToCenter, 1.0f, 1.0f);
 }

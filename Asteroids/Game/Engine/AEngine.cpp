@@ -22,7 +22,7 @@
 #include "SceneSystem.h"
 #include "ACamera.h"
 #include "RenderObject.h"
-#include "MAXDrawPrimitives.h"
+#include "ADrawPrimitives.h"
 #include "PivotObject.h"
 
 AEngine globalEngine;
@@ -55,7 +55,7 @@ void AEngine::Init() {
     _camera = new ACamera(_screenRect,1.0);
    
    
-    MAXDrawPrimitives::SharedDrawPrimitives();
+    ADrawPrimitives::SharedDrawPrimitives();
 
     GCCHECK_GL_ERROR_DEBUG(); 
 
@@ -147,7 +147,7 @@ void AEngine::Update()
 
 void AEngine::DrawStart()
 {
-    glClearColor(0, 0, 0, 1.0f);
+    glClearColor(0.5, 0.5, 0.5, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 }
@@ -169,6 +169,10 @@ void AEngine::Draw()
             obj->Draw(_shaderObjects);
         }
     }
+    
+    ADrawPrimitives::SharedDrawPrimitives()->Begin();
+    ADrawPrimitives::SharedDrawPrimitives()->DrawCircle(Vector2Make(50, 50), 40, 0, 20, false, 1.0, 1.0);
+    ADrawPrimitives::SharedDrawPrimitives()->DrawCircle(Vector2Make(displayw - 50, 50), 40, 0, 20, false, 1.0, 1.0);
     
 }
 

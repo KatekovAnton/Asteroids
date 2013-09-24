@@ -33,7 +33,7 @@ GameShip::GameShip()
   
     SimpleWireframeObject *object = new SimpleWireframeObject(_renderObject, _behaviourModel, Vector4Make(1, 1, 1, 1));
     this->_object = object;
-    this->_object->SetPosition(Vector3Make(100, 100, 0));
+    this->_object->SetPosition(Vector3Make(1024, 768, 0));
 }
 
 GameShip::~GameShip()

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-struct DisplayPinchDelegateAdapter;
+struct DisplayDelegateAdapter;
 
 @class GLSurface;
 
@@ -22,7 +22,7 @@ struct DisplayPinchDelegateAdapter;
     id _pinch;
     id _tap;
     
-    struct DisplayPinchDelegateAdapter *_pinchDelegate;
+    struct DisplayDelegateAdapter *_delegate;
     NSSet* _touches;
     UIEvent* _event;
     
@@ -30,10 +30,14 @@ struct DisplayPinchDelegateAdapter;
     
     NSTimeInterval lastTapTime;
     
+
+    
 }
 
 @property (nonatomic, assign) GLuint depthFormat;
 @property (nonatomic, assign) GLuint pixelFormat;
+
+- (void)setDelegate:(void*)delegate;
 
 + (AViewController *)instance;
 

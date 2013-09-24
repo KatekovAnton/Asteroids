@@ -1,20 +1,20 @@
 //
-//  MAXDrawPrimitives.h
+//  ADrawPrimitives.h
 //  Asteroids
 //
 //  Created by Anton Katekov on 11.02.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.
 //
 
-#ifndef __MAX__MAXDrawPrimitives__
-#define __MAX__MAXDrawPrimitives__
+#ifndef __MAX__ADrawPrimitives__
+#define __MAX__ADrawPrimitives__
 
 #include <iostream>
 #include "miniPrefix.h"
 
 class Shader;
 
-class MAXDrawPrimitives {
+class ADrawPrimitives {
     
     Shader* _shader;
     Matrix4 _projectionMatrix;
@@ -27,10 +27,10 @@ public:
     
     
     
-    MAXDrawPrimitives();
-    ~MAXDrawPrimitives();
+    ADrawPrimitives();
+    ~ADrawPrimitives();
     
-    static MAXDrawPrimitives* SharedDrawPrimitives();
+    static ADrawPrimitives* SharedDrawPrimitives();
     
     void Begin();
     void BindColor(const Vector4& color);
@@ -40,4 +40,4 @@ public:
     void DrawCircle( const Vector2& center, float radius, float angle, unsigned int segments, bool drawLineToCenter);
 };
 
-#endif /* defined(__MAX__MAXDrawPrimitives__) */
+#endif /* defined(__MAX__ADrawPrimitives__) */

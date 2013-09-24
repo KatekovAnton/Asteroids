@@ -10,10 +10,11 @@
 #define __Asteroids__Game__
 
 #include <iostream>
+#include "DisplayDelegate.h"
 
 class GameController;
 
-class Game {
+class Game : public DisplayDelegate {
     
     GameController *_gameController;
     
@@ -21,7 +22,14 @@ public:
     
     void Init();
     
+    Game();
+    
     static Game* SharedGame();
+    
+#pragma mark - DisplayDelegate
+    
+    virtual void MoveVectorChanged(float x, float y);
+    virtual void RotationVectorChanged(float x, float y);
     
 };
 

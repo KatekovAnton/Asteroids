@@ -21,3 +21,8 @@ GameController::~GameController()
     delete _ship;
 }
 
+void GameController::SetMoveVectorChanged(float x, float y)
+{}
+
+void GameController::SetRotationVectorChanged(float x, float y)
+{}

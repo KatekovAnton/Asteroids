@@ -36,6 +36,8 @@ public:
     
     
     virtual void setIMEKeyboardState(bool bOpen);
+    
+    virtual void SetDelegate(DisplayDelegate *delegate);
 };
 
 #endif /* defined(__Asteroids__ios_display__) */

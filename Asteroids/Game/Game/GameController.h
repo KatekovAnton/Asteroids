@@ -21,7 +21,9 @@ public:
     
     GameController();
     ~GameController();
-
+    
+    void SetMoveVectorChanged(float x, float y);
+    void SetRotationVectorChanged(float x, float y);
 };
 
 #endif /* defined(__Asteroids__GameController__) */

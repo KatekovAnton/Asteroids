@@ -84,4 +84,7 @@ void iosDisplay::setIMEKeyboardState(bool bOpen) {
         [[AViewController instance].view resignFirstResponder];
 }
 
-
+void iosDisplay::SetDelegate(DisplayDelegate *delegate)
+{
+    [[AViewController instance] setDelegate:delegate];
+}

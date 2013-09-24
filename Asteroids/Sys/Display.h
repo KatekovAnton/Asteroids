@@ -11,6 +11,8 @@
 #include "GlobalConstants.h"
 #include <iostream>
 
+class DisplayDelegate;
+
 class Display {
     static Display * _current;
     
@@ -25,6 +27,8 @@ public:
     virtual GLfloat GetDisplayScale();
     
     virtual void SwapBuffers();
+    
+    virtual void SetDelegate(DisplayDelegate *delegate) = 0;
     
     void SetViewPortInPoints(float x , float y , float w , float h);
     void SetScissorInPoints(float x , float y , float w , float h);
