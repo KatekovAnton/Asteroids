@@ -37,7 +37,7 @@ void Game::Init()
 void Game::MoveVectorChanged(float x, float y)
 {
     if (_gameController)
-        _gameController->SetMoveVectorChanged(x, y);
+        _gameController->SetMoveVectorChanged(x, -y);
 }
 
 void Game::RotationVectorChanged(float x, float y)

@@ -38,4 +38,6 @@ void SimpleWireframeObject::Draw(Shader* shader)
 }
 
 void SimpleWireframeObject::Frame(double time)
-{}
+{
+    PivotObject::Frame(time);
+}

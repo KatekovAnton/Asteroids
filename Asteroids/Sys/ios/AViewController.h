@@ -30,7 +30,8 @@ struct DisplayDelegateAdapter;
     
     NSTimeInterval lastTapTime;
     
-
+    int _capturedLeft;
+    int _capturedRight;
     
 }
 
