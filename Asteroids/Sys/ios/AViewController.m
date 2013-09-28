@@ -222,7 +222,7 @@ static int const _maxTouchesCount = 10;
     BOOL foundLeft = NO;
     BOOL foundRight = NO;
     for (int t = 0; t < i; t ++) {
-        if (CGRectContainsPoint(rectLeft, CGPointMake(xs[t], ys[t])) && _capturedLeft == ids[t])
+        if (CGRectContainsPoint(rectLeft, CGPointMake(xs[t], ys[t])) || _capturedLeft == ids[t])
         {
             CGPoint vector = CGPointMake(xs[t] - (rectLeft.origin.x + rectLeft.size.width / 2), ys[t] - (rectLeft.origin.y + rectLeft.size.height / 2));
             if (_delegate)
@@ -230,7 +230,7 @@ static int const _maxTouchesCount = 10;
             
             foundLeft = YES;
         }
-        if (CGRectContainsPoint(rectRight, CGPointMake(xs[t], ys[t])) && _capturedRight == ids[t])
+        if (CGRectContainsPoint(rectRight, CGPointMake(xs[t], ys[t])) || _capturedRight == ids[t])
         {
             CGPoint vector = CGPointMake(xs[t] - (rectRight.origin.x + rectRight.size.width / 2), ys[t] - (rectRight.origin.y + rectRight.size.height / 2));
             if (_delegate)
@@ -238,9 +238,9 @@ static int const _maxTouchesCount = 10;
             foundRight = YES;
         }
     }
-    if (!foundLeft)
+    if (!foundLeft && _capturedLeft == 0)
         _delegate->_delegate->MoveVectorChanged(0, 0);
-    if (!foundRight)
+    if (!foundRight && _capturedRight == 0)
         _delegate->_delegate->RotationVectorChanged(0, 0);
 }
 

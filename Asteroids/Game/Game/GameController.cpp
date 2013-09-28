@@ -47,7 +47,7 @@ void GameController::SetRotationVectorChanged(float x, float y)
 void GameController::GameShipFireing(GameShip *sender)
 {
     Vector3 v = sender->GetDirectionVector(NULL);
-    GameShipBullet *bullet = new GameShipBullet(Vector2Make(v.x, v.y));
+    GameShipBullet *bullet = new GameShipBullet(Vector2Make(v.x * 3, v.y * 3));
     
     v = _ship->GetBulletStartPosition();
     bullet->SetPosition(Vector2Make(v.x, v.y));

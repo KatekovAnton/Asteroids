@@ -18,11 +18,11 @@ class ObjectControlledBehaviorModel : public ObjectBehaviourModel {
     ObjectControlledBehaviorModelDelegate *_delegate_w;
     
     Vector3 inertion;
-    
+    bool _intertion;
     
 public:
     
-    ObjectControlledBehaviorModel(ObjectControlledBehaviorModelDelegate *delegate);
+    ObjectControlledBehaviorModel(ObjectControlledBehaviorModelDelegate *delegate, bool intertion);
     virtual ~ObjectControlledBehaviorModel();
     
     virtual void Frame(double time);

@@ -35,7 +35,7 @@ GameShip::GameShip()
     shared_ptr<EngineWireframe> wf(new EngineWireframe(8, vertices));
     UnAnimRenderObject *_renderObject = new UnAnimRenderObject(wf);
     
-    ObjectControlledBehaviorModel *_behaviourModel = new ObjectControlledBehaviorModel(this);
+    ObjectControlledBehaviorModel *_behaviourModel = new ObjectControlledBehaviorModel(this, true);
   
     SimpleWireframeObject *object = new SimpleWireframeObject(_renderObject, _behaviourModel, Vector4Make(1, 1, 1, 1));
     this->_object = object;

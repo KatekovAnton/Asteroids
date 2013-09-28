@@ -8,8 +8,8 @@
 
 #include "ObjectControlledBehaviorModel.h"
 
-ObjectControlledBehaviorModel::ObjectControlledBehaviorModel(ObjectControlledBehaviorModelDelegate *delegate)
-:_delegate_w(delegate), inertion(Vector3Make(0, 0, 0))
+ObjectControlledBehaviorModel::ObjectControlledBehaviorModel(ObjectControlledBehaviorModelDelegate *delegate, bool intertion)
+:_delegate_w(delegate), inertion(Vector3Make(0, 0, 0)), _intertion(intertion)
 {}
 
 ObjectControlledBehaviorModel::~ObjectControlledBehaviorModel()
@@ -17,15 +17,22 @@ ObjectControlledBehaviorModel::~ObjectControlledBehaviorModel()
 
 void ObjectControlledBehaviorModel::Frame(double time)
 {
-    //decrease inertion
-    inertion = Vector3MultiplyScalar(inertion, 0.9);
-    //get force
     Vector3 moveVector = _delegate_w->GetMoveVector(this);
-    moveVector = Vector3MultiplyScalar(moveVector, time * 5);
-    //calculate acceleration
-    moveVector = Vector3MultiplyScalar(moveVector, 0.2);//mass = 5g
-    
-    inertion = Vector3Add(inertion, moveVector);
+    if (_intertion)
+    {
+        //decrease inertion
+        inertion = Vector3MultiplyScalar(inertion, 0.9);
+        //get force
+        moveVector = Vector3MultiplyScalar(moveVector, time * 5);
+        //calculate acceleration
+        moveVector = Vector3MultiplyScalar(moveVector, 0.2);//mass = 5g
+        
+        inertion = Vector3Add(inertion, moveVector);
+    }
+    else
+    {
+        inertion = Vector3MultiplyScalar(moveVector, time * 5);
+    }
     
     Matrix4 pos = _currentPosition;
     
@@ -36,11 +43,10 @@ void ObjectControlledBehaviorModel::Frame(double time)
     pos.m32 += inertion.z;
     
     Matrix4 res =  Matrix4MakeZRotation(radians + M_PI);
-
-    
     res.m30 = pos.m30;
     res.m31 = pos.m31;
     res.m32 = pos.m32;
     
     SetGlobalPosition(res, NULL, NULL, true);
+   
 }

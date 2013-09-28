@@ -335,6 +335,13 @@
 			name = Scene;
 			sourceTree = "<group>";
 		};
+		D19DBC6F17F71AEF00B903D5 /* Collisions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Collisions;
+			sourceTree = "<group>";
+		};
 		D1D50F4317D7342800089275 = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +474,7 @@
 		D1D50FE017D9D27700089275 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				D19DBC6F17F71AEF00B903D5 /* Collisions */,
 				D175817417DCD55D0060E2F6 /* Scene */,
 				D175816A17DCC7E90060E2F6 /* ObjectComponents */,
 				D175816917DCC7DE0060E2F6 /* Objects */,
@@ -685,7 +693,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Asteroids/Asteroids-Prefix.pch";
 				INFOPLIST_FILE = "Asteroids/Asteroids-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -699,7 +707,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Asteroids/Asteroids-Prefix.pch";
 				INFOPLIST_FILE = "Asteroids/Asteroids-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
