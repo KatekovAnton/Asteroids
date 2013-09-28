@@ -11,10 +11,12 @@
 #include "UnAnimRenderObject.h"
 #include "EngineWireframe.h"
 #include "ObjectControlledBehaviorModel.h"
+#include "MAXAnimationPrefix.h"
 
 using namespace std;
 
 GameShip::GameShip()
+:_fireing(false), _fireTimer(NULL), _delegate(NULL)
 {
     Vector3 vertices[8];
     vertices[0].x = 0; vertices[0].y = 10; vertices[0].z = 0;
@@ -45,7 +47,8 @@ GameShip::GameShip()
 
 GameShip::~GameShip()
 {
-    
+    if (_fireTimer)
+        _fireTimer->_delegate = NULL;
 }
 
 void GameShip::SetPosition(Vector2 position)
@@ -61,11 +64,31 @@ void GameShip::MoveShipInDirection(float x, float y)
 
 void GameShip::SetShipDirection(float x, float y)
 {
+    if (x == 0 && y == 0) {
+        _fireing = false;
+        return;
+    }
     _directionVector.x = x;
     _directionVector.y = y;
     _directionVector.z = 0;
     
     _directionVector = Vector3Normalize(_directionVector);
+    
+    _fireing = true;
+    if (!_fireTimer) {
+        //fire
+        _fireTimer = new MAXAnimationWait(0.2);
+        _fireTimer->_delegate = this;
+        MAXAnimationManager::SharedAnimationManager()->AddAnimatedObject(_fireTimer);
+        
+        if (_delegate)
+            _delegate->GameShipFireing(this);
+    }
+}
+
+Vector3 GameShip::GetBulletStartPosition()
+{
+    return Vector3Add(this->_object->GetPosition(), Vector3MultiplyScalar(Vector3Make(_directionVector.x, -_directionVector.y, _directionVector.z), 10));
 }
 
 #pragma mark - ObjectControlledBehaviorModelDelegate
@@ -82,3 +105,31 @@ Vector3 GameShip::GetDirectionVector(void *sender)
 
 void GameShip::OnObjectCollidedToObject(void *sender, void *collider)
 {}
+
+#pragma mark - MAXAnimationDelegate
+
+void GameShip::OnAnimationStart(MAXAnimationBase* animation)
+{}
+
+void GameShip::OnAnimationUpdate(MAXAnimationBase* animation)
+{}
+
+void GameShip::OnAnimationFinish(MAXAnimationBase* animation)
+{
+    if (animation == _fireTimer && _fireing)
+    {
+        //fire
+        if (_delegate)
+            _delegate->GameShipFireing(this);
+        
+        
+        //create timer
+        _fireTimer = new MAXAnimationWait(0.2);
+        _fireTimer->_delegate = this;
+        MAXAnimationManager::SharedAnimationManager()->AddAnimatedObject(_fireTimer);
+    }
+    else if (animation == _fireTimer && !_fireing)
+    {
+        _fireTimer = NULL;
+    }
+}

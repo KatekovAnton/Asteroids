@@ -13,7 +13,6 @@
 #include "miniPrefix.h"
 
 class PivotObject;
-using namespace Utils;
 
 class SceneGraphNode {
     

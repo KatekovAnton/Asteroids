@@ -134,8 +134,8 @@ static inline Vector3 Vector3DivideScalar(Vector3 vector, float value)
       
 static inline Vector3 Vector3Normalize(Vector3 vector)
 {
-    float scale = 1.0f / Vector3Length(vector);
-    Vector3 v = { vector.v[0] * scale, vector.v[1] * scale, vector.v[2] * scale };
+    float scale = Vector3Length(vector);
+    Vector3 v = { vector.v[0] / scale, vector.v[1] / scale, vector.v[2] / scale };
     return v;
 }
     

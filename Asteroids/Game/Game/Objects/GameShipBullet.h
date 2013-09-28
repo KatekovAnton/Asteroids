@@ -11,14 +11,33 @@
 
 #include <iostream>
 #include "GameObject.h"
+#include "ObjectControlledBehaviorModelDelegate.h"
+#include "MAXAnimationDelegate.h"
+#include "GameShipBulletDelegate.h"
 
-class GameShipBullet : public GameObject {
+class GameShipBullet : public GameObject, public ObjectControlledBehaviorModelDelegate, public MAXAnimationDelegate  {
+    
+    Vector3 _direction;
+    Vector3 _movement;
+    MAXAnimationBase *_existTimer;
     
 public:
     
-    GameShipBullet();
-    ~GameShipBullet();
+    GameShipBulletDelegate *_delegate;
+    
+    GameShipBullet(Vector2 direction);
+    virtual ~GameShipBullet();
+    
+#pragma mark - ObjectControlledBehaviorModelDelegate
+    virtual Vector3 GetMoveVector(void *sender);
+    virtual Vector3 GetDirectionVector(void *sender);
+    virtual void OnObjectCollidedToObject(void *sender, void *collider);
 
+#pragma mark - MAXAnimationDelegate
+    virtual void OnAnimationStart(MAXAnimationBase* animation);
+    virtual void OnAnimationUpdate(MAXAnimationBase* animation);
+    virtual void OnAnimationFinish(MAXAnimationBase* animation);
+    
 };
 
 #endif /* defined(__Asteroids__GameShipBullet__) */

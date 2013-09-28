@@ -10,12 +10,17 @@
 #define __Asteroids__GameController__
 
 #include <iostream>
+#include "GameShipDelegate.h"
+#include "GameShipBulletDelegate.h"
+#include "miniPrefix.h"
 
 class GameShip;
+class GameShipBullet;
 
-class GameController {
+class GameController : public GameShipDelegate, public GameShipBulletDelegate {
     
     GameShip *_ship;
+    USimpleContainer<GameShipBullet*> *_bullets;
     
 public:
     
@@ -24,6 +29,14 @@ public:
     
     void SetMoveVectorChanged(float x, float y);
     void SetRotationVectorChanged(float x, float y);
+    
+#pragma mark - GameShipDelegate
+    virtual void GameShipFireing(GameShip *sender);
+    virtual void GameShipDidCollide(GameShip *sender);
+    
+#pragma mark - GameShipBulletDelegate
+    virtual void GameShipBulletDidFinishExistance(GameShipBullet *sender);
+    
 };
 
 #endif /* defined(__Asteroids__GameController__) */

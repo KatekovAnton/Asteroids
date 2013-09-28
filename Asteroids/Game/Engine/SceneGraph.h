@@ -17,7 +17,6 @@ class PivotObject;
 class SceneGraphNode;
 
 using namespace std;
-using namespace Utils;
 
 class SceneGraph {
     

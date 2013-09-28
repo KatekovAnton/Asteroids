@@ -12,7 +12,6 @@
 #include <iostream>
 #include "miniPrefix.h"
 
-using namespace Utils;
 using namespace std;
 
 class EngineMesh;

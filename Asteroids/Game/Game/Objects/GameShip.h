@@ -12,13 +12,20 @@
 #include <iostream>
 #include "GameObject.h"
 #include "ObjectControlledBehaviorModelDelegate.h"
+#include "MAXAnimationDelegate.h"
+#include "GameShipDelegate.h"
 
-class GameShip : public GameObject, public ObjectControlledBehaviorModelDelegate {
+class GameShip : public GameObject, public ObjectControlledBehaviorModelDelegate, public MAXAnimationDelegate {
     
     Vector3 _moveVector;
     Vector3 _directionVector;
     
+    bool _fireing;
+    MAXAnimationBase *_fireTimer;
+    
 public:
+    
+    GameShipDelegate *_delegate;
     
     GameShip();
     virtual ~GameShip();
@@ -27,11 +34,17 @@ public:
     void MoveShipInDirection(float x, float y);
     void SetShipDirection(float x, float y);
     
+    Vector3 GetBulletStartPosition();
+    
 #pragma mark - ObjectControlledBehaviorModelDelegate
-        
     virtual Vector3 GetMoveVector(void *sender);
     virtual Vector3 GetDirectionVector(void *sender);
     virtual void OnObjectCollidedToObject(void *sender, void *collider);
+    
+#pragma mark - MAXAnimationDelegate
+    virtual void OnAnimationStart(MAXAnimationBase* animation);
+    virtual void OnAnimationUpdate(MAXAnimationBase* animation);
+    virtual void OnAnimationFinish(MAXAnimationBase* animation);
     
 };
 

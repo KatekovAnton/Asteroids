@@ -8,8 +8,6 @@
 
 #include "SceneGraphNode.h"
 
-using namespace Utils;
-
 SceneGraphNode::SceneGraphNode(SceneGraphNode *parentNode, BoundingBox bb, int level)
 {
     _boundingRect = bb;

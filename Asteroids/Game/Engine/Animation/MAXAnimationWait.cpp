@@ -1,6 +1,6 @@
 //
 //  MAXAnimationWait.cpp
-//  Asteroids
+//  MAX
 //
 //  Created by Anton Katekov on 12.03.13.
 //  Copyright (c) 2013 AntonKatekov. All rights reserved.

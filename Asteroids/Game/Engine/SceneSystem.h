@@ -12,8 +12,6 @@
 #include <iostream>
 #include "miniPrefix.h"
 
-using namespace Utils;
-
 class PivotObject;
 class MAXMapObject;
 class SceneGraph;

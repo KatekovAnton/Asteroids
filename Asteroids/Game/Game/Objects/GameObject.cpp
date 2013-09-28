@@ -16,6 +16,7 @@ GameObject::GameObject()
 
 GameObject::~GameObject()
 {
+    Hide();
     delete _object;
 }
 
@@ -24,6 +25,7 @@ void GameObject::Show()
     if (_isShowing) 
         return;
     
+    _isShowing = true;
     engine->AddUnit(_object);
 }
 
@@ -32,6 +34,7 @@ void GameObject::Hide()
     if (!_isShowing)
         return;
     
+    _isShowing = false;
     engine->RemoveUnit(_object);
 }
 

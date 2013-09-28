@@ -141,6 +141,8 @@
 		D175818117DCD60A0060E2F6 /* RenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderObject.h; sourceTree = "<group>"; };
 		D175818217DCD60A0060E2F6 /* UnAnimRenderObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnAnimRenderObject.cpp; sourceTree = "<group>"; };
 		D175818317DCD60A0060E2F6 /* UnAnimRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnAnimRenderObject.h; sourceTree = "<group>"; };
+		D19DBC6C17F6ED4300B903D5 /* GameShipDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameShipDelegate.h; sourceTree = "<group>"; };
+		D19DBC6E17F6F8AA00B903D5 /* GameShipBulletDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameShipBulletDelegate.h; sourceTree = "<group>"; };
 		D1D50F4C17D7342800089275 /* Asteroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asteroids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D50F4F17D7342800089275 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D1D50F5117D7342800089275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -270,10 +272,12 @@
 				D16838FC17E9D5A7003BA41F /* GameObject.h */,
 				D16838FE17E9D5D6003BA41F /* GameShip.cpp */,
 				D16838FF17E9D5D6003BA41F /* GameShip.h */,
+				D19DBC6C17F6ED4300B903D5 /* GameShipDelegate.h */,
 				D168390117E9D5E5003BA41F /* GameAsteroid.cpp */,
 				D168390217E9D5E6003BA41F /* GameAsteroid.h */,
 				D168391717E9FCC2003BA41F /* GameShipBullet.cpp */,
 				D168391817E9FCC4003BA41F /* GameShipBullet.h */,
+				D19DBC6E17F6F8AA00B903D5 /* GameShipBulletDelegate.h */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
