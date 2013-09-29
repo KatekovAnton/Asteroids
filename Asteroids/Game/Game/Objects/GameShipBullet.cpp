@@ -31,7 +31,7 @@ GameShipBullet::GameShipBullet(Vector2 direction)
     SimpleWireframeObject *object = new SimpleWireframeObject(_renderObject, _behaviourModel, Vector4Make(1, 1, 1, 1));
     this->_object = object;
     
-    _existTimer = new MAXAnimationWait(10);
+    _existTimer = new MAXAnimationWait(5);
     _existTimer->_delegate = this;
     MAXAnimationManager::SharedAnimationManager()->AddAnimatedObject(_existTimer);
 }

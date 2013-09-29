@@ -60,6 +60,16 @@ void GameShip::MoveShipInDirection(float x, float y)
 {
     _moveVector.x = x;
     _moveVector.y = y;
+    
+    float l = Vector3Length(_moveVector);
+    if (l > 50) {
+        _moveVector.x /= l;
+        _moveVector.y /= l;
+        
+        _moveVector.x *= 50;
+        _moveVector.y *= 50;
+        
+    }
 }
 
 void GameShip::SetShipDirection(float x, float y)

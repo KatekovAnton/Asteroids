@@ -44,6 +44,8 @@
 		D175818417DCD60A0060E2F6 /* PivotObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175817E17DCD60A0060E2F6 /* PivotObject.cpp */; };
 		D175818517DCD60A0060E2F6 /* RenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175818017DCD60A0060E2F6 /* RenderObject.cpp */; };
 		D175818617DCD60A0060E2F6 /* UnAnimRenderObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D175818217DCD60A0060E2F6 /* UnAnimRenderObject.cpp */; };
+		D19DBC7217F84B2D00B903D5 /* CollisionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D19DBC7017F84B2D00B903D5 /* CollisionEngine.cpp */; };
+		D19DBC7517F84B3A00B903D5 /* CollisionObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D19DBC7317F84B3A00B903D5 /* CollisionObject.cpp */; };
 		D1D50F5017D7342800089275 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F4F17D7342800089275 /* UIKit.framework */; };
 		D1D50F5217D7342800089275 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F5117D7342800089275 /* Foundation.framework */; };
 		D1D50F5417D7342800089275 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D50F5317D7342800089275 /* CoreGraphics.framework */; };
@@ -143,6 +145,10 @@
 		D175818317DCD60A0060E2F6 /* UnAnimRenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnAnimRenderObject.h; sourceTree = "<group>"; };
 		D19DBC6C17F6ED4300B903D5 /* GameShipDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameShipDelegate.h; sourceTree = "<group>"; };
 		D19DBC6E17F6F8AA00B903D5 /* GameShipBulletDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameShipBulletDelegate.h; sourceTree = "<group>"; };
+		D19DBC7017F84B2D00B903D5 /* CollisionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionEngine.cpp; sourceTree = "<group>"; };
+		D19DBC7117F84B2D00B903D5 /* CollisionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionEngine.h; sourceTree = "<group>"; };
+		D19DBC7317F84B3A00B903D5 /* CollisionObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionObject.cpp; sourceTree = "<group>"; };
+		D19DBC7417F84B3A00B903D5 /* CollisionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionObject.h; sourceTree = "<group>"; };
 		D1D50F4C17D7342800089275 /* Asteroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asteroids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D50F4F17D7342800089275 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D1D50F5117D7342800089275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -338,8 +344,12 @@
 		D19DBC6F17F71AEF00B903D5 /* Collisions */ = {
 			isa = PBXGroup;
 			children = (
+				D19DBC7017F84B2D00B903D5 /* CollisionEngine.cpp */,
+				D19DBC7117F84B2D00B903D5 /* CollisionEngine.h */,
+				D19DBC7317F84B3A00B903D5 /* CollisionObject.cpp */,
+				D19DBC7417F84B3A00B903D5 /* CollisionObject.h */,
 			);
-			name = Collisions;
+			path = Collisions;
 			sourceTree = "<group>";
 		};
 		D1D50F4317D7342800089275 = {
@@ -611,7 +621,9 @@
 				D168391C17E9FDB0003BA41F /* ObjectControlledBehaviorModel.cpp in Sources */,
 				D168392017EA03AD003BA41F /* EngineWireframe.cpp in Sources */,
 				D168392517EA16DA003BA41F /* Game.cpp in Sources */,
+				D19DBC7517F84B3A00B903D5 /* CollisionObject.cpp in Sources */,
 				D168392817EA1DAB003BA41F /* ShaderWireframeObject.fsh in Sources */,
+				D19DBC7217F84B2D00B903D5 /* CollisionEngine.cpp in Sources */,
 				D168392917EA1DAB003BA41F /* ShaderWireframeObject.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
