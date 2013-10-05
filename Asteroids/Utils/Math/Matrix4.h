@@ -212,7 +212,137 @@ static inline Matrix3 Matrix4GetMatrix3(Matrix4 matrix)
     
 static inline Matrix4 Matrix4Invert(Matrix4 matrix, bool *isInvertible)
 {
-    return Matrix4Identity;
+    float inv[16], det;
+    int i;
+    
+    Matrix4 result;
+    float* invOut = result.m;
+    
+    inv[0] = matrix.m[5]  * matrix.m[10] * matrix.m[15] -
+    matrix.m[5]  * matrix.m[11] * matrix.m[14] -
+    matrix.m[9]  * matrix.m[6]  * matrix.m[15] +
+    matrix.m[9]  * matrix.m[7]  * matrix.m[14] +
+    matrix.m[13] * matrix.m[6]  * matrix.m[11] -
+    matrix.m[13] * matrix.m[7]  * matrix.m[10];
+    
+    inv[4] = -matrix.m[4]  * matrix.m[10] * matrix.m[15] +
+    matrix.m[4]  * matrix.m[11] * matrix.m[14] +
+    matrix.m[8]  * matrix.m[6]  * matrix.m[15] -
+    matrix.m[8]  * matrix.m[7]  * matrix.m[14] -
+    matrix.m[12] * matrix.m[6]  * matrix.m[11] +
+    matrix.m[12] * matrix.m[7]  * matrix.m[10];
+    
+    inv[8] = matrix.m[4]  * matrix.m[9] * matrix.m[15] -
+    matrix.m[4]  * matrix.m[11] * matrix.m[13] -
+    matrix.m[8]  * matrix.m[5] * matrix.m[15] +
+    matrix.m[8]  * matrix.m[7] * matrix.m[13] +
+    matrix.m[12] * matrix.m[5] * matrix.m[11] -
+    matrix.m[12] * matrix.m[7] * matrix.m[9];
+    
+    inv[12] = -matrix.m[4]  * matrix.m[9] * matrix.m[14] +
+    matrix.m[4]  * matrix.m[10] * matrix.m[13] +
+    matrix.m[8]  * matrix.m[5] * matrix.m[14] -
+    matrix.m[8]  * matrix.m[6] * matrix.m[13] -
+    matrix.m[12] * matrix.m[5] * matrix.m[10] +
+    matrix.m[12] * matrix.m[6] * matrix.m[9];
+    
+    inv[1] = -matrix.m[1]  * matrix.m[10] * matrix.m[15] +
+    matrix.m[1]  * matrix.m[11] * matrix.m[14] +
+    matrix.m[9]  * matrix.m[2] * matrix.m[15] -
+    matrix.m[9]  * matrix.m[3] * matrix.m[14] -
+    matrix.m[13] * matrix.m[2] * matrix.m[11] +
+    matrix.m[13] * matrix.m[3] * matrix.m[10];
+    
+    inv[5] = matrix.m[0]  * matrix.m[10] * matrix.m[15] -
+    matrix.m[0]  * matrix.m[11] * matrix.m[14] -
+    matrix.m[8]  * matrix.m[2] * matrix.m[15] +
+    matrix.m[8]  * matrix.m[3] * matrix.m[14] +
+    matrix.m[12] * matrix.m[2] * matrix.m[11] -
+    matrix.m[12] * matrix.m[3] * matrix.m[10];
+    
+    inv[9] = -matrix.m[0]  * matrix.m[9] * matrix.m[15] +
+    matrix.m[0]  * matrix.m[11] * matrix.m[13] +
+    matrix.m[8]  * matrix.m[1] * matrix.m[15] -
+    matrix.m[8]  * matrix.m[3] * matrix.m[13] -
+    matrix.m[12] * matrix.m[1] * matrix.m[11] +
+    matrix.m[12] * matrix.m[3] * matrix.m[9];
+    
+    inv[13] = matrix.m[0]  * matrix.m[9] * matrix.m[14] -
+    matrix.m[0]  * matrix.m[10] * matrix.m[13] -
+    matrix.m[8]  * matrix.m[1] * matrix.m[14] +
+    matrix.m[8]  * matrix.m[2] * matrix.m[13] +
+    matrix.m[12] * matrix.m[1] * matrix.m[10] -
+    matrix.m[12] * matrix.m[2] * matrix.m[9];
+    
+    inv[2] = matrix.m[1]  * matrix.m[6] * matrix.m[15] -
+    matrix.m[1]  * matrix.m[7] * matrix.m[14] -
+    matrix.m[5]  * matrix.m[2] * matrix.m[15] +
+    matrix.m[5]  * matrix.m[3] * matrix.m[14] +
+    matrix.m[13] * matrix.m[2] * matrix.m[7] -
+    matrix.m[13] * matrix.m[3] * matrix.m[6];
+    
+    inv[6] = -matrix.m[0]  * matrix.m[6] * matrix.m[15] +
+    matrix.m[0]  * matrix.m[7] * matrix.m[14] +
+    matrix.m[4]  * matrix.m[2] * matrix.m[15] -
+    matrix.m[4]  * matrix.m[3] * matrix.m[14] -
+    matrix.m[12] * matrix.m[2] * matrix.m[7] +
+    matrix.m[12] * matrix.m[3] * matrix.m[6];
+    
+    inv[10] = matrix.m[0]  * matrix.m[5] * matrix.m[15] -
+    matrix.m[0]  * matrix.m[7] * matrix.m[13] -
+    matrix.m[4]  * matrix.m[1] * matrix.m[15] +
+    matrix.m[4]  * matrix.m[3] * matrix.m[13] +
+    matrix.m[12] * matrix.m[1] * matrix.m[7] -
+    matrix.m[12] * matrix.m[3] * matrix.m[5];
+    
+    inv[14] = -matrix.m[0]  * matrix.m[5] * matrix.m[14] +
+    matrix.m[0]  * matrix.m[6] * matrix.m[13] +
+    matrix.m[4]  * matrix.m[1] * matrix.m[14] -
+    matrix.m[4]  * matrix.m[2] * matrix.m[13] -
+    matrix.m[12] * matrix.m[1] * matrix.m[6] +
+    matrix.m[12] * matrix.m[2] * matrix.m[5];
+    
+    inv[3] = -matrix.m[1] * matrix.m[6] * matrix.m[11] +
+    matrix.m[1] * matrix.m[7] * matrix.m[10] +
+    matrix.m[5] * matrix.m[2] * matrix.m[11] -
+    matrix.m[5] * matrix.m[3] * matrix.m[10] -
+    matrix.m[9] * matrix.m[2] * matrix.m[7] +
+    matrix.m[9] * matrix.m[3] * matrix.m[6];
+    
+    inv[7] = matrix.m[0] * matrix.m[6] * matrix.m[11] -
+    matrix.m[0] * matrix.m[7] * matrix.m[10] -
+    matrix.m[4] * matrix.m[2] * matrix.m[11] +
+    matrix.m[4] * matrix.m[3] * matrix.m[10] +
+    matrix.m[8] * matrix.m[2] * matrix.m[7] -
+    matrix.m[8] * matrix.m[3] * matrix.m[6];
+    
+    inv[11] = -matrix.m[0] * matrix.m[5] * matrix.m[11] +
+    matrix.m[0] * matrix.m[7] * matrix.m[9] +
+    matrix.m[4] * matrix.m[1] * matrix.m[11] -
+    matrix.m[4] * matrix.m[3] * matrix.m[9] -
+    matrix.m[8] * matrix.m[1] * matrix.m[7] +
+    matrix.m[8] * matrix.m[3] * matrix.m[5];
+    
+    inv[15] = matrix.m[0] * matrix.m[5] * matrix.m[10] -
+    matrix.m[0] * matrix.m[6] * matrix.m[9] -
+    matrix.m[4] * matrix.m[1] * matrix.m[10] +
+    matrix.m[4] * matrix.m[2] * matrix.m[9] +
+    matrix.m[8] * matrix.m[1] * matrix.m[6] -
+    matrix.m[8] * matrix.m[2] * matrix.m[5];
+    
+    det = matrix.m[0] * inv[0] + matrix.m[1] * inv[4] + matrix.m[2] * inv[8] + matrix.m[3] * inv[12];
+    
+    *isInvertible = det != 0;
+    
+    if (det == 0)
+        return Matrix4Identity;
+    
+    det = 1.0 / det;
+    
+    for (i = 0; i < 16; i++)
+        invOut[i] = inv[i] * det;
+    
+    return result;
 }
     
 static inline Matrix4 Matrix4Multiply(Matrix4 matrixLeft, Matrix4 matrixRight)

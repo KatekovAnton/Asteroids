@@ -24,13 +24,13 @@ MAXAnimationManager::~MAXAnimationManager()
     }
 }
 
-void MAXAnimationManager::AddAnimatedObject(MAXAnimationBase* object)
+void MAXAnimationManager::AddAnimation(MAXAnimationBase* object)
 {
     _objects.push_back(object);
     object->BaseStart();
 }
 
-void MAXAnimationManager::RemoveAnimatedObject(MAXAnimationBase* object)
+void MAXAnimationManager::RemoveAnimation(MAXAnimationBase* object)
 {
     _objects.remove(object);
     object->BaseCompletlyFinish();

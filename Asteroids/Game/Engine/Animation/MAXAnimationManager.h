@@ -21,8 +21,8 @@ public:
     MAXAnimationManager();
     ~MAXAnimationManager();
     
-    void AddAnimatedObject(MAXAnimationBase* object);
-    void RemoveAnimatedObject(MAXAnimationBase* object);
+    void AddAnimation(MAXAnimationBase* object);
+    void RemoveAnimation(MAXAnimationBase* object);
     
     void Update();
     

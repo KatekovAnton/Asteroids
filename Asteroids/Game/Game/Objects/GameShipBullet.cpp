@@ -33,7 +33,7 @@ GameShipBullet::GameShipBullet(Vector2 direction)
     
     _existTimer = new MAXAnimationWait(5);
     _existTimer->_delegate = this;
-    MAXAnimationManager::SharedAnimationManager()->AddAnimatedObject(_existTimer);
+    MAXAnimationManager::SharedAnimationManager()->AddAnimation(_existTimer);
 }
 
 GameShipBullet::~GameShipBullet()

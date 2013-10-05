@@ -13,14 +13,17 @@
 #include "GameShipDelegate.h"
 #include "GameShipBulletDelegate.h"
 #include "miniPrefix.h"
+#include "MAXAnimationDelegate.h"
 
 class GameShip;
 class GameShipBullet;
 
-class GameController : public GameShipDelegate, public GameShipBulletDelegate {
+class GameController : public GameShipDelegate, public GameShipBulletDelegate, public MAXAnimationDelegate {
     
     GameShip *_ship;
     USimpleContainer<GameShipBullet*> *_bullets;
+    
+    MAXAnimationBase *_createAsteroidTimer;
     
 public:
     
@@ -29,6 +32,11 @@ public:
     
     void SetMoveVectorChanged(float x, float y);
     void SetRotationVectorChanged(float x, float y);
+    
+#pragma mark - MAXAnimationDelegate
+    virtual void OnAnimationStart(MAXAnimationBase* animation);
+    virtual void OnAnimationUpdate(MAXAnimationBase* animation);
+    virtual void OnAnimationFinish(MAXAnimationBase* animation);
     
 #pragma mark - GameShipDelegate
     virtual void GameShipFireing(GameShip *sender);

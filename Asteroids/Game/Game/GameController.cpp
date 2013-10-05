@@ -10,14 +10,21 @@
 #include "GameShip.h"
 #include "Display.h"
 #include "GameShipBullet.h"
+#include "MAXAnimationPrefix.h"
+#include "GameAsteroid.h"
 
 GameController::GameController()
-:_bullets(new USimpleContainer<GameShipBullet*>(10))
+:_bullets(new USimpleContainer<GameShipBullet*>(10)), _createAsteroidTimer(NULL)
 {
     _ship = new GameShip();
     _ship->SetPosition(Vector2Make(Display::currentDisplay()->GetDisplayWidth()/2, Display::currentDisplay()->GetDisplayHeight()/2));
     _ship->Show();
     _ship->_delegate = this;
+    
+    MAXAnimationWait *timerCreateAsteroid = new MAXAnimationWait(1);
+    timerCreateAsteroid->_delegate = this;
+    MAXAnimationManager::SharedAnimationManager()->AddAnimation(timerCreateAsteroid);
+    _createAsteroidTimer = timerCreateAsteroid;
 }
 
 GameController::~GameController()
@@ -40,6 +47,22 @@ void GameController::SetMoveVectorChanged(float x, float y)
 void GameController::SetRotationVectorChanged(float x, float y)
 {
     _ship->SetShipDirection(x, y);
+}
+
+#pragma mark - MAXAnimationDelegate
+
+void GameController::OnAnimationStart(MAXAnimationBase* animation)
+{}
+
+void GameController::OnAnimationUpdate(MAXAnimationBase* animation)
+{}
+
+void GameController::OnAnimationFinish(MAXAnimationBase* animation)
+{
+    if (animation == _createAsteroidTimer) {
+        _createAsteroidTimer = NULL;
+        
+    }
 }
 
 #pragma mark - GameShipDelegate

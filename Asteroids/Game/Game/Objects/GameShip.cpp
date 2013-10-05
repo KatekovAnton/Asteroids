@@ -89,7 +89,7 @@ void GameShip::SetShipDirection(float x, float y)
         //fire
         _fireTimer = new MAXAnimationWait(0.2);
         _fireTimer->_delegate = this;
-        MAXAnimationManager::SharedAnimationManager()->AddAnimatedObject(_fireTimer);
+        MAXAnimationManager::SharedAnimationManager()->AddAnimation(_fireTimer);
         
         if (_delegate)
             _delegate->GameShipFireing(this);
@@ -136,7 +136,7 @@ void GameShip::OnAnimationFinish(MAXAnimationBase* animation)
         //create timer
         _fireTimer = new MAXAnimationWait(0.2);
         _fireTimer->_delegate = this;
-        MAXAnimationManager::SharedAnimationManager()->AddAnimatedObject(_fireTimer);
+        MAXAnimationManager::SharedAnimationManager()->AddAnimation(_fireTimer);
     }
     else if (animation == _fireTimer && !_fireing)
     {
