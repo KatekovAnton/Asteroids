@@ -98,7 +98,7 @@ void GameShip::SetShipDirection(float x, float y)
 
 Vector3 GameShip::GetBulletStartPosition()
 {
-    return Vector3Add(this->_object->GetPosition(), Vector3MultiplyScalar(Vector3Make(_directionVector.x, -_directionVector.y, _directionVector.z), 10));
+    return Vector3Add(this->_object->GetPosition(), Vector3MultiplyScalar(Vector3Make(_directionVector.x, -_directionVector.y, _directionVector.z), 25));
 }
 
 #pragma mark - ObjectControlledBehaviorModelDelegate

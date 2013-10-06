@@ -158,9 +158,15 @@ static int const _maxTouchesCount = 10;
         if (CGRectContainsPoint(rectRight, CGPointMake(xs[t], ys[t])))
             _delegate->_delegate->RotationVectorChanged(0, 0);
         if (ids[t] == _capturedRight)
+        {
             _capturedRight =0;
+            _delegate->_delegate->RotationVectorChanged(0, 0);
+        }
         if (ids[t] == _capturedLeft)
+        {
             _capturedLeft =0;
+            _delegate->_delegate->MoveVectorChanged(0, 0);
+        }
     }
 }
 
@@ -192,9 +198,15 @@ static int const _maxTouchesCount = 10;
             _delegate->_delegate->RotationVectorChanged(0, 0);
         
         if (ids[t] == _capturedRight)
+        {
             _capturedRight =0;
+            _delegate->_delegate->RotationVectorChanged(0, 0);
+        }
         if (ids[t] == _capturedLeft)
+        {
             _capturedLeft =0;
+            _delegate->_delegate->MoveVectorChanged(0, 0);
+        }
     }
     
 }

@@ -84,10 +84,13 @@ void PivotObject::EndFrame() {
 void PivotObject::HasBeenLocatedToScene()
 {
     _sceneLocationTime = engine->FullTime();
+    _objectBehaviourModel->Enable();
 }
 
 void PivotObject::HasBeenRemovedFromScene()
-{}
+{
+    _objectBehaviourModel->Disale();
+}
 
 void PivotObject::Draw(Shader *shader)
 {
@@ -105,6 +108,9 @@ Material * PivotObject::GetMaterial() {
 
 void PivotObject::SetPosition(const Vector3& position) {
     _objectBehaviourModel->SetPosition(Matrix4MakeTranslationV(position));
+    _objectBehaviourModel->Frame(0);
+    _objectBehaviourModel->EndFrame();
+    _transformMatrix = _objectBehaviourModel->GetGlobalPosition();
 }
 
 PivotObject::~PivotObject() {
@@ -113,3 +119,4 @@ PivotObject::~PivotObject() {
 
 void PivotObject::LastUpdate(bool low)
 {}
+

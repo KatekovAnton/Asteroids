@@ -12,6 +12,7 @@
 #include "EngineWireframe.h"
 #include "ObjectControlledBehaviorModel.h"
 #include "MAXAnimationPrefix.h"
+#include "CollisionObject.h"
 
 GameAsteroid::GameAsteroid(bool large)
 :_delegate(NULL)
@@ -33,7 +34,17 @@ GameAsteroid::GameAsteroid(bool large)
     shared_ptr<EngineWireframe> wf(new EngineWireframe(8, vertices));
     UnAnimRenderObject *_renderObject = new UnAnimRenderObject(wf);
     
-    ObjectControlledBehaviorModel *_behaviourModel = new ObjectControlledBehaviorModel(NULL, this, true);
+    Vector4 *points = new Vector4[8];
+    for (int i = 0; i < 8; i++) {
+        points[i].x = vertices[i].x;
+        points[i].y = vertices[i].y;
+        points[i].z = vertices[i].z;
+        points[i].w = 1;
+    }
+    CollisionObject *collisionObject = new CollisionObject(points, 8);
+    collisionObject->_owner_w = this;
+    
+    ObjectControlledBehaviorModel *_behaviourModel = new ObjectControlledBehaviorModel(collisionObject, this, true);
     
     SimpleWireframeObject *object = new SimpleWireframeObject(_renderObject, _behaviourModel, Vector4Make(1, 1, 1, 1));
     this->_object = object;

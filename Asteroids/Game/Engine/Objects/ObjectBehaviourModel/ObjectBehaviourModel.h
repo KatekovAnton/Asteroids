@@ -11,16 +11,18 @@
 
 #include <iostream>
 #include "Math.h"
+#include "CollisionObjectDelegate.h"
 
 class PivotObject;
 class CollisionObject;
 
-class ObjectBehaviourModel {
+class ObjectBehaviourModel : public CollisionObjectDelegate {
 protected:
     
     Matrix4      _currentPosition;
     Matrix4      _globalPosition;
     CollisionObject *_collisionObject;
+    bool _added;
     
 public:
     
@@ -45,6 +47,9 @@ public:
     virtual void Rotate(float angle);
     virtual void Move(Vector3 displacement);
     virtual void MakeJolt(Vector3 point, Vector3 direction, float mass);
+    
+#pragma mark - CollisionObjectDelegate
+    virtual Matrix4 GetCollisionObjectTransformMatrix();
 
 };
 

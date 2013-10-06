@@ -8,10 +8,13 @@
 
 #include "ObjectBehaviourModel.h"
 #include "CollisionObject.h"
+#include "CollisionEngine.h"
 
 ObjectBehaviourModel::ObjectBehaviourModel(CollisionObject *collisionObject)
-:_collisionObject(collisionObject)
+:_collisionObject(collisionObject), _added(false)
 {
+    if (_collisionObject)
+        _collisionObject->_delegate_w = this;
     _currentPosition = Matrix4Identity;
     _globalPosition = Matrix4Identity;
 }
@@ -22,6 +25,7 @@ Matrix4 ObjectBehaviourModel::GetGlobalPosition() {
 
 void ObjectBehaviourModel::SetGlobalPosition(const Matrix4& globalPosition, void *aditionalData, const PivotObject *parent, bool afterUpdate) {
     _currentPosition = globalPosition;
+    
     moved = true;
 }
 
@@ -53,11 +57,17 @@ void ObjectBehaviourModel::EndFrame() {
 }
 
 void ObjectBehaviourModel::Enable() {
-    
+    if (_collisionObject && !_added) {
+        _added = true;
+        CollisionEngine::SharedCollisionEngine()->AddObject(_collisionObject);
+    }
 }
 
 void ObjectBehaviourModel::Disale() {
-    
+    if (_collisionObject && _added) {
+        _added = false;
+        CollisionEngine::SharedCollisionEngine()->RemoveObject(_collisionObject);
+    }
 }
 
 void ObjectBehaviourModel::Rotate(float angle) {
@@ -75,4 +85,11 @@ void ObjectBehaviourModel::MakeJolt(Vector3 point, Vector3 direction, float mass
 ObjectBehaviourModel::~ObjectBehaviourModel() {
     
     delete _collisionObject;
+}
+
+#pragma mark - CollisionObjectDelegate
+
+Matrix4 ObjectBehaviourModel::GetCollisionObjectTransformMatrix()
+{
+    return _globalPosition;
 }

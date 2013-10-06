@@ -23,6 +23,10 @@ class CollisionEngine {
     
     USimpleContainer<CollisionPair>     *_collidedObjects;
     
+    USimpleContainer<Vector4> *_pointBuffer;
+    
+    USimpleContainer<int> collidedPoints;
+    
 public:
     
     static CollisionEngine* SharedCollisionEngine();

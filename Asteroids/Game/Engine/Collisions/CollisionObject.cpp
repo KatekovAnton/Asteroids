@@ -16,7 +16,7 @@ CollisionObject::CollisionObject(Vector4 *points, int count)
 
 CollisionObject::~CollisionObject()
 {
-    free(_points);
+    delete [] _points;
 }
 
 void CollisionObject::Start()

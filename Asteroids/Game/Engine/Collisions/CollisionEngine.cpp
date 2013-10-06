@@ -51,7 +51,7 @@ CollisionEngine* CollisionEngine::SharedCollisionEngine()
 }
 
 CollisionEngine::CollisionEngine()
-:_objectMeshes(new USimpleContainer<CollisionObject*>(10)), _objectPoints(new USimpleContainer<CollisionObject*>(10)), _collidedObjects(new USimpleContainer<CollisionPair>(10))
+:_objectMeshes(new USimpleContainer<CollisionObject*>(10)), _objectPoints(new USimpleContainer<CollisionObject*>(10)), _collidedObjects(new USimpleContainer<CollisionPair>(10)), _pointBuffer(new USimpleContainer<Vector4>(10))
 {
 }
 
@@ -60,6 +60,7 @@ CollisionEngine::~CollisionEngine()
     delete _objectMeshes;
     delete _objectPoints;
     delete _collidedObjects;
+    delete _pointBuffer;
 }
 
 void CollisionEngine::AddObject(CollisionObject *object)
@@ -85,6 +86,24 @@ void CollisionEngine::CalculateCollisions()
     _collidedObjects->clear();
     
     //calc
+    collidedPoints.clear();
+    for (int j = 0; j < _objectMeshes->GetCount(); j++)
+    {
+        CollisionObject *mesh = _objectMeshes->objectAtIndex(j);
+        memcpy(_pointBuffer->GetArrayPointer(), mesh->GetCollisionObjectPoints(), sizeof(mesh->GetCollisionObjectPoints()) * mesh->GetCollisionObjectPointsCount());
+        for (int i = 0; i < _objectPoints->GetCount(); i++)
+        {
+            if (collidedPoints.indexOf(i) != -1)
+                continue;
+            
+            CollisionObject *point = _objectPoints->objectAtIndex(i);
+            Vector4 point1 = Vector4MakeWithVector3(Matrix4GetTranslation(point->GetCollisionObjectPreviousTransform()), 1);
+            Vector4 point2 = Vector4MakeWithVector3(Matrix4GetTranslation(point->GetCollisionObjectTransform()), 1);
+            point1 = point2;
+            
+            
+        }
+    }
     
     
     //updateObjects

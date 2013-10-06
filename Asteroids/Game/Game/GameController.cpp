@@ -22,7 +22,7 @@ GameController::GameController()
     _ship->_delegate = this;
     
     GameAsteroid *asteroid = new GameAsteroid(true);
-    asteroid->SetPosition(Vector2Make(Display::currentDisplay()->GetDisplayWidth()/2 - 200, Display::currentDisplay()->GetDisplayHeight()/2));
+    asteroid->SetPosition(Vector2Make(0, 0));
     asteroid->Show();
     asteroid->_delegate = this;
     _asteroids->addObject(asteroid);
