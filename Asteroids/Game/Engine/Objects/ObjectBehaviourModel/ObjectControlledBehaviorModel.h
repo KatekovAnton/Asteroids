@@ -22,7 +22,7 @@ class ObjectControlledBehaviorModel : public ObjectBehaviourModel {
     
 public:
     
-    ObjectControlledBehaviorModel(ObjectControlledBehaviorModelDelegate *delegate, bool intertion);
+    ObjectControlledBehaviorModel(CollisionObject* collisionObject, ObjectControlledBehaviorModelDelegate *delegate, bool intertion);
     virtual ~ObjectControlledBehaviorModel();
     
     virtual void Frame(double time);

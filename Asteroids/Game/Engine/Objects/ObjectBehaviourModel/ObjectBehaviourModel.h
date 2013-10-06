@@ -13,18 +13,20 @@
 #include "Math.h"
 
 class PivotObject;
+class CollisionObject;
 
 class ObjectBehaviourModel {
 protected:
     
     Matrix4      _currentPosition;
     Matrix4      _globalPosition;
+    CollisionObject *_collisionObject;
     
 public:
     
     bool            moved;
     
-    ObjectBehaviourModel();
+    ObjectBehaviourModel(CollisionObject *collisionObject);
     virtual ~ ObjectBehaviourModel();
     
     Matrix4 GetGlobalPosition();

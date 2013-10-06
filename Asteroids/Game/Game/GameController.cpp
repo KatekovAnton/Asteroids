@@ -14,12 +14,19 @@
 #include "GameAsteroid.h"
 
 GameController::GameController()
-:_bullets(new USimpleContainer<GameShipBullet*>(10)), _createAsteroidTimer(NULL)
+:_bullets(new USimpleContainer<GameShipBullet*>(10)), _createAsteroidTimer(NULL), _asteroids(new USimpleContainer<GameAsteroid*>(10))
 {
     _ship = new GameShip();
     _ship->SetPosition(Vector2Make(Display::currentDisplay()->GetDisplayWidth()/2, Display::currentDisplay()->GetDisplayHeight()/2));
     _ship->Show();
     _ship->_delegate = this;
+    
+    GameAsteroid *asteroid = new GameAsteroid(true);
+    asteroid->SetPosition(Vector2Make(Display::currentDisplay()->GetDisplayWidth()/2 - 200, Display::currentDisplay()->GetDisplayHeight()/2));
+    asteroid->Show();
+    asteroid->_delegate = this;
+    _asteroids->addObject(asteroid);
+    
     
     MAXAnimationWait *timerCreateAsteroid = new MAXAnimationWait(1);
     timerCreateAsteroid->_delegate = this;
@@ -36,6 +43,14 @@ GameController::~GameController()
         delete bullet;
     }
     delete _bullets;
+    
+    for (int i = 0; i < _asteroids->GetCount(); i++) {
+        GameAsteroid* asteroid = _asteroids->objectAtIndex(i);
+        asteroid->Hide();
+        delete asteroid;
+    }
+    delete _asteroids;
+    
     delete _ship;
 }
 
@@ -91,3 +106,11 @@ void GameController::GameShipBulletDidFinishExistance(GameShipBullet *sender)
     sender->Hide();
     delete sender;
 }
+
+#pragma mark - GameAsteroidDelegate
+
+void GameController::GameAsteroidDidFinishExistance(GameAsteroid *sender)
+{
+    
+}
+

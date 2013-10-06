@@ -12,16 +12,18 @@
 #include <iostream>
 #include "GameShipDelegate.h"
 #include "GameShipBulletDelegate.h"
+#include "GameAsteroidDelegate.h"
 #include "miniPrefix.h"
 #include "MAXAnimationDelegate.h"
 
 class GameShip;
 class GameShipBullet;
 
-class GameController : public GameShipDelegate, public GameShipBulletDelegate, public MAXAnimationDelegate {
+class GameController : public GameShipDelegate, public GameShipBulletDelegate, public MAXAnimationDelegate, public GameAsteroidDelegate {
     
     GameShip *_ship;
     USimpleContainer<GameShipBullet*> *_bullets;
+    USimpleContainer<GameAsteroid*> *_asteroids;
     
     MAXAnimationBase *_createAsteroidTimer;
     
@@ -44,6 +46,9 @@ public:
     
 #pragma mark - GameShipBulletDelegate
     virtual void GameShipBulletDidFinishExistance(GameShipBullet *sender);
+    
+#pragma mark - GameAsteroidDelegate
+    virtual void GameAsteroidDidFinishExistance(GameAsteroid *sender);
     
 };
 

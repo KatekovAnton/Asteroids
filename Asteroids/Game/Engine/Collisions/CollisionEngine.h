@@ -14,14 +14,26 @@
 
 class CollisionObject;
 
+#define CollisionPair pair<CollisionObject*, CollisionObject*>
+
 class CollisionEngine {
     
+    USimpleContainer<CollisionObject*>  *_objectPoints;
+    USimpleContainer<CollisionObject*>  *_objectMeshes;
     
+    USimpleContainer<CollisionPair>     *_collidedObjects;
     
 public:
     
+    static CollisionEngine* SharedCollisionEngine();
+    
     CollisionEngine();
     ~CollisionEngine();
+    
+    void AddObject(CollisionObject *object);
+    void RemoveObject(CollisionObject *object);
+    
+    void CalculateCollisions();
     
 };
 

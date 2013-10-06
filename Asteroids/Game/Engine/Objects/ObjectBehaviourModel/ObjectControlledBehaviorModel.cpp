@@ -8,8 +8,8 @@
 
 #include "ObjectControlledBehaviorModel.h"
 
-ObjectControlledBehaviorModel::ObjectControlledBehaviorModel(ObjectControlledBehaviorModelDelegate *delegate, bool intertion)
-:_delegate_w(delegate), inertion(Vector3Make(0, 0, 0)), _intertion(intertion)
+ObjectControlledBehaviorModel::ObjectControlledBehaviorModel(CollisionObject* collisionObject, ObjectControlledBehaviorModelDelegate *delegate, bool intertion)
+:ObjectBehaviourModel(collisionObject), _delegate_w(delegate), inertion(Vector3Make(0, 0, 0)), _intertion(intertion)
 {}
 
 ObjectControlledBehaviorModel::~ObjectControlledBehaviorModel()

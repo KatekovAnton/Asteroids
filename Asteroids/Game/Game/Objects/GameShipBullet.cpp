@@ -12,13 +12,14 @@
 #include "EngineWireframe.h"
 #include "ObjectControlledBehaviorModel.h"
 #include "MAXAnimationPrefix.h"
+#include "CollisionObject.h"
 
 GameShipBullet::GameShipBullet(Vector2 direction)
 :_direction(Vector3Make(direction.x, direction.y, 0)), _movement(Vector3Make(direction.x, -direction.y, 0)), _delegate(NULL)
 {
     Vector3 vertices[2];
-    vertices[0].x = 0; vertices[0].y = 0; vertices[0].z = 0;
-    vertices[1].x = 0; vertices[1].y = 10; vertices[1].z = 0;
+    vertices[0].x = 0; vertices[0].y = 5; vertices[0].z = 0;
+    vertices[1].x = 0; vertices[1].y = -5; vertices[1].z = 0;
     
     
 
@@ -26,7 +27,12 @@ GameShipBullet::GameShipBullet(Vector2 direction)
     shared_ptr<EngineWireframe> wf(new EngineWireframe(2, vertices));
     UnAnimRenderObject *_renderObject = new UnAnimRenderObject(wf);
     
-    ObjectControlledBehaviorModel *_behaviourModel = new ObjectControlledBehaviorModel(this, false);
+    Vector4 *points = new Vector4[1];
+    points[0] = Vector4Make(0, 0, 0, 1);
+    CollisionObject *collisionObject = new CollisionObject(points, 1);
+    collisionObject->_owner_w = this;
+    
+    ObjectControlledBehaviorModel *_behaviourModel = new ObjectControlledBehaviorModel(collisionObject, this, false);
     
     SimpleWireframeObject *object = new SimpleWireframeObject(_renderObject, _behaviourModel, Vector4Make(1, 1, 1, 1));
     this->_object = object;

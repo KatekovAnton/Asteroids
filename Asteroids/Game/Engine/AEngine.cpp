@@ -24,6 +24,7 @@
 #include "RenderObject.h"
 #include "ADrawPrimitives.h"
 #include "PivotObject.h"
+#include "CollisionEngine.h"
 
 AEngine globalEngine;
 AEngine * engine = &globalEngine;
@@ -126,18 +127,23 @@ void AEngine::Update()
     
     _scene->EndFrame();
     _scene->UpdateScene();
+    
     if (_first) {
         _camera->Move(0, 0);
         _first = false;
     }
+    
     _camera->Update();
 	
 	if (!_freezeAnimationManager)
 		_animationManager->Update();
+    
 	if (!_scene)
 		return;
 
-
+    CollisionEngine::SharedCollisionEngine()->CalculateCollisions();
+    
+    
     _scene->AfterUpdate();
     _scene->CalculateVisbleObject();
     
@@ -149,7 +155,6 @@ void AEngine::DrawStart()
 {
     glClearColor(0.5, 0.5, 0.5, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 }
 
 void AEngine::Draw()

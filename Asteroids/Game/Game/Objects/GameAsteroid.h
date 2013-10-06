@@ -12,6 +12,7 @@
 #include <iostream>
 #include "GameObject.h"
 #include "ObjectControlledBehaviorModelDelegate.h"
+#include "GameAsteroidDelegate.h"
 
 class GameAsteroid : public GameObject, public ObjectControlledBehaviorModelDelegate {
     
@@ -19,6 +20,8 @@ class GameAsteroid : public GameObject, public ObjectControlledBehaviorModelDele
     Vector3 _directionVector;
     
 public:
+    
+    GameAsteroidDelegate *_delegate;
     
     GameAsteroid(bool large);
     virtual ~GameAsteroid();

@@ -149,6 +149,8 @@
 		D19DBC7117F84B2D00B903D5 /* CollisionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionEngine.h; sourceTree = "<group>"; };
 		D19DBC7317F84B3A00B903D5 /* CollisionObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionObject.cpp; sourceTree = "<group>"; };
 		D19DBC7417F84B3A00B903D5 /* CollisionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionObject.h; sourceTree = "<group>"; };
+		D19DBCC91801740000B903D5 /* CollisionObjectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollisionObjectDelegate.h; sourceTree = "<group>"; };
+		D19DBCCA18018F4200B903D5 /* GameAsteroidDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameAsteroidDelegate.h; sourceTree = "<group>"; };
 		D1D50F4C17D7342800089275 /* Asteroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asteroids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D50F4F17D7342800089275 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D1D50F5117D7342800089275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -281,6 +283,7 @@
 				D19DBC6C17F6ED4300B903D5 /* GameShipDelegate.h */,
 				D168390117E9D5E5003BA41F /* GameAsteroid.cpp */,
 				D168390217E9D5E6003BA41F /* GameAsteroid.h */,
+				D19DBCCA18018F4200B903D5 /* GameAsteroidDelegate.h */,
 				D168391717E9FCC2003BA41F /* GameShipBullet.cpp */,
 				D168391817E9FCC4003BA41F /* GameShipBullet.h */,
 				D19DBC6E17F6F8AA00B903D5 /* GameShipBulletDelegate.h */,
@@ -348,6 +351,7 @@
 				D19DBC7117F84B2D00B903D5 /* CollisionEngine.h */,
 				D19DBC7317F84B3A00B903D5 /* CollisionObject.cpp */,
 				D19DBC7417F84B3A00B903D5 /* CollisionObject.h */,
+				D19DBCC91801740000B903D5 /* CollisionObjectDelegate.h */,
 			);
 			path = Collisions;
 			sourceTree = "<group>";

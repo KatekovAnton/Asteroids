@@ -14,6 +14,7 @@
 #include "MAXAnimationPrefix.h"
 
 GameAsteroid::GameAsteroid(bool large)
+:_delegate(NULL)
 {
     Vector3 vertices[8];
     vertices[0].x = -10; vertices[0].y = 10; vertices[0].z = 0;
@@ -32,7 +33,7 @@ GameAsteroid::GameAsteroid(bool large)
     shared_ptr<EngineWireframe> wf(new EngineWireframe(8, vertices));
     UnAnimRenderObject *_renderObject = new UnAnimRenderObject(wf);
     
-    ObjectControlledBehaviorModel *_behaviourModel = new ObjectControlledBehaviorModel(this, true);
+    ObjectControlledBehaviorModel *_behaviourModel = new ObjectControlledBehaviorModel(NULL, this, true);
     
     SimpleWireframeObject *object = new SimpleWireframeObject(_renderObject, _behaviourModel, Vector4Make(1, 1, 1, 1));
     this->_object = object;

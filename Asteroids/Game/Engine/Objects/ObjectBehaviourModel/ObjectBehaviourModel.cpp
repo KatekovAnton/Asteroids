@@ -7,8 +7,11 @@
 //
 
 #include "ObjectBehaviourModel.h"
+#include "CollisionObject.h"
 
-ObjectBehaviourModel::ObjectBehaviourModel() {
+ObjectBehaviourModel::ObjectBehaviourModel(CollisionObject *collisionObject)
+:_collisionObject(collisionObject)
+{
     _currentPosition = Matrix4Identity;
     _globalPosition = Matrix4Identity;
 }
@@ -71,4 +74,5 @@ void ObjectBehaviourModel::MakeJolt(Vector3 point, Vector3 direction, float mass
 
 ObjectBehaviourModel::~ObjectBehaviourModel() {
     
+    delete _collisionObject;
 }
