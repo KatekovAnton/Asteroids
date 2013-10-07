@@ -27,6 +27,10 @@ public:
     
     virtual void Frame(double time);
     
+    virtual void CollisionObjectDidCollideToObject(CollisionObject *collider);
+    
+    virtual void *GetOwner();
+    
 };
 
 #endif /* defined(__Asteroids__ObjectControlledBehaviorModel__) */

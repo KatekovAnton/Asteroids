@@ -11,10 +11,11 @@
 
 #include <iostream>
 #include "DisplayDelegate.h"
+#include "AEngine.h"
 
 class GameController;
 
-class Game : public DisplayDelegate {
+class Game : public DisplayDelegate, public AEngineDelegate {
     
     GameController *_gameController;
     
@@ -26,8 +27,10 @@ public:
     
     static Game* SharedGame();
     
-#pragma mark - DisplayDelegate
+#pragma mark - AEngineDelegate
+    virtual void onFrame();
     
+#pragma mark - DisplayDelegate
     virtual void MoveVectorChanged(float x, float y);
     virtual void RotationVectorChanged(float x, float y);
     

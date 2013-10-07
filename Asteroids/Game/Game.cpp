@@ -28,8 +28,18 @@ Game::Game()
 void Game::Init()
 {
     engine->Init();
+    engine->_delegate = this;
     _gameController = new GameController();
     Display::currentDisplay()->SetDelegate(this);
+}
+
+#pragma mark - AEngineDelegate
+
+void Game::onFrame()
+{
+    if (_gameController) {
+        _gameController->UpdateCollisions();
+    }
 }
 
 #pragma mark - DisplayDelegate

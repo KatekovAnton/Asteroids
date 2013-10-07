@@ -8,6 +8,7 @@
 
 #include "CollisionEngine.h"
 #include "CollisionObject.h"
+#include "CollisionObjectDelegate.h"
 
 static CollisionEngine *_staticCollisionEngine = NULL;
 
@@ -40,6 +41,32 @@ bool intersection(Vector4 start1, Vector4 end1, Vector4 start2, Vector4 end2, Ve
     *out_intersection = Vector4Add(start1, Vector4MultiplyScalar(dir1, u));
     
     return true;
+}
+
+bool Crossing(Vector4 p1, Vector4 p2, Vector4 p3, Vector4 p4, Vector4 *out_intersection)
+{
+    if (p3.x == p4.x)   // вертикаль
+    {
+        float y = p1.y + ((p2.y - p1.y) * (p3.x - p1.x)) / (p2.x - p1.x);
+        if (y > ____max(p3.y, p4.y) || y < ____min(p3.y, p4.y) || y > ____max(p1.y, p2.y) || y < ____min(p1.y, p2.y))   // если за пределами отрезков
+            return false;
+        else
+        {
+            *out_intersection = Vector4Make(p3.x, y, 0, 1);
+            return true;
+        }
+    }
+    else            // горизонталь
+    {
+        float x = p1.x + ((p2.x - p1.x) * (p3.y - p1.y)) / (p2.y - p1.y);
+        if (x > ____max(p3.x, p4.x) || x < ____min(p3.x, p4.x) || x > ____max(p1.x, p2.x) || x < ____min(p1.x, p2.x))   // если за пределами отрезков
+            return false;
+        else
+        {
+            *out_intersection = Vector4Make(x, p3.y, 0, 1);
+            return true;
+        }
+    }
 }
 
 CollisionEngine* CollisionEngine::SharedCollisionEngine()
@@ -87,21 +114,57 @@ void CollisionEngine::CalculateCollisions()
     
     //calc
     collidedPoints.clear();
+    Vector4 point1;
+    Vector4 point2;
+    Vector4 linePoint1;
+    Vector4 linePoint2;
+    Vector4 intersectionPoint;
+    Vector4 intersectionPointTmp;
     for (int j = 0; j < _objectMeshes->GetCount(); j++)
     {
         CollisionObject *mesh = _objectMeshes->objectAtIndex(j);
-        memcpy(_pointBuffer->GetArrayPointer(), mesh->GetCollisionObjectPoints(), sizeof(mesh->GetCollisionObjectPoints()) * mesh->GetCollisionObjectPointsCount());
+        if (mesh->GetCollisionObjectPointsCount() > _pointBuffer->GetSize())
+            _pointBuffer->Resize(mesh->GetCollisionObjectPointsCount());
+        
+        {
+            //transform points
+            Matrix4 transform = mesh->GetCollisionObjectTransform();
+            for (int i = 0; i < mesh->GetCollisionObjectPointsCount(); i++)
+                _pointBuffer->GetArrayPointer()[i] = Matrix4MultiplyVector4(transform, mesh->GetCollisionObjectPoints()[i]);
+        }
+        
+        Vector4 tmp =_pointBuffer->objectAtIndex(2);
+        tmp = tmp;
+        
         for (int i = 0; i < _objectPoints->GetCount(); i++)
         {
-            if (collidedPoints.indexOf(i) != -1)
+            CollisionObject *point = _objectPoints->objectAtIndex(i);
+            if (collidedPoints.indexOf(point) != -1)
                 continue;
             
-            CollisionObject *point = _objectPoints->objectAtIndex(i);
-            Vector4 point1 = Vector4MakeWithVector3(Matrix4GetTranslation(point->GetCollisionObjectPreviousTransform()), 1);
-            Vector4 point2 = Vector4MakeWithVector3(Matrix4GetTranslation(point->GetCollisionObjectTransform()), 1);
-            point1 = point2;
+            point1 = Vector4MakeWithVector3(Matrix4GetTranslation(point->GetCollisionObjectPreviousTransform()), 1);
+            point2 = Vector4MakeWithVector3(Matrix4GetTranslation(point->GetCollisionObjectTransform()), 1);
             
-            
+            int lineCount = mesh->GetCollisionObjectPointsCount() / 2;
+            float intersectonRange = 1000;
+            bool foundIntersection = false;
+            for (int p = 0; p < lineCount; p++) {
+                linePoint1 = _pointBuffer->objectAtIndex(p * 2);
+                linePoint2 = _pointBuffer->objectAtIndex(p * 2 + 1);
+                
+                if (intersection(linePoint1, linePoint2, point1, point2, &intersectionPointTmp)) {
+                    foundIntersection = true;
+                    float currentIntersectonRange = Vector3LengthSquired(Vector3Make(point1.x - intersectionPointTmp.x, point1.y - intersectionPointTmp.y, point1.z - intersectionPointTmp.z));
+                    if (currentIntersectonRange < intersectonRange) {
+                        intersectionPoint = intersectionPointTmp;
+                        intersectonRange = currentIntersectonRange;
+                    }
+                }
+            }
+            if (foundIntersection) {
+                _collidedObjects->addObject(CollisionPair(mesh, point));
+                continue; //only 1 collision - much more easy
+            }
         }
     }
     
@@ -113,4 +176,13 @@ void CollisionEngine::CalculateCollisions()
     for (int i = 0; i < _objectMeshes->GetCount(); i++)
         _objectMeshes->objectAtIndex(i)->Update();
     
+}
+
+void CollisionEngine::UpdateCollisions()
+{
+    
+    for (int i = 0; i < _collidedObjects->GetCount(); i++) {
+        CollisionPair pair = _collidedObjects->objectAtIndex(i);
+        pair.first->_delegate_w->CollisionObjectDidCollideToObject(pair.second);
+    }
 }

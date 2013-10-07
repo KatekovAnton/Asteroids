@@ -38,6 +38,12 @@ void GameObject::Hide()
     engine->RemoveUnit(_object);
 }
 
+Vector2 GameObject::GetPosition()
+{
+    Vector3 v = _object->GetPosition();
+    return Vector2Make(v.x, v.y);
+}
+
 void GameObject::SetPosition(Vector2 position)
 {
     _object->SetPosition(Vector3Make(position.x, position.y, 0));

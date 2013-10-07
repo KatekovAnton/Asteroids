@@ -12,6 +12,7 @@
 #include "GameShipBullet.h"
 #include "MAXAnimationPrefix.h"
 #include "GameAsteroid.h"
+#include "CollisionEngine.h"
 
 GameController::GameController()
 :_bullets(new USimpleContainer<GameShipBullet*>(10)), _createAsteroidTimer(NULL), _asteroids(new USimpleContainer<GameAsteroid*>(10))
@@ -22,10 +23,12 @@ GameController::GameController()
     _ship->_delegate = this;
     
     GameAsteroid *asteroid = new GameAsteroid(true);
-    asteroid->SetPosition(Vector2Make(0, 0));
+    asteroid->SetPosition(Vector2Make(210, 200));
     asteroid->Show();
     asteroid->_delegate = this;
+    asteroid->CalculateParameters(true, Vector3Make(0, 0, 0), 1);
     _asteroids->addObject(asteroid);
+    
     
     
     MAXAnimationWait *timerCreateAsteroid = new MAXAnimationWait(1);
@@ -64,6 +67,52 @@ void GameController::SetRotationVectorChanged(float x, float y)
     _ship->SetShipDirection(x, y);
 }
 
+GameAsteroid *GameController::CreateAsteroid(bool large, Vector2 pos)
+{
+    GameAsteroid *asteroidNew = new GameAsteroid(large);
+    asteroidNew->SetPosition(Vector2Add(pos, Vector2Make(10, 10)));
+    asteroidNew->_delegate = this;
+    return asteroidNew;
+}
+
+void GameController::UpdateCollisions()
+{
+    CollisionEngine::SharedCollisionEngine()->UpdateCollisions();
+    
+    for (int i = 0; i < _collidedAsteroids.GetCount(); i++) {
+        GameAsteroid *asteroid = _collidedAsteroids.objectAtIndex(i);
+        Vector2 pos = asteroid->GetPosition();
+        bool large = asteroid->GetIsLarge();
+        Vector3 direction = asteroid->GetMoveVector(NULL);
+        GameAsteroidDidFinishExistance(asteroid);
+        
+        if (large)
+        {
+            {
+                GameAsteroid *asteroidNew = CreateAsteroid(false, Vector2Add(pos, Vector2Make(10, 10)));
+                _asteroids->addObject(asteroidNew);
+                asteroidNew->CalculateParameters(false, direction, 1);
+                asteroidNew->Show();
+            }
+            {
+                GameAsteroid *asteroidNew = CreateAsteroid(false, Vector2Add(pos, Vector2Make(-10, 10)));
+                _asteroids->addObject(asteroidNew);
+                asteroidNew->CalculateParameters(false, direction, 1);
+                asteroidNew->Show();
+            }
+            {
+                GameAsteroid *asteroidNew = CreateAsteroid(false, Vector2Add(pos, Vector2Make(10, -10)));
+                _asteroids->addObject(asteroidNew);
+                asteroidNew->CalculateParameters(false, direction, 1);
+                asteroidNew->Show();
+            }
+        }
+        
+    }
+    
+    _collidedAsteroids.clear();
+}
+
 #pragma mark - MAXAnimationDelegate
 
 void GameController::OnAnimationStart(MAXAnimationBase* animation)
@@ -96,7 +145,9 @@ void GameController::GameShipFireing(GameShip *sender)
 }
 
 void GameController::GameShipDidCollide(GameShip *sender)
-{}
+{
+    
+}
 
 #pragma mark - GameShipBulletDelegate
 
@@ -111,6 +162,17 @@ void GameController::GameShipBulletDidFinishExistance(GameShipBullet *sender)
 
 void GameController::GameAsteroidDidFinishExistance(GameAsteroid *sender)
 {
-    
+    _asteroids->removeObject(sender);
+    sender->Hide();
+    delete sender;
 }
 
+void GameController::GameAsteroidDidCollideWithBullet(GameAsteroid *sender)
+{
+    _collidedAsteroids.addObject(sender);
+}
+
+Vector2 GameController::FieldCenter()
+{
+    return Vector2Make(Display::currentDisplay()->GetDisplayWidth()/2, Display::currentDisplay()->GetDisplayHeight()/2);
+}

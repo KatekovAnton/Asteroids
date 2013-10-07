@@ -39,6 +39,8 @@ public:
     T objectAtIndex(int index) const;
     void sort(int (* pointer)(const void *, const void *));
     int GetCount() const { return _count; };
+    int GetSize() const { return _currentSize; };
+    void Resize(int newSize);
     vector<T> ToSTDVector();
 };
 
@@ -49,6 +51,16 @@ vector<T> USimpleContainer<T>::ToSTDVector() {
         result.push_back(_array[i]);
     }
     return result;
+}
+template <typename T>
+void USimpleContainer<T>::Resize(int newSize)
+{
+    T *tmp = _array;
+    _currentSize = newSize;
+    _array = new T[_currentSize];
+    for (int i = 0; i < _count; i++)
+        _array[i] = tmp[i];
+    delete [] tmp;
 }
 
 template <typename T>
@@ -68,15 +80,12 @@ USimpleContainer<T>::USimpleContainer(int baseSize):_count(0) {
 
 template <typename T>
 USimpleContainer<T>::~USimpleContainer<T>() {
-    clear();
     delete [] _array;
 }
 
 template <typename T>
 void USimpleContainer<T>::remove(int index) {
     if (index < _count) {
-        //            T obj  = _array[index];
-        
         _array[index] = _array[_count - 1];
         _count--;
     }
@@ -93,6 +102,8 @@ int USimpleContainer<T>::indexOf(const T &object) {
 
 template <typename T>
 void USimpleContainer<T>::clear() {
+    delete [] _array;
+    _array = new T[_currentSize];
     memset(_array, 0, _currentSize*sizeof(T));
     _count = 0;
 }

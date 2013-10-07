@@ -9,6 +9,8 @@
 #ifndef Asteroids_GameAsteroidDelegate_h
 #define Asteroids_GameAsteroidDelegate_h
 
+#include "miniPrefix.h"
+
 class GameAsteroid;
 
 class GameAsteroidDelegate {
@@ -16,6 +18,8 @@ class GameAsteroidDelegate {
 public:
     
     virtual void GameAsteroidDidFinishExistance(GameAsteroid *sender) = 0;
+    virtual void GameAsteroidDidCollideWithBullet(GameAsteroid *sender) = 0;
+    virtual Vector2 FieldCenter() = 0;
     
 };
 

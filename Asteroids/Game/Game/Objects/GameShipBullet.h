@@ -32,6 +32,7 @@ public:
     virtual Vector3 GetMoveVector(void *sender);
     virtual Vector3 GetDirectionVector(void *sender);
     virtual void OnObjectCollidedToObject(void *sender, void *collider);
+    virtual void* GetOwner();
 
 #pragma mark - MAXAnimationDelegate
     virtual void OnAnimationStart(MAXAnimationBase* animation);

@@ -61,12 +61,7 @@ void AEngine::Init() {
     GCCHECK_GL_ERROR_DEBUG(); 
 
     _shaderObjects = new Shader("ShaderWireframeObject.vsh", "ShaderWireframeObject.fsh");
-       
-    //float scale = _renderSystem->GetDisplay()->GetDisplayScale();
-    //_renderSystem->GetDisplay()->setDesignResolutionSize(_renderSystem->GetDisplay()->GetDisplayWidth()/scale, _renderSystem->GetDisplay()->GetDisplayHeight()/scale, kResolutionNoBorder);
     _animationManager = new MAXAnimationManager();
-    
-	
     _scene = new SceneSystem();
 }
 
@@ -83,14 +78,12 @@ void AEngine::RunLoop(double delta)
     _elapsedTime = delta;
     _fullTime += _elapsedTime;
     
-    
     this->Update();
+    
     if (_delegate) 
         _delegate->onFrame();
     
     this->Draw();
-    
-    
     this->EndFrame();
 }
 
@@ -143,11 +136,8 @@ void AEngine::Update()
 
     CollisionEngine::SharedCollisionEngine()->CalculateCollisions();
     
-    
     _scene->AfterUpdate();
-    _scene->CalculateVisbleObject();
-    
-   
+    //_scene->CalculateVisbleObject();
     _scene->LastUpdate(false);
 }
 

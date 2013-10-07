@@ -25,7 +25,10 @@ class GameController : public GameShipDelegate, public GameShipBulletDelegate, p
     USimpleContainer<GameShipBullet*> *_bullets;
     USimpleContainer<GameAsteroid*> *_asteroids;
     
+    USimpleContainer<GameAsteroid*> _collidedAsteroids;
+    
     MAXAnimationBase *_createAsteroidTimer;
+    GameAsteroid *CreateAsteroid(bool large, Vector2 pos);
     
 public:
     
@@ -34,6 +37,8 @@ public:
     
     void SetMoveVectorChanged(float x, float y);
     void SetRotationVectorChanged(float x, float y);
+    
+    void UpdateCollisions();
     
 #pragma mark - MAXAnimationDelegate
     virtual void OnAnimationStart(MAXAnimationBase* animation);
@@ -49,6 +54,8 @@ public:
     
 #pragma mark - GameAsteroidDelegate
     virtual void GameAsteroidDidFinishExistance(GameAsteroid *sender);
+    virtual void GameAsteroidDidCollideWithBullet(GameAsteroid *sender);
+    virtual Vector2 FieldCenter();
     
 };
 

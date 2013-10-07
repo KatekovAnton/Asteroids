@@ -29,6 +29,7 @@ public:
     void Show();
     void Hide();
     
+    Vector2 GetPosition();
     virtual void SetPosition(Vector2 position);
     
 };

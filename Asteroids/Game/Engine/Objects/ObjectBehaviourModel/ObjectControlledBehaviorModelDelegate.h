@@ -18,6 +18,7 @@ public:
     virtual Vector3 GetMoveVector(void *sender) = 0;
     virtual Vector3 GetDirectionVector(void *sender) = 0;
     virtual void OnObjectCollidedToObject(void *sender, void *collider) = 0;
+    virtual void *GetOwner() = 0;
     
 };
 

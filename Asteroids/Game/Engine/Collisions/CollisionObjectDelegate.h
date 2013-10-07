@@ -11,11 +11,15 @@
 
 #include "miniPrefix.h"
 
+class CollisionObject;
+
 class CollisionObjectDelegate {
     
 public:
     
     virtual Matrix4 GetCollisionObjectTransformMatrix() = 0;
+    virtual void CollisionObjectDidCollideToObject(CollisionObject *collider) = 0;
+    virtual void *GetOwner() = 0;
     
 };
 

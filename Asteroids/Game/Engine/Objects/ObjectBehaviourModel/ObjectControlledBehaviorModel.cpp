@@ -7,6 +7,7 @@
 //
 
 #include "ObjectControlledBehaviorModel.h"
+#include "CollisionObject.h"
 
 ObjectControlledBehaviorModel::ObjectControlledBehaviorModel(CollisionObject* collisionObject, ObjectControlledBehaviorModelDelegate *delegate, bool intertion)
 :ObjectBehaviourModel(collisionObject), _delegate_w(delegate), inertion(Vector3Make(0, 0, 0)), _intertion(intertion)
@@ -49,4 +50,14 @@ void ObjectControlledBehaviorModel::Frame(double time)
     
     SetGlobalPosition(res, NULL, NULL, true);
    
+}
+
+void ObjectControlledBehaviorModel::CollisionObjectDidCollideToObject(CollisionObject *collider)
+{
+    _delegate_w->OnObjectCollidedToObject(this->_delegate_w->GetOwner(), collider->_delegate_w->GetOwner());
+}
+
+void *ObjectControlledBehaviorModel::GetOwner()
+{
+    return _delegate_w->GetOwner();
 }

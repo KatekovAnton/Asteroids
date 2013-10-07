@@ -116,6 +116,11 @@ Vector3 GameShip::GetDirectionVector(void *sender)
 void GameShip::OnObjectCollidedToObject(void *sender, void *collider)
 {}
 
+void *GameShip::GetOwner()
+{
+    return this;
+}
+
 #pragma mark - MAXAnimationDelegate
 
 void GameShip::OnAnimationStart(MAXAnimationBase* animation)

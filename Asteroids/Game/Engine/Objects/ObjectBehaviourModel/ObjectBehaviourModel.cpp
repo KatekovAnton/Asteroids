@@ -93,3 +93,13 @@ Matrix4 ObjectBehaviourModel::GetCollisionObjectTransformMatrix()
 {
     return _globalPosition;
 }
+
+void ObjectBehaviourModel::CollisionObjectDidCollideToObject(CollisionObject *collider)
+{
+    
+}
+
+void *ObjectBehaviourModel::GetOwner()
+{
+    return NULL;
+}

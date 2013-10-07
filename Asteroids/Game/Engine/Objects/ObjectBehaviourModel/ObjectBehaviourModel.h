@@ -50,6 +50,8 @@ public:
     
 #pragma mark - CollisionObjectDelegate
     virtual Matrix4 GetCollisionObjectTransformMatrix();
+    virtual void CollisionObjectDidCollideToObject(CollisionObject *collider);
+    virtual void *GetOwner();
 
 };
 

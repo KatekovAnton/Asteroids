@@ -25,7 +25,7 @@ class CollisionEngine {
     
     USimpleContainer<Vector4> *_pointBuffer;
     
-    USimpleContainer<int> collidedPoints;
+    USimpleContainer<CollisionObject*> collidedPoints;
     
 public:
     
@@ -38,6 +38,7 @@ public:
     void RemoveObject(CollisionObject *object);
     
     void CalculateCollisions();
+    void UpdateCollisions();
     
 };
 
