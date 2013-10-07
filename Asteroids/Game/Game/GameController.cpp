@@ -12,6 +12,7 @@
 #include "GameShipBullet.h"
 #include "MAXAnimationPrefix.h"
 #include "GameAsteroid.h"
+#include "MyRandom.h"
 #include "CollisionEngine.h"
 
 GameController::GameController()
@@ -65,6 +66,18 @@ void GameController::SetMoveVectorChanged(float x, float y)
 void GameController::SetRotationVectorChanged(float x, float y)
 {
     _ship->SetShipDirection(x, y);
+}
+
+GameAsteroid *GameController::CreateRandomAsteroid()
+{
+    Vector2 center = FieldCenter();
+    float r = Vector2Length(center);
+    float random = nextFloatMinMax(-M_PI, M_PI);
+    Vector2 pos = Vector2Make(cosf(random), sinf(random));
+    pos = Vector2Add(center, Vector2MultiplyScalar(pos, r/2));
+    GameAsteroid *res = CreateAsteroid(true, pos);
+    res->SetPosition(pos);
+    return res;
 }
 
 GameAsteroid *GameController::CreateAsteroid(bool large, Vector2 pos)
@@ -125,7 +138,15 @@ void GameController::OnAnimationFinish(MAXAnimationBase* animation)
 {
     if (animation == _createAsteroidTimer) {
         _createAsteroidTimer = NULL;
+        GameAsteroid *asteroidNew = CreateRandomAsteroid();
+        _asteroids->addObject(asteroidNew);
+        asteroidNew->CalculateParameters(true, Vector3Make(0, 0, 0), 1);
+        asteroidNew->Show();
         
+        MAXAnimationWait *timerCreateAsteroid = new MAXAnimationWait(1);
+        timerCreateAsteroid->_delegate = this;
+        MAXAnimationManager::SharedAnimationManager()->AddAnimation(timerCreateAsteroid);
+        _createAsteroidTimer = timerCreateAsteroid;
     }
 }
 
@@ -169,7 +190,13 @@ void GameController::GameAsteroidDidFinishExistance(GameAsteroid *sender)
 
 void GameController::GameAsteroidDidCollideWithBullet(GameAsteroid *sender)
 {
-    _collidedAsteroids.addObject(sender);
+    if (_collidedAsteroids.indexOf(sender) == -1)
+        _collidedAsteroids.addObject(sender);
+    else
+    {
+        int a = 0;
+        a++;
+        }
 }
 
 Vector2 GameController::FieldCenter()

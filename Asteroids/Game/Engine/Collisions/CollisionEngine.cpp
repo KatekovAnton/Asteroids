@@ -43,32 +43,6 @@ bool intersection(Vector4 start1, Vector4 end1, Vector4 start2, Vector4 end2, Ve
     return true;
 }
 
-bool Crossing(Vector4 p1, Vector4 p2, Vector4 p3, Vector4 p4, Vector4 *out_intersection)
-{
-    if (p3.x == p4.x)   // вертикаль
-    {
-        float y = p1.y + ((p2.y - p1.y) * (p3.x - p1.x)) / (p2.x - p1.x);
-        if (y > ____max(p3.y, p4.y) || y < ____min(p3.y, p4.y) || y > ____max(p1.y, p2.y) || y < ____min(p1.y, p2.y))   // если за пределами отрезков
-            return false;
-        else
-        {
-            *out_intersection = Vector4Make(p3.x, y, 0, 1);
-            return true;
-        }
-    }
-    else            // горизонталь
-    {
-        float x = p1.x + ((p2.x - p1.x) * (p3.y - p1.y)) / (p2.y - p1.y);
-        if (x > ____max(p3.x, p4.x) || x < ____min(p3.x, p4.x) || x > ____max(p1.x, p2.x) || x < ____min(p1.x, p2.x))   // если за пределами отрезков
-            return false;
-        else
-        {
-            *out_intersection = Vector4Make(x, p3.y, 0, 1);
-            return true;
-        }
-    }
-}
-
 CollisionEngine* CollisionEngine::SharedCollisionEngine()
 {
     if (!_staticCollisionEngine)
@@ -163,7 +137,7 @@ void CollisionEngine::CalculateCollisions()
             }
             if (foundIntersection) {
                 _collidedObjects->addObject(CollisionPair(mesh, point));
-                continue; //only 1 collision - much more easy
+                break; //only 1 collision - much more easy
             }
         }
     }

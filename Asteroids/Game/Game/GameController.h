@@ -28,6 +28,7 @@ class GameController : public GameShipDelegate, public GameShipBulletDelegate, p
     USimpleContainer<GameAsteroid*> _collidedAsteroids;
     
     MAXAnimationBase *_createAsteroidTimer;
+    GameAsteroid *CreateRandomAsteroid();
     GameAsteroid *CreateAsteroid(bool large, Vector2 pos);
     
 public:

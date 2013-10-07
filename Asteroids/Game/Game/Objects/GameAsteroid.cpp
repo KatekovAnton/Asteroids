@@ -78,19 +78,20 @@ GameAsteroid::GameAsteroid(bool large)
     _startTime = engine->FullTime();
     
     
-    _existTimer = new MAXAnimationWait(5);
-    _existTimer->_delegate = this;
-    MAXAnimationManager::SharedAnimationManager()->AddAnimation(_existTimer);
 }
 
 GameAsteroid::~GameAsteroid()
-{}
+{
+    if (_existTimer) {
+        _existTimer->_delegate = NULL;
+    }
+}
 
 void GameAsteroid::CalculateParameters(bool moveToCenter, Vector3 direction, float randomMuliplier)
 {
     Vector2 toCenter = Vector2Make(0, 0);
+    Vector2 center = _delegate->FieldCenter();
     if (moveToCenter) {
-        Vector2 center = _delegate->FieldCenter();
         Vector2 position = GetPosition();
         toCenter = Vector2Subtract(center, position);
         toCenter = Vector2Normalize(toCenter);
@@ -99,6 +100,13 @@ void GameAsteroid::CalculateParameters(bool moveToCenter, Vector3 direction, flo
     
     
     _moveVector = Vector3Make(toCenter.x * 2.0 + random.x *randomMuliplier + direction.x  , toCenter.y * 2.0 + random.y * randomMuliplier + direction.y, 0);
+    
+    float timex = center.x / _moveVector.x;
+    float timey = center.y / _moveVector.y;
+    float time = ____max(timey, timex) / 7;
+    _existTimer = new MAXAnimationWait(time);
+    _existTimer->_delegate = this;
+    MAXAnimationManager::SharedAnimationManager()->AddAnimation(_existTimer);
     
 }
 
